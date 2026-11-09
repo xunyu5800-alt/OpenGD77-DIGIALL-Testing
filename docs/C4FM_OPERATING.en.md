@@ -1,4 +1,4 @@
-# Daily C4FM operation: v1.2.0-rc.5
+# Daily C4FM operation: v1.2.0-rc.6
 
 [中文](C4FM_OPERATING.zh-CN.md) · [Versions/downloads](VERSIONS.md)
 
@@ -26,8 +26,15 @@ This release brings the user-confirmed local-YSF2DMR D22/INV/G4/N2/E1 RF baselin
 | LongSK1 | Save ALL/selected-DG filtering |
 | Short# or SK2+# | Rooms: no TX merely opening; #query, five digits+GREEN connect, long*disconnect |
 | SK2+GREEN or long* | Shared channel details: rotary selects items, frontUP/DOWN edits, GREEN saves, RED cancels; adds DG/filter/TX trim |
-| SK1+short# | Main/RX diagnostics/health; diagnostics7/9 adjust playback gain, GREEN switches RAM/I2S |
-| Long# | Retained advanced test panel |
+| SK1+# or long# | No diagnostic/test panel in release builds; long# also cannot start reverse/VFO sweep |
+
+Holding SK2 through its extra-long stage retains C4FM and toggles temporary DG search once. Normal DMR/FM monitor controls remain available. Diagnostic shortcuts require an explicit `--ysf-tx-test` development build.
+
+## Sending APRS from a digital channel
+
+APRS uses **1200-baud FM AFSK**. Select a CPS FM channel associated with APRS and verify its local RX/TX frequencies and TX restrictions. For a position beacon, set APRS mode to manual, obtain a GPS fix or valid saved channel coordinates, then hold **SK1+2** on the main screen. For a text message, open **APRS Send**, enter recipient/text and press GREEN. Return to the digital channel manually after transmission.
+
+DMR, C4FM and RX-only APRS priority watch reject APRS TX with `APRS: FM`. DMR/C4FM position data require the appropriate network gateway for APRS forwarding.
 
 C4FM selection, DG, filter and TX trim persist in existing spare settings word2. Settings size and codeplug format are unchanged; five-tone word1 is untouched. Temporary search is not saved. Retuning/re-entering an analog channel/VFO restores selected C4FM; real DMR channels remain DMR. Explicitly cycling C4FM to FM clears its selection.
 
@@ -60,4 +67,4 @@ The user reports the local-bridge comparison succeeded and requested freezing th
 
 Private IQ/speech/raw logs/donor are excluded. Tests; exact source/binary hashes are in the Release manifest.
 
-C4FM and DMR share the digital caller renderer, native compact Chinese paging, group band, meter/footer and position rows. Configuration reuses the original channel-details save/cancel transaction. Appended C4FM items preserve existing QuickKey indices. CC/TS remain DMR-specific; FM-only CSS/bandwidth controls are unavailable in C4FM rather than inventing protocol equivalents.
+C4FM and DMR share the digital caller renderer, native compact Chinese paging, group band, meter/footer and position pin; coordinates open on hold-GREEN. Configuration reuses the original channel-details save/cancel transaction. Appended C4FM items preserve existing QuickKey indices. CC/TS remain DMR-specific; FM-only CSS/bandwidth controls are unavailable in C4FM rather than inventing protocol equivalents.

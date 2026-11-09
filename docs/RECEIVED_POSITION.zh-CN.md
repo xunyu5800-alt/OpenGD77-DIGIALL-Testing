@@ -1,6 +1,6 @@
-# APRS／DMR／C4FM 位置提示、距离与指南针（v1.2.0-rc.5）
+# APRS／DMR／C4FM 位置提示、距离与指南针（v1.2.0-rc.6）
 
-[English](RECEIVED_POSITION.en.md) · [下载](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.5)
+[English](RECEIVED_POSITION.en.md) · [下载](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.6)
 
 三个模式共用位置正文：对方纬度、经度、距离、初始方位角和北向指南针。箭头指向目标，图上方始终为北；这是目标方位，不是机身航向或磁罗盘。
 

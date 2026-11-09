@@ -1,6 +1,6 @@
-# APRS / DMR / C4FM position pins, distance and compass (v1.2.0-rc.5)
+# APRS / DMR / C4FM position pins, distance and compass (v1.2.0-rc.6)
 
-[中文](RECEIVED_POSITION.zh-CN.md) · [Download](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.5)
+[中文](RECEIVED_POSITION.zh-CN.md) · [Download](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.6)
 
 All three modes share the position body: remote latitude/longitude, distance, initial bearing and a north-up compass. The arrow points toward the target. This is a target bearing, not handset heading or a magnetic compass.
 
