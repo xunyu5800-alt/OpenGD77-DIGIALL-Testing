@@ -1,8 +1,8 @@
-# OpenGD77-DIGIALL user guide (v1.2.0-rc.6)
+# OpenGD77-DIGIALL user guide (v1.2.0-rc.8)
 
 [中文](USAGE.zh-CN.md) · [Downloads](VERSIONS.md) · [Free/non-commercial distribution](../DISTRIBUTION.md) · [Acknowledgements](../ACKNOWLEDGEMENTS.md)
 
-This free, unofficial community modification builds on OpenGD77/TA8BMO for amateur-radio learning and non-commercial research. Copyrights, licences and disclaimers remain; no original-author/manufacturer endorsement is implied. Third-party components retain their own terms. rc.6 adds APRS receive-protection fixes and CPS-channel priority watch, unifies digital-caller position pins and preserves a bounded C4FM end frame on short PTT.
+This free, unofficial community modification builds on OpenGD77/TA8BMO for amateur-radio learning and non-commercial research. Copyrights, licences and disclaimers remain; no original-author/manufacturer endorsement is implied. Third-party components retain their own terms.
 
 ## 1. Hardware and package selection
 
@@ -15,6 +15,8 @@ Use only the supported **dual-band MD-UV380/MD-UV390** family, not single-band M
 | Confirmed Plus 10W PC6 board | `PLUS_10W_PC6_GPS` | PC6 / PD8 |
 
 Identify the actual 10W board rather than its case name. Ordinary5W supports main-screen C4FM DN RX/TX; both10W builds remain C4FM RX-only. GPS requires installed hardware.
+
+On the 5W build, a Receive Only warning on PTT can come from the current channel. Check Channel Details → RX Only and verify the installed Stage 03 profile. C4FM transmit is disabled in both 10W builds. Both still support FM and DMR transmit and receive.
 
 ## 2. Installation and upgrades
 
@@ -48,8 +50,8 @@ Use main-screen PTT; the `4:MIC` diagnostic panel is not required. RX defaults t
 
 - **Settings:** SK2+GREEN or hold `*` opens shared channel details. Knob selects a field, front UP/DOWN changes it, GREEN saves, RED cancels. C4FM DG/filter/independent TX trim appear here; CC/TS are DMR-only.
 - **Rooms:** short `#` or SK2+`#` opens the page without transmitting. `#` queries; five digits then GREEN connects; hold `*` disconnects. Connection is verified only by an accepted reply, not a timeout.
-- **Diagnostics:** release builds do not open diagnostic/test panels; SK1+`#` and hold `#` do not enter them, and hold `#` cannot fall through to reverse/VFO sweep. Holding SK2 only toggles temporary DG search once, without entering DMR/FM autodetection.
-- **Timeout:** main PTT uses channel TOT, falling back to60s when zero. Releasing PTT completes a bounded ending, including a 200–300ms short press; faults stop transmission.
+- **Diagnostics:** SK1+short`#` cycles main/RX/health pages. Diagnostic GREEN switches RAM/I2S;7/9 adjust playback gain. RAM is the preferred tested RX path.
+- **Timeout:** main PTT uses channel TOT, falling back to60s when zero. Advanced diagnostics have separate limits. Releasing PTT completes a bounded ending; faults stop transmission.
 
 Split-frequency example: hotspot **RX433.950MHz/TX439.950MHz** requires radio **RX439.950MHz/TX433.950MHz**. SDR recording centre and radio TX frequency are separate settings.
 
@@ -65,9 +67,10 @@ In Pi-Star enable YSF/YSF2DMR and apply, then configure the Yaesu System Fusion 
 
 GPS defaults on for new installs; a subsequently saved manual OFF is retained. Check satellites/fix in the GPS menu: enabled hardware is not a valid fix. GPS Flash track logging is separate and remains disabled.
 
-APRS decodes audio from the **current FM frequency** in the background. Tune the local permitted APRS frequency. An ordinary FM channel or VFO matching the effective RX frequency of a CPS FM channel with a valid 1200-baud APRS configuration captures and decodes continuously; tuning away ends it. Hold `#` in **Logs → APRS** for CPS-channel priority watch; exit or PTT restores the original channel. The single receiver pauses that channel while monitoring, and APRS TX from DMR/C4FM is rejected with `APRS: FM`, so select a configured APRS FM channel first. Power saving, recording and competing audio features can affect reception. [GPS/APRS limits](GPS_APRS.zh-CN.md)
+APRS decodes audio from the **current FM frequency** in the background. Tune the local permitted APRS frequency; one receiver cannot simultaneously monitor APRS while receiving DMR/C4FM or another frequency. Power saving, recording and competing audio features can affect reception. [GPS/APRS detailed limits (Chinese)](GPS_APRS.zh-CN.md)
 
-- Valid APRS positions automatically open their card when context permits; the log's station list also opens with GREEN. LEFT/RIGHT changes position/text, RED returns.
+- A valid APRS position opens its card automatically when context permits. It closes after five seconds and returns to the previous screen. Open a card manually with GREEN from the log to keep it open. LEFT/RIGHT changes position/text, and RED returns.
+- The APRS log retains up to 16 entries across power cycles. At capacity, new packets replace the oldest unstarred entry. Hold SK2 and tap `#` to toggle the selected entry's favorite marker (`*`). Tapping `#` alone clears unstarred entries.
 - A **pin** means valid remote coordinates have been received, independent of local GPS and without a freshness guarantee. It appears on new DMR/C4FM caller screens, DMR Last Heard and APRS rows.
 - Digital calls retain the main screen; hold GREEN for position. Select a pinned Last Heard caller and hold GREEN for a historical `LAST` position; short GREEN still selects the group.
 - Remote coordinates remain visible without a local reference. Valid live local GPS, otherwise saved position, enables distance/initial bearing/north-up compass. The arrow is not a magnetic handset heading. [Position guide/images](RECEIVED_POSITION.en.md)

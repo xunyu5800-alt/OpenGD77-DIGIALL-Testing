@@ -1,8 +1,10 @@
-# Daily C4FM operation: v1.2.0-rc.6
+# Daily C4FM operation: v1.2.0-rc.8
 
 [中文](C4FM_OPERATING.zh-CN.md) · [Versions/downloads](VERSIONS.md)
 
 This release brings the user-confirmed local-YSF2DMR D22/INV/G4/N2/E1 RF baseline to the ordinary5W main screen. Staying in4:MIC is no longer required. RX retains the user-confirmed C6000 RAM path; waveform, codec interfaces and fault cutoffs are retained. Main rendering shares DMR caller paging/band/meter/footer; settings use the original channel-details menu. The new main UI, independent trim and newly exposed higher power levels still need hardware acceptance; success with the earlier panel does not validate those additions.
+
+This version adds live GPS with voice PTT: enable GPS Tx in channel details. No/stale fix omits coordinates and preserves speech. [Controls and validation](DIGITAL_GPS_TX.zh-CN.md).
 
 ## Hardware and installation
 
@@ -25,7 +27,7 @@ This release brings the user-confirmed local-YSF2DMR D22/INV/G4/N2/E1 RF baselin
 | ShortSK1 or longSK2 | Temporary all-DG search on/off; TX destination unchanged |
 | LongSK1 | Save ALL/selected-DG filtering |
 | Short# or SK2+# | Rooms: no TX merely opening; #query, five digits+GREEN connect, long*disconnect |
-| SK2+GREEN or long* | Shared channel details: rotary selects items, frontUP/DOWN edits, GREEN saves, RED cancels; adds DG/filter/TX trim |
+| SK2+GREEN or long* | Shared channel details: UP/DOWN selects items, LEFT/RIGHT edits, GREEN saves, RED cancels; adds DG/filter/TX trim |
 | SK1+# or long# | No diagnostic/test panel in release builds; long# also cannot start reverse/VFO sweep |
 
 Holding SK2 through its extra-long stage retains C4FM and toggles temporary DG search once. Normal DMR/FM monitor controls remain available. Diagnostic shortcuts require an explicit `--ysf-tx-test` development build.
@@ -36,7 +38,7 @@ APRS uses **1200-baud FM AFSK**. Select a CPS FM channel associated with APRS an
 
 DMR, C4FM and RX-only APRS priority watch reject APRS TX with `APRS: FM`. DMR/C4FM position data require the appropriate network gateway for APRS forwarding.
 
-C4FM selection, DG, filter and TX trim persist in existing spare settings word2. Settings size and codeplug format are unchanged; five-tone word1 is untouched. Temporary search is not saved. Retuning/re-entering an analog channel/VFO restores selected C4FM; real DMR channels remain DMR. Explicitly cycling C4FM to FM clears its selection.
+C4FM selection, DG, filter and TX trim persist in existing spare settings word2, with one spare settings flag for the 50Hz half step. Existing 100Hz trim values load unchanged. Settings size and codeplug format are unchanged; five-tone word1 is untouched. Temporary search is not saved. Retuning/re-entering an analog channel/VFO restores selected C4FM; real DMR channels remain DMR. Explicitly cycling C4FM to FM clears its selection.
 
 PTT retains lock/menu/RX-only/band/tuning/codec checks and requires a fresh physical press, without VOX/latch auto-keying. Main PTT uses channel TOT or a60s fallback when TOT=0. E1 release is bounded to400ms without extending TOT; faults/emergency/sample/SPI/range failures cut immediately. Diagnostic PTT remains at60s/shorterTOT, green-key probes at2s.
 
@@ -50,10 +52,10 @@ PTT retains lock/menu/RX-only/band/tuning/codec checks and requires a fresh phys
 
 Hotspot RXOffset shifts the common RF receive center. If-300 breaks DMR wake-up, restore its working value (0 in this comparison). Upstream [Modem code](https://github.com/g4klx/MMDVM-Host/blob/94d81993023fe26a56fd4960fd0f94f4c024b31b/Modem.cpp) adds it to the shared RX frequency.
 
-New **C4FM-only TX trim** defaults0, range±1500Hz in100Hz steps. Positive raises actual C4FM TX frequency; negative lowers it. Codeplug, FM/DMR TX, RX and factory calibration remain unchanged. This adjusts center frequency, separately from D22 amplitude.
+The **C4FM-only TX trim** defaults0, range±1500Hz in50Hz steps. Positive raises actual C4FM TX frequency; negative lowers it. Codeplug, FM/DMR TX, RX and factory calibration remain unchanged. This adjusts center frequency, separately from D22 amplitude.
 
 1. Restore hotspotRXOffset0 and confirm original DMR operation.
-2. SK2+GREEN (or long*) opens the same channel-details menu as DMR. Rotate to the final TX trim item, edit in100Hz steps with frontUP/DOWN, try **+300Hz**, GREEN saves. Earlier-300 lowered the hotspot center; raising radio TX is a comparison direction, **not established calibration**. Judge by measured results.
+2. SK2+GREEN (or long*) opens the same channel-details menu as DMR. Select TX trim with UP/DOWN, edit in 50Hz steps with LEFT/RIGHT, try **+300Hz**, GREEN saves. Earlier-300 lowered the hotspot center; raising radio TX is a comparison direction, **not established calibration**. Judge by measured results.
 3. Retain D22/INV/G4/N2/E1,500mW, position and LowDeviation0. Test main PTT BER/Hoseline. Restore0 if not improved; do not simultaneously change hotspot offset, power or deviation.
 4. Switch back to DMR and verify its original tuning. `--tx-status-only` distinguishes configured_tx_hz/effective_tx_hz/c4fm_tx_trim_hz; diagnostic counters are not RF measurements.
 
@@ -61,10 +63,10 @@ New **C4FM-only TX trim** defaults0, range±1500Hz in100Hz steps. Positive raise
 
 ## Confirmed network route
 
-Local Pi-Star: enableYSF/YSF2DMR, Apply in ordinary Configuration, then find Yaesu System Fusion Configuration. Choose **00002/Link YSF2DMR**, configure target-network master, your DMR ID, Hotspot Security and DMR TG460501. StartupPC defaults0 only when absent; verify an existing value separately. There is no standalone Expert→YSF2DMR editor. See [configuration/route checks](C4FM_NETWORK_ECHO.en.md).
+Local Pi-Star: enableYSF/YSF2DMR, Apply in ordinary Configuration, then find Yaesu System Fusion Configuration. Choose **00002/Link YSF2DMR**, configure target-network master, your DMR ID, Hotspot Security and the intended DMR talkgroup. StartupPC defaults0 only when absent; verify an existing value separately. There is no standalone Expert→YSF2DMR editor. See [configuration/route checks](C4FM_NETWORK_ECHO.en.md).
 
-The user reports the local-bridge comparison succeeded and requested freezing this RF baseline. Earlier46572 remote bridging passed phone→radio but produced no reverse Hoseline call; it is a different route. DG0 is not DMR TG460501: DG stepping does not change the bridge TG, and the five-digit room page cannot accept a six-digit DMR TG. Do not reconnect46572 during the local-bridge test.
+For a local bridge test, select the local YSF2DMR route. Validate delivery using an independent DMR receiver.
 
-Private IQ/speech/raw logs/donor are excluded. Tests; exact source/binary hashes are in the Release manifest.
+Private IQ/speech/raw logs/donor are excluded. Exact source/binary hashes are in the Release manifest.
 
-C4FM and DMR share the digital caller renderer, native compact Chinese paging, group band, meter/footer and position pin; coordinates open on hold-GREEN. Configuration reuses the original channel-details save/cancel transaction. Appended C4FM items preserve existing QuickKey indices. CC/TS remain DMR-specific; FM-only CSS/bandwidth controls are unavailable in C4FM rather than inventing protocol equivalents.
+C4FM and DMR share the digital caller renderer, native compact Chinese paging, group band, meter/footer and position rows. Configuration reuses the original channel-details save/cancel transaction. Appended C4FM items preserve existing QuickKey indices. CC/TS remain DMR-specific; FM-only CSS/bandwidth controls are unavailable in C4FM rather than inventing protocol equivalents.
