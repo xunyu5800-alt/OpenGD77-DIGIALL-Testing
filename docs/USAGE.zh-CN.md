@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL 使用说明（v1.2.0-rc.8）
+# OpenGD77-DIGIALL 使用说明（v1.2.0-rc.9）
 
 [English](USAGE.en.md) · [版本下载](VERSIONS.md) · [免费非商业发布声明](../DISTRIBUTION.md) · [作者与呼号致谢](../ACKNOWLEDGEMENTS.md)
 
@@ -14,9 +14,9 @@
 | Plus 10W，经确认的 PD8 板卡 | `PLUS_10W_PD8_GPS` | PD8／PC6 |
 | Plus 10W，经确认的 PC6 板卡 | `PLUS_10W_PC6_GPS` | PC6／PD8 |
 
-10W 不能仅凭机壳名称判断板卡。5W 支持 C4FM DN 主屏收发；两种 10W 构建的 C4FM 仍仅接收，不能把 5W 发射结论套用到 10W。GPS 功能需要实际 GPS 硬件。
+10W 不能仅凭机壳名称判断板卡。三个构建均启用 C4FM DN 主屏收发及 GPS，两种 10W 仍待真机验证。GPS 功能需要实际 GPS 硬件。
 
-在普通 5W 上若按 PTT 提示「仅接收」，请进入「信道详情 → 仅接收」检查当前信道是否设为「是」，并核对安装的是 5W 的 03 主固件。两种 10W 的 C4FM 发射路径未启用，修改信道选项也无法开启；这些包仍支持 FM／DMR 收发。
+若按 PTT 提示「仅接收」，检查当前信道的「信道详情 → 仅接收」，并核对已安装的 03 包版本和板型。rc.8 的 10W 包只开放 C4FM 接收。
 
 ## 2. 安装或升级
 

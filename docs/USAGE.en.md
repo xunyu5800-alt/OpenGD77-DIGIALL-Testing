@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL user guide (v1.2.0-rc.8)
+# OpenGD77-DIGIALL user guide (v1.2.0-rc.9)
 
 [中文](USAGE.zh-CN.md) · [Downloads](VERSIONS.md) · [Free/non-commercial distribution](../DISTRIBUTION.md) · [Acknowledgements](../ACKNOWLEDGEMENTS.md)
 
@@ -14,9 +14,9 @@ Use only the supported **dual-band MD-UV380/MD-UV390** family, not single-band M
 | Confirmed Plus 10W PD8 board | `PLUS_10W_PD8_GPS` | PD8 / PC6 |
 | Confirmed Plus 10W PC6 board | `PLUS_10W_PC6_GPS` | PC6 / PD8 |
 
-Identify the actual 10W board rather than its case name. Ordinary5W supports main-screen C4FM DN RX/TX; both10W builds remain C4FM RX-only. GPS requires installed hardware.
+Identify the actual 10W board. All three builds enable main-screen C4FM DN RX/TX and GPS. Both 10W profiles need radio testing. GPS requires installed hardware.
 
-On the 5W build, a Receive Only warning on PTT can come from the current channel. Check Channel Details → RX Only and verify the installed Stage 03 profile. C4FM transmit is disabled in both 10W builds. Both still support FM and DMR transmit and receive.
+If PTT reports Receive Only, check Channel Details → RX Only and confirm the version and board profile of the installed Stage 03. The rc.8 10W images enabled C4FM reception only.
 
 ## 2. Installation and upgrades
 

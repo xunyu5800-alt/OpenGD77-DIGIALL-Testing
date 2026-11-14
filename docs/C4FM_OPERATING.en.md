@@ -1,4 +1,4 @@
-# Daily C4FM operation: v1.2.0-rc.8
+# Daily C4FM operation: v1.2.0-rc.9
 
 [中文](C4FM_OPERATING.zh-CN.md) · [Versions/downloads](VERSIONS.md)
 
@@ -9,7 +9,7 @@ This version adds live GPS with voice PTT: enable GPS Tx in channel details. No/
 ## Hardware and installation
 
 - Ordinary dual-band MD-UV380/MD-UV390 **5W+GPS**: C4FM DN RX and main-screen PTT.
-- Both10W Plus backlight layouts: matching FM/DMR/Chinese packages; C4FM remains RX-only. The5W TX driver is not applied to10W.
+- Dual-band Plus 10W PD8/PC6: both enable C4FM DN RX/TX and GPS for hardware testing. They retain their individual pin assignments and the 10W calibration.
 - Existing project font/pinyin: matching03 only. First installation/oldR250326 resources: matching01font→02pinyin→03main. Preserve calibration; use your lawful CPS donor. Public firmware contains no proprietary AMBE.
 
 ## Main-screen controls
@@ -44,7 +44,7 @@ PTT retains lock/menu/RX-only/band/tuning/codec checks and requires a fresh phys
 
 ## Shared DMR power ladder
 
-50/250/500/750mW,1/2/3/4/5W and original user-configured +W use the same settings, channel overrides and factory/user calibration. +W has no assumed wattage: USB reports custom_power instead of a fictitious0mW. Selecting power never transmits or forces500mW into global defaults. Start acceptance at the previously used500mW; actual RF power/long operation at new levels remain unmeasured.
+50/250/500/750 mW, 1/2/3 W, the top fixed steps of 4/5 W on 5W or 5/10 W on 10W, and original user-configured +W use the same settings, channel overrides and factory/user calibration. +W has no assumed wattage: USB reports custom_power instead of a fictitious0mW. Selecting power never transmits or forces500mW into global defaults. Start 10W hardware tests with a short transmission at nominal 250 mW; actual RF power/long operation at new levels remain unmeasured.
 
 ![Main view, production-code/font reconstruction, not hardware](screenshots/c4fm-operating.png)
 
