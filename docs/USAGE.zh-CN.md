@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL 使用说明（v1.2.0-rc.9）
+# OpenGD77-DIGIALL 使用说明（v1.2.0-rc.10）
 
 [English](USAGE.en.md) · [版本下载](VERSIONS.md) · [免费非商业发布声明](../DISTRIBUTION.md) · [作者与呼号致谢](../ACKNOWLEDGEMENTS.md)
 

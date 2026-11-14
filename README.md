@@ -2,9 +2,9 @@
 
 **Free, non-commercial, unofficial community firmware.** Binary releases, guides and feedback only. The firmware source repository and development history remain private; do not describe this repository as the firmware source or as OSI-licensed open source.
 
-[Download v1.2.0-rc.9](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.9) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
+[Download v1.2.0-rc.10](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.10) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
 
-**rc.9** enables C4FM DN PTT and optional GPS on both 10W Plus boards for hardware testing. See the [release notes and test steps](docs/releases/v1.2.0-rc.9.md).
+**rc.10** keeps C4FM active when RED is pressed on the main screen and restores the shared DMR/C4FM caller S-meter. [Release notes](docs/releases/v1.2.0-rc.10.md)
 
 ## Who can test
 
@@ -40,7 +40,7 @@ These are production-function/font reconstructions using synthetic identities/po
 
 这是公开测试发布仓库，仅包含固件、说明、许可、致谢、示例图与反馈入口。**原源码及提交历史仍保持私有**。免费非商业，不收费、不代表官方背书；各组件保留独立许可。仅支持双段MD-UV380／MD-UV390，5W支持主屏C4FM DN收发，两种10W现已启用C4FM收发，待真机验证。先备份和核对板卡，再按使用说明安装，已有资源只刷03。
 
-**rc.9** 在两种 10W 板卡上启用 C4FM DN 主屏 PTT、GPS 和房间指令，公开征集真机测试。[公测步骤](docs/releases/v1.2.0-rc.9.md)
+**rc.10** 修复 C4FM 主屏红键退回 FMN 和来话信号条消失，呼号字号与 DMR 一致。[发布说明](docs/releases/v1.2.0-rc.10.md)
 
 欢迎反馈DMR组过滤／切组、两种 10W 的 C4FM 发射、语音、松键回接收和 GPS、异频／房间、APRS与指南针、中文输入、瀑布图和FM录音。提交Issue时填机型、版本、复现步骤、期望／实际行为，不上传密码、donor、他人录音或私人精确位置。
 

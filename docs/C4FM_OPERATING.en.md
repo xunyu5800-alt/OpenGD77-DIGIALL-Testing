@@ -1,4 +1,4 @@
-# Daily C4FM operation: v1.2.0-rc.9
+# Daily C4FM operation: v1.2.0-rc.10
 
 [中文](C4FM_OPERATING.zh-CN.md) · [Versions/downloads](VERSIONS.md)
 
@@ -18,6 +18,7 @@ This version adds live GPS with voice PTT: enable GPS Tx in channel details. No/
 | --- | --- |
 | SK2+short* | Cycle FM→DMR→C4FM→FM |
 | Hold/release physical PTT | Send DN / bounded terminator and RX restoration |
+| Tap or hold RED on the main screen | Keep the current C4FM channel or VFO |
 | Hold GREEN on main screen | Remote position, distance, bearing and north-up compass; RED returns; no auto-popup. [Details](RECEIVED_POSITION.en.md) |
 | Front UP/DOWN | Select DG-ID0–127 and selected-DG RX; distinct from rotary |
 | SK2+UP/DOWN | Original DMR power steps, global/per-channel overrides and calibration |
