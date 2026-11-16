@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL user guide (v1.2.0-rc.12)
+# OpenGD77-DIGIALL user guide (v1.2.0-rc.13)
 
 [中文](USAGE.zh-CN.md) · [Downloads](VERSIONS.md) · [Free/non-commercial distribution](../DISTRIBUTION.md) · [Acknowledgements](../ACKNOWLEDGEMENTS.md)
 
@@ -48,7 +48,7 @@ TG means selected destination, TGL the RX list, ALL all destinations; CC/TS reta
 
 Open **Menu → Radio info** and use the front UP/DOWN keys to find Date or Time. Enter eight digits for the date (`YYYYMMDD`) or six for the time (`HHMMSS`), then press GREEN to save each value.
 
-For local time, set your offset under **Options → Display options → Timezone**, then set **Time** to **Local**. Selecting UTC shows UTC on both the home screen and Radio info.
+Set your offset under **Options → Display options → Timezone**. Editing the offset selects **Local** automatically. If the offset is already correct, select **Time → Local** and press GREEN to save. To display UTC again, select **Time → UTC**.
 
 Saving a manual date or time switches off GPS clock sync while GPS positioning remains available. To resume automatic sync, turn on **Options → General options → GPS Clock Sync** and press GREEN to save.
 
