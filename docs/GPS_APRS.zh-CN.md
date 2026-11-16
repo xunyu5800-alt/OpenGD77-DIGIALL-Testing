@@ -64,6 +64,8 @@ APRS 是 FM AFSK，不能直接在 DMR／C4FM 语音模式或只接收的优先�
 
 核对位置时，用同一时刻的手台 GPS 数值和接收端原始 APRS 报文比较。CPS 配置中的位置模糊度会降低报文精度，测量时设为 0。APRS 默认使用 WGS84。把未经转换的 WGS84 坐标直接放到高德 GCJ-02 底图上会出现偏移。[APRS 协议参考](https://www.aprs.org/doc/APRS101.PDF) · [高德坐标转换说明](https://lbs.amap.com/api/javascript-api-v2/guide/transform/convertfrom)
 
+从 rc.12 起，手台新建 APRS 配置的位置模糊度默认为 0。CPS 导入的已有配置保留其数值。位置模糊度为 0 时，普通报文用 `!DAO!` 扩展补充纬度和经度精度，基础坐标字段仍显示两位分小数。支持扩展的接收端可还原四位十进制度小数。压缩报文直接用 Base‑91 编码坐标，同样支持四位十进制度小数。[APRS 精度扩展](https://www.aprs.org/aprs12/datum.txt)
+
 ## 源码依据与升级
 
 

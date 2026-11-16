@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL user guide (v1.2.0-rc.11)
+# OpenGD77-DIGIALL user guide (v1.2.0-rc.12)
 
 [中文](USAGE.zh-CN.md) · [Downloads](VERSIONS.md) · [Free/non-commercial distribution](../DISTRIBUTION.md) · [Acknowledgements](../ACKNOWLEDGEMENTS.md)
 
@@ -52,6 +52,8 @@ For local time, set your offset under **Options → Display options → Timezone
 
 Saving a manual date or time switches off GPS clock sync while GPS positioning remains available. To resume automatic sync, turn on **Options → General options → GPS Clock Sync** and press GREEN to save.
 
+Fresh and reset settings enable GPS clock sync and set the automatic backlight timeout to 30 seconds. Upgrades retain saved clock and backlight choices.
+
 ## 4. Everyday C4FM (ordinary5W)
 
 Use main-screen PTT; the `4:MIC` diagnostic panel is not required. RX defaults to RAM. Front UP/DOWN selects DG-ID0–127; short `*` opens direct DG entry, GREEN confirms and RED cancels. Short SK1 temporarily searches all DGs; hold SK1 saves ALL/selected filtering. SK2+UP/DOWN uses the DMR power ladder.
@@ -73,7 +75,9 @@ In Pi-Star enable YSF/YSF2DMR and apply, then configure the Yaesu System Fusion 
 
 ## 5. GPS, APRS and position pins
 
-For a live APRS location beacon, select **Options → APRS → Location → GPS** and wait for a valid fix. Use **Location → Channel** for the CPS fixed position, or the radio's saved position if no CPS coordinates are configured. Set CPS position ambiguity to zero when comparing transmitted coordinates with the radio's GPS. APRS uses WGS84 by default. [APRS Protocol Reference](https://www.aprs.org/doc/APRS101.PDF)
+For a live APRS location beacon, select **Options → APRS → Location → GPS** and wait for a valid fix. Use **Location → Channel** for the CPS fixed position, or the radio's saved position if no CPS coordinates are configured. New APRS profiles created on the radio default to zero CPS position ambiguity. Check this value in CPS for an existing profile. APRS uses WGS84 by default. [APRS Protocol Reference](https://www.aprs.org/doc/APRS101.PDF)
+
+This version adds the `!DAO!` extension to uncompressed beacons when ambiguity is zero. A receiver that reads DAO can recover four decimal places in degrees. Compressed beacons already carry this precision in Base‑91. [APRS precision extension](https://www.aprs.org/aprs12/datum.txt)
 
 GPS defaults on for new installs; a subsequently saved manual OFF is retained. Check satellites/fix in the GPS menu: enabled hardware is not a valid fix. GPS Flash track logging is separate and remains disabled.
 
