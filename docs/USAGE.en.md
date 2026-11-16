@@ -75,7 +75,9 @@ In Pi-Star enable YSF/YSF2DMR and apply, then configure the Yaesu System Fusion 
 
 ## 5. GPS, APRS and position pins
 
-For a live APRS location beacon, select **Options → APRS → Location → GPS** and wait for a valid fix. Use **Location → Channel** for the CPS fixed position, or the radio's saved position if no CPS coordinates are configured. New APRS profiles created on the radio default to zero CPS position ambiguity. Check this value in CPS for an existing profile. APRS uses WGS84 by default. [APRS Protocol Reference](https://www.aprs.org/doc/APRS101.PDF)
+For a live APRS location beacon, select **Options → APRS → Location → GPS** and wait for a valid fix. Use **Location → Channel** for the CPS fixed position, or the radio's saved position if no CPS coordinates are configured. APRS uses WGS84 by default. [APRS Protocol Reference](https://www.aprs.org/doc/APRS101.PDF)
+
+In **Menu → Radio Setup → APRS Settings**, open the channel's APRS profile. Use LEFT/RIGHT to change **Ambiguity**, then select **Save**. New profiles default to `0 (Full)`. The other steps, in decimal degrees, are `0.0002°`, `0.001°`, `0.002°`, `0.01°`, `0.02°`, `0.1°`, `0.2°` and `1°`. This setting uses the same profile field as CPS.
 
 This version adds the `!DAO!` extension to uncompressed beacons when ambiguity is zero. A receiver that reads DAO can recover four decimal places in degrees. Compressed beacons already carry this precision in Base‑91. [APRS precision extension](https://www.aprs.org/aprs12/datum.txt)
 
