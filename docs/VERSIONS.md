@@ -1,5 +1,11 @@
 # Test releases / 测试版本
 
+[**v1.2.0-rc.14**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.14) · [说明 / Notes](releases/v1.2.0-rc.14.md)
+
+Faster ordinary VFO and waterfall FAST scanning. Includes all three board profiles.
+
+优化普通 VFO 频扫与瀑布图 FAST。包含三种板型。
+
 [**v1.2.0-rc.13**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.13) · [说明 / Notes](releases/v1.2.0-rc.13.md)
 
 Editing the offset selects local time. The home screen, Radio info and call log share the display setting. Includes all three board profiles.

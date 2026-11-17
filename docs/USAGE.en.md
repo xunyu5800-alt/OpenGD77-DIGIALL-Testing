@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL user guide (v1.2.0-rc.13)
+# OpenGD77-DIGIALL user guide (v1.2.0-rc.14)
 
 [中文](USAGE.zh-CN.md) · [Downloads](VERSIONS.md) · [Free/non-commercial distribution](../DISTRIBUTION.md) · [Acknowledgements](../ACKNOWLEDGEMENTS.md)
 
