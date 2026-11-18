@@ -2,6 +2,29 @@
 
 [中文](SCAN_RECORDING.zh-CN.md) · [Versions](VERSIONS.md)
 
+## VFO dual watch
+
+VFO alternates between A and B by default on FM and DMR. The receive row highlights when a call comes in. The `>` marker identifies the VFO used for tuning, and each row shows its transmit key. C4FM and a primary VFO matched to a CPS APRS receive frequency keep single-frequency reception.
+
+The color screen keeps both rows visible during receive, frequency entry, and transmit. It labels RX or TX during entry and shows the transmit frequency and timer during PTT. DMR calls display the received group and position pin. Short callsigns use larger centered type, and longer names wrap across two lines.
+Blue identifies A and violet identifies B. The status label uses mint for reception, amber for frequency entry and warm red for transmit. Scanning and hold states use neutral colors. The last two frequency digits and MHz sit beside the larger digits.
+
+![Updated dual-watch states](screenshots/dual-watch-rc15.png)
+
+[Light theme](screenshots/dual-watch-rc15-light.png) · Examples rendered from firmware drawing code.
+
+| Control | Action |
+| --- | --- |
+| Hold RED | Select A or B as the primary VFO |
+| Rotary or number keys | Pause dual watch and tune the primary VFO. Dual watch resumes about 2.5 seconds after editing and waits while digits are being entered |
+| Hold SK1 alone | Transmit with A's frequency and mode. Release to stop |
+| Hold physical PTT | Transmit with B's frequency and mode. Release to stop |
+| Hold SK1, then hold GREEN | Toggle dual watch and save the choice |
+| Hold SK1, then tap GREEN | Open the quick menu, which also has the Dual Watch toggle |
+| Tap RED | Return to channel mode |
+
+Release both keys before changing transmit routes. Each route uses the existing RX-only, band-limit and timeout checks. Dual watch uses manual hold-to-talk and suspends VOX and PTT latch. Use the VFO quick menu to choose DMR ALL or selected TG. SK1+GREEN remains available.
+
 ## Sweep
 
 VFO long `#` enters; red exits. Since v1.1.0-alpha.2 the first sample updates the live top row immediately; a full sweep is no longer required before anything appears. Normal LCD updates transfer only the top 8-pixel strip at up to 20Hz. History shifts on row start and retains 24 rows; unsampled columns are blank.

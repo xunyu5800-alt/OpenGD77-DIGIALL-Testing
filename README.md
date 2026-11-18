@@ -2,9 +2,11 @@
 
 **Free, non-commercial, unofficial community firmware.** Binary releases, guides and feedback only. The firmware source repository and development history remain private; do not describe this repository as the firmware source or as OSI-licensed open source.
 
-[Download v1.2.0-rc.14](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.14) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
+[Download v1.2.0-rc.15](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [完整中文手册（Word）](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
 
-**rc.14** reduces full-screen redraws during VFO scanning and lowers the waterfall FAST dwell budget to 1.2 seconds per row. [Release notes](docs/releases/v1.2.0-rc.14.md)
+**Release credit · VRWZI / BIAOQ**
+
+**rc.15** adds a redesigned FM/DMR dual-watch screen and separate transmit keys. Hold SK1 for A, or hold physical PTT for B. [Release notes](docs/releases/v1.2.0-rc.15.md) · [Dual-watch controls](docs/SCAN_RECORDING.en.md)
 
 ## Who can test
 
@@ -30,6 +32,10 @@ This development used AI assistance with operator-led hardware testing. The main
 
 These are production-function/font reconstructions using synthetic identities/positions, **not radio photographs**.
 
+![Dual watch scanning, receiving, tuning and transmitting on B](docs/screenshots/dual-watch-rc15.png)
+
+[Light theme](docs/screenshots/dual-watch-rc15-light.png)
+
 | DMR position indicator | C4FM operating view |
 | --- | --- |
 | <img src="docs/screenshots/dmr-position-indicator.png" width="320"> | <img src="docs/screenshots/c4fm-operating.png" width="320"> |
@@ -40,7 +46,9 @@ These are production-function/font reconstructions using synthetic identities/po
 
 这是公开测试发布仓库，仅包含固件、说明、许可、致谢、示例图与反馈入口。**原源码及提交历史仍保持私有**。免费非商业，不收费、不代表官方背书；各组件保留独立许可。仅支持双段MD-UV380／MD-UV390，5W支持主屏C4FM DN收发，两种10W现已启用C4FM收发，待真机验证。先备份和核对板卡，再按使用说明安装，已有资源只刷03。
 
-**rc.14** 减少 VFO 频扫的整屏重绘，瀑布图 FAST 的驻留预算降到 1.2 秒／行。[发布说明](docs/releases/v1.2.0-rc.14.md)
+**本版署名 · VRWZI／BIAOQ**
+
+**rc.15** 更新 FM／DMR 双守候主屏。长按 SK1 发 A，实体 PTT 发 B。欢迎复测调频后恢复守听、按键分路和深浅主题的可读性。[发布说明](docs/releases/v1.2.0-rc.15.md) · [双守候按键](docs/SCAN_RECORDING.zh-CN.md)
 
 欢迎反馈DMR组过滤／切组、两种 10W 的 C4FM 发射、语音、松键回接收和 GPS、异频／房间、APRS与指南针、中文输入、瀑布图和FM录音。提交Issue时填机型、版本、复现步骤、期望／实际行为，不上传密码、donor、他人录音或私人精确位置。
 

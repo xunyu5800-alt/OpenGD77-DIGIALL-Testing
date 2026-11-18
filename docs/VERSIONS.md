@@ -1,5 +1,11 @@
 # Test releases / 测试版本
 
+[**v1.2.0-rc.15**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [说明 / Notes](releases/v1.2.0-rc.15.md) · [中文手册（Word）](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx)
+
+Redesigned FM/DMR dual watch and separate A/B transmit keys. Includes all three board profiles.
+
+新版 FM／DMR 双守候和 A／B 分路发射。包含三种板型。
+
 [**v1.2.0-rc.14**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.14) · [说明 / Notes](releases/v1.2.0-rc.14.md)
 
 Faster ordinary VFO and waterfall FAST scanning. Includes all three board profiles.

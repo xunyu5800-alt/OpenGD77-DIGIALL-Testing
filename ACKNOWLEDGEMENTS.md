@@ -7,6 +7,12 @@
 
 Thank you to the OpenGD77, TA8BMO and wider amateur-radio communities for code, hardware research, protocol information and testing. These credits follow source headers/comments and existing acknowledgements. They do not change ownership/licences or imply involvement, endorsement or approval of this branch. Callsigns used only as test/example data are not treated as contributor identities.
 
+## OpenGD77-DIGIALL 项目署名 / Project credit
+
+**VRWZI／BIAOQ** — OpenGD77-DIGIALL 项目与本版发布署名。
+
+**VRWZI / BIAOQ** — OpenGD77-DIGIALL project and release credit.
+
 ## 源码作者与分支贡献 / Recorded source authors
 
 | 姓名／呼号 / Name and callsign | 来源举例 / Source evidence |

@@ -1,4 +1,4 @@
-# OpenGD77-DIGIALL 使用说明（v1.2.0-rc.14）
+# OpenGD77-DIGIALL 使用说明（v1.2.0-rc.15）
 
 [English](USAGE.en.md) · [版本下载](VERSIONS.md) · [免费非商业发布声明](../DISTRIBUTION.md) · [作者与呼号致谢](../ACKNOWLEDGEMENTS.md)
 
@@ -43,6 +43,12 @@
 | 数字主屏长按绿键 | 查看当前来话位置／距离／指南针，红键返回 |
 
 `TG` 是当前指定组，`TGL` 是接收组列表，`ALL` 放行全部目的组；CC／TS 仍按独立设置处理。顶部 `RX TG91 [ALL]` 表示实际收到 TG91，下方 `TX TG:9` 表示当前选定发射 TG9，两者可以不同。不会因为看见别组来话就自动修改自己的发射目标。详见[过滤与切组说明](DMR_LIVE_TG_FIX.zh-CN.md)。
+
+### VFO 双守候
+
+FM／DMR VFO 默认在 A／B 间轮流接收。长按红键选调频主路，单独长按 SK1 发 A，实体 PTT 发 B。按住 SK1 再长按绿键切换单守／双守。DMR 长按 SK1 切 ALL／TG 适用于单守，双守可从快捷菜单切过滤。
+
+[双守候界面和完整按键](SCAN_RECORDING.zh-CN.md) · [完整中文手册（Word）](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx)
 
 ### 设置手台日期和时间
 
