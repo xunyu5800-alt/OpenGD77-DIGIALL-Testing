@@ -1,5 +1,7 @@
 # OpenGD77-DIGIALL — Public firmware testing
 
+**rc.16 多机型公测**。六套 DIGIALL 板型和十一套上游原版对照包已按型号整理。C4FM 增加 SK1 一键切换 0／+300 Hz 的频偏预置。 [下载](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [按机型选包及复测说明](docs/MULTI_MODEL_TESTING.zh-CN.md)
+
 **Free, non-commercial, unofficial community firmware.** Binary releases, guides and feedback only. The firmware source repository and development history remain private; do not describe this repository as the firmware source or as OSI-licensed open source.
 
 [Download v1.2.0-rc.15](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [新手入门与完整手册](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose) · [刷机教程与 Windows 向导](docs/FLASH_WIZARD.zh-CN.md)
@@ -44,7 +46,7 @@ These are production-function/font reconstructions using synthetic identities/po
 
 ## 中文
 
-这是公开测试发布仓库，仅包含固件、说明、许可、致谢、示例图与反馈入口。**原源码及提交历史仍保持私有**。免费非商业，不收费、不代表官方背书；各组件保留独立许可。仅支持双段MD-UV380／MD-UV390，5W支持主屏C4FM DN收发，两种10W现已启用C4FM收发，待真机验证。先备份和核对板卡，再按使用说明安装，已有资源只刷03。
+这是公开测试发布仓库，仅包含固件、说明、许可、致谢、示例图与反馈入口。**原源码及提交历史仍保持私有**。免费非商业，不收费、不代表官方背书；各组件保留独立许可。rc.15 包适用于双段 MD-UV380／MD-UV390。rc.16 的新增机型及功能范围以页面顶部的选包表为准。先备份和核对板卡，再按使用说明安装，已有资源只刷03。
 
 **本版署名 · VRWZI／BIAOQ**
 

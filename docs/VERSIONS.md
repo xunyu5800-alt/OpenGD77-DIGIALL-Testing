@@ -1,5 +1,9 @@
 # Test releases / 测试版本
 
+[**v1.2.0-rc.16**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [中文安装与复测](MULTI_MODEL_TESTING.zh-CN.md) · [English](MULTI_MODEL_TESTING.en.md) · [发布说明 / Release notes](releases/v1.2.0-rc.16.md)
+
+六套 DIGIALL 板型、十一套上游对照包及 C4FM 0／+300 Hz 预置。 Six DIGIALL profiles, eleven upstream reference packages and the C4FM trim preset.
+
 [**v1.2.0-rc.15**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [说明 / Notes](releases/v1.2.0-rc.15.md) · [中文手册在线阅读](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf)
 
 Redesigned FM/DMR dual watch and separate A/B transmit keys. Includes all three board profiles.
