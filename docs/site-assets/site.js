@@ -42,8 +42,10 @@ function instructionsFor(entry) {
   if (entry.origin === 'DIGIALL') {
     return [
       '在桌面 OpenGD77 CPS 打开 Extras → Firmware Loader，选择本机型号。需要数字语音时，用 Select official firmware 选择自己有权使用的 MD9600 V26.45 CSV donor。',
-      '点击 Select Open firmware file & update 开始写入。首次安装按 01 字库 → 02 拼音 → 03 主固件；已有兼容字库和拼音的更新直接选 03。',
-      '刷 01、02 后各正常开机一次。等到 COMPLETE - VERIFIED 与背光熄灭，再关机重新进入 DFU，写下一份 BIN。',
+      '首次安装，在 DFU 中用 Select Open firmware file & update 刷 01_font。随后正常开机运行 CHINESE FONT WRITER，看到 COMPLETE - VERIFIED 并等背光熄灭后，把电源旋钮转到关。显示 FAILED 时停止。',
+      '刷 02_pinyin 时，按住 SK1＋PTT 开机进入 DFU，在 CPS 选 02_pinyin 写入。再正常开机运行 CHINESE PINYIN WRITER，看到 COMPLETE - VERIFIED 并等背光熄灭后关机。',
+      '再次按 SK1＋PTT 开机进 DFU，用 CPS 刷 03_main，完成后松开按键正常开机进主屏。已有兼容字库与拼音的升级可直接刷 03_main。',
+      '01 和 02 是临时写入器。它们黑屏后再普通开机会重复同一阶段；进入下一阶段必须先进入 DFU，并在 CPS 里选择下一份 BIN。',
     ];
   }
   return [
