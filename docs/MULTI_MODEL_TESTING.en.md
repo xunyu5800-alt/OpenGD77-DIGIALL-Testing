@@ -2,7 +2,7 @@
 
 **Release credit · VRWZI / BIAOQ**
 
-[Release v1.2.0-rc.16](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [Detailed Chinese instructions](MULTI_MODEL_TESTING.zh-CN.md)
+[Release v1.2.0-rc.16](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [Browser package selector and verifier](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/#install) · [Acceptance matrix](TEST_MATRIX.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml) · [Detailed Chinese instructions](MULTI_MODEL_TESTING.zh-CN.md)
 
 | Radio | Included firmware |
 | --- | --- |

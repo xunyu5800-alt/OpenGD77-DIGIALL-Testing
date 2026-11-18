@@ -2,7 +2,7 @@
 
 **发布署名 / Release credit · VRWZI / BIAOQ**
 
-[公测下载 v1.2.0-rc.16](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [反馈](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
+[公测下载 v1.2.0-rc.16](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [浏览器选包与校验](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/#install) · [机型验收表](TEST_MATRIX.md) · [反馈](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
 
 先看机背，再按同一行选包。每个机型单独提供 ZIP，总包也包含所有机型的独立 ZIP。不要按外壳相似、名称相近或接头相同选包。
 

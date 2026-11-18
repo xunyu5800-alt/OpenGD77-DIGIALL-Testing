@@ -1,0 +1,327 @@
+{
+  "tag": "v1.2.0-rc.16",
+  "packages": [
+    {
+      "model": "TYT MD-UV380／390 5W＋GPS",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.16",
+      "filename": "DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_5W_GPS.zip",
+      "sha256": "d0796c570fb49a9e94573cf1f5e7a0161053fac98ff51e9ef5a9b7640aa00576",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_5W_GPS.zip",
+      "board": "TYT_MD-UV380-390_5W_GPS",
+      "platform": "STM32",
+      "stages": [
+        {
+          "filename": "01_font_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.16.bin",
+          "sha256": "7659bb2ea45473dc9d594d8be17339289732aea4dc1b8e3b1858266e5193d171",
+          "bytes": 979944
+        },
+        {
+          "filename": "02_pinyin_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.16.bin",
+          "sha256": "e7c06518ff9af8c576182a75fb3361a24342261f56a8279f10d1c46df93241dc",
+          "bytes": 792296
+        },
+        {
+          "filename": "03_main_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.16.bin",
+          "sha256": "b5900db969dc39d45fab0442710d303caba4ffe3bebc58fd5081fd0ddfc1def1",
+          "bytes": 937864
+        }
+      ],
+      "c4fmTx": true
+    },
+    {
+      "model": "TYT MD-UV380／390 Plus 10W PD8",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.16",
+      "filename": "DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "sha256": "f566d38cea842253fa2609471b83a20923ba1eadcd7351cdbdbe7082a366756d",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "board": "TYT_MD-UV380-390_PLUS_10W_PD8",
+      "platform": "STM32",
+      "stages": [
+        {
+          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.16.bin",
+          "sha256": "ccac16097ae66a1bfbe13ae7902314031360da2bc5ec396a8e07a241e1a3fe96",
+          "bytes": 979944
+        },
+        {
+          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.16.bin",
+          "sha256": "94da70a0a93c680a1d927fbc9bf4d4ac87a7e8bc5d84ecda50a0e4ebd27e255a",
+          "bytes": 792296
+        },
+        {
+          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.16.bin",
+          "sha256": "1f3210291ecb7db466346dd287a6518457aa49f12c6e36b9dd0ae62d1b91475b",
+          "bytes": 937824
+        }
+      ],
+      "c4fmTx": true
+    },
+    {
+      "model": "TYT MD-UV380／390 Plus 10W PC6",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.16",
+      "filename": "DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "sha256": "f97358e28cf6c7fd13b8ca4ed303d554ddd02c1c3c870b65f9c00c96048a9dba",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "board": "TYT_MD-UV380-390_PLUS_10W_PC6",
+      "platform": "STM32",
+      "stages": [
+        {
+          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.16.bin",
+          "sha256": "4c38c3d13047001bfd43304be5da37bcac58266d48758e0e1e65a30e92fa4cc5",
+          "bytes": 979944
+        },
+        {
+          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.16.bin",
+          "sha256": "29a315c441f7cda9c0efb7d35a1c66f78d28ca238dca53aebd7a929ee7dfa291",
+          "bytes": 792296
+        },
+        {
+          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.16.bin",
+          "sha256": "f2cb91f739e9147f7e82300b69eba6d257c7368d5cb616effba0572a509cd9cc",
+          "bytes": 937832
+        }
+      ],
+      "c4fmTx": true
+    },
+    {
+      "model": "Retevis RT-3S compatible board",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.16",
+      "filename": "DIGIALL_v1.2.0-rc.16_RETEVIS_RT-3S.zip",
+      "sha256": "557e4e5daee0d5eda4d234312d5fdb4e7fd6a33c214ce463444f5e536f79d9b2",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_RETEVIS_RT-3S.zip",
+      "board": "RETEVIS_RT-3S",
+      "platform": "STM32",
+      "stages": [
+        {
+          "filename": "01_font_RETEVIS_RT-3S_v1.2.0-rc.16.bin",
+          "sha256": "7659bb2ea45473dc9d594d8be17339289732aea4dc1b8e3b1858266e5193d171",
+          "bytes": 979944
+        },
+        {
+          "filename": "02_pinyin_RETEVIS_RT-3S_v1.2.0-rc.16.bin",
+          "sha256": "e7c06518ff9af8c576182a75fb3361a24342261f56a8279f10d1c46df93241dc",
+          "bytes": 792296
+        },
+        {
+          "filename": "03_main_RETEVIS_RT-3S_v1.2.0-rc.16.bin",
+          "sha256": "d4ca379080b7be965c44db0bd08a3cffc43c69427fe9d7deeee03717d521d02d",
+          "bytes": 937864
+        }
+      ],
+      "c4fmTx": true
+    },
+    {
+      "model": "Baofeng DM-1701 STM32F405",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.16",
+      "filename": "DIGIALL_v1.2.0-rc.16_BAOFENG_DM-1701.zip",
+      "sha256": "93caff3d6c720ca0a8d6dfc0d4502b30c3584e7acbf696843161520cd75873c2",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_BAOFENG_DM-1701.zip",
+      "board": "BAOFENG_DM-1701",
+      "platform": "STM32",
+      "stages": [
+        {
+          "filename": "01_font_BAOFENG_DM-1701_v1.2.0-rc.16.bin",
+          "sha256": "ac97d5bb1d56bd45bb9a35998e55f3f2c3808c52da0b64c6c4a1ee6c42845a3d",
+          "bytes": 979944
+        },
+        {
+          "filename": "02_pinyin_BAOFENG_DM-1701_v1.2.0-rc.16.bin",
+          "sha256": "e1b9612d1fb6f32a97bce65c5bba5ab21ed66d4b0adfbc9a699fa448927d5616",
+          "bytes": 792296
+        },
+        {
+          "filename": "03_main_BAOFENG_DM-1701_v1.2.0-rc.16.bin",
+          "sha256": "4bfc4a07e34493bf01a4fd9fc853c018189ceebd57aba98ae6217c05ee02e39a",
+          "bytes": 919012
+        }
+      ],
+      "c4fmTx": false
+    },
+    {
+      "model": "Retevis RT-84",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.16",
+      "filename": "DIGIALL_v1.2.0-rc.16_RETEVIS_RT-84.zip",
+      "sha256": "677207dd5b47dc989a480c5c7043312fd1c69eb73ac5dccaf5b8a516f1967298",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_RETEVIS_RT-84.zip",
+      "board": "RETEVIS_RT-84",
+      "platform": "STM32",
+      "stages": [
+        {
+          "filename": "01_font_RETEVIS_RT-84_v1.2.0-rc.16.bin",
+          "sha256": "4ba1c4295c34094980406510a8586784c8fd7e2eb250b713c3bb71b832d0e7b9",
+          "bytes": 979944
+        },
+        {
+          "filename": "02_pinyin_RETEVIS_RT-84_v1.2.0-rc.16.bin",
+          "sha256": "e3043f5deb148d710adc2b572088705b1ccfeb6765f4e168f187f4132068a53b",
+          "bytes": 792296
+        },
+        {
+          "filename": "03_main_RETEVIS_RT-84_v1.2.0-rc.16.bin",
+          "sha256": "80133dd5647009aaf6d59105ed7363cac47db5050f770317d668b63e75829cee",
+          "bytes": 919012
+        }
+      ],
+      "c4fmTx": false
+    },
+    {
+      "model": "Radioddity GD-77",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_GD-77.zip",
+      "sha256": "7d526eabe3282cd1517a1f1e7e97ab4c4ab1e5dc27d23dd488ceeeb62dd5c9a3",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_GD-77.zip",
+      "board": "GD-77",
+      "platform": "MK22",
+      "inner": "OpenGD77.zip",
+      "innerSha256": "1cb8ce8481c2f8db3f60726cd2c9e53fa723342157cd4d9ccbf98215f586f08d",
+      "firmware": "OpenGD77.bin",
+      "firmwareSha256": "d268fdcc6d0e2cd656f01d442b6a7b4844cea4c28345c44ff92bdfc3f0a4cbe7"
+    },
+    {
+      "model": "Radioddity GD-77S",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_GD-77S.zip",
+      "sha256": "78f405e9f8bebfc493d9ab12219b2b65bdffb871e78cbaee3a9512317064644f",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_GD-77S.zip",
+      "board": "GD-77S",
+      "platform": "MK22",
+      "inner": "OpenGD77S.zip",
+      "innerSha256": "61790f286993ebaec60cdcca9aae49beba825384beba3ba086e40345784677ea",
+      "firmware": "OpenGD77S.bin",
+      "firmwareSha256": "aeee9e22026d8cd52ff96e77a618f9a623b863d8b6dd5714074936f95dca2f25"
+    },
+    {
+      "model": "Baofeng DM-1801 · MK22",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_DM-1801_MK22.zip",
+      "sha256": "029581484563ca928c7a127072b7b8bc52f76f96968b6ac0f00c854d65bb171b",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_DM-1801_MK22.zip",
+      "board": "DM-1801_MK22",
+      "platform": "MK22",
+      "inner": "OpenDM1801.zip",
+      "innerSha256": "46bb6d4a90868854f2a1681fcde3fc918f7ab83f2ff1e7005cefe2e5d3c93b48",
+      "firmware": "OpenDM1801.bin",
+      "firmwareSha256": "ed87ded0d96d30cb1ba8618af5f8fec130248b9514c643399f933db8cde61f37"
+    },
+    {
+      "model": "Baofeng DM-1801A · MK22",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_DM-1801A_MK22.zip",
+      "sha256": "8477c954928d19037cd9e2b58eeb1ba2880c2e748a9c8cda25ec9a4b9443d996",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_DM-1801A_MK22.zip",
+      "board": "DM-1801A_MK22",
+      "platform": "MK22",
+      "inner": "OpenDM1801A.zip",
+      "innerSha256": "9bf833800b23c323453fcf696943d0a8736e5edfefd213a59e4eab01c96576da",
+      "firmware": "OpenDM1801A.bin",
+      "firmwareSha256": "d595ee1f33acfee7125e8c87e7a7103567c2e7223a0e41976ef6a7d56217ff7a"
+    },
+    {
+      "model": "Baofeng RD-5R / DM-5R Tier 2",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_RD-5R_DM-5R-Tier2.zip",
+      "sha256": "9504597e879015e9f2f3d1bc32566b949784d6306266bd593771a9b94a7e3079",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_RD-5R_DM-5R-Tier2.zip",
+      "board": "RD-5R_DM-5R-Tier2",
+      "platform": "MK22",
+      "inner": "OpenRD5R.zip",
+      "innerSha256": "082490756a83a4d4a418d1a4a06a4048cabd7afddb7bdc033c1d619f5961eca6",
+      "firmware": "OpenRD5R.bin",
+      "firmwareSha256": "1622c986a1d80d5a339388ebc34d905c9e112dfd60f148edcfbeff3673282b74"
+    },
+    {
+      "model": "TYT MD-9600 / RT-90 · V1",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_MD-9600_RT-90_HW-V1.zip",
+      "sha256": "532a7bdae8909a20fa6a716d8c1d576c30c125a43d5c729a2db0da640c4d81ae",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_MD-9600_RT-90_HW-V1.zip",
+      "board": "MD-9600_RT-90_HW-V1",
+      "platform": "STM32",
+      "inner": "MD9600_firmware_HW_V1.zip",
+      "innerSha256": "7131db8e4901898efd9e5848188388b0d7c0a530b202bbdf605fe824581a950d",
+      "firmware": "MD9600_firmware_V1HW.bin",
+      "firmwareSha256": "2d6577ff29337ae68789302453c0c14b5a61976a0f2e75b25df3370e67f6eea9"
+    },
+    {
+      "model": "TYT MD-9600 / RT-90 · V2",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_MD-9600_RT-90_HW-V2.zip",
+      "sha256": "230ebeb16bcdd6b4126b29053e9202aa2ea73b8dc93cab0cc15b8330ddb74438",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_MD-9600_RT-90_HW-V2.zip",
+      "board": "MD-9600_RT-90_HW-V2",
+      "platform": "STM32",
+      "inner": "MD9600_firmware_HW_V2.zip",
+      "innerSha256": "7f3b0457b899afda80599aed0492548818ba7535d94ac66cd89f7c243e17f0d6",
+      "firmware": "MD9600_firmware_V2HW.bin",
+      "firmwareSha256": "1a69726bda494e96e4f65b9c9df5e39ea8970efd1b08c50fe7c1722ab2148401"
+    },
+    {
+      "model": "TYT MD-9600 / RT-90 · V4",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_MD-9600_RT-90_HW-V4.zip",
+      "sha256": "5f0b5b317b048c16cae85c44b761881728b6667e25f3d195d817223820bb2157",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_MD-9600_RT-90_HW-V4.zip",
+      "board": "MD-9600_RT-90_HW-V4",
+      "platform": "STM32",
+      "inner": "MD9600_firmware_HW_V4.zip",
+      "innerSha256": "8f960ef9921009cf54595c216632337c4b315d47fb59aa6d20788a2f52782cd2",
+      "firmware": "MD9600_firmware_V4HW.bin",
+      "firmwareSha256": "d8f632c330388cb2d675880190732ab977d0d9249a71faa09fa7c61869b73539"
+    },
+    {
+      "model": "TYT MD-9600 / RT-90 · V5",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_MD-9600_RT-90_HW-V5.zip",
+      "sha256": "72a4c959c06f0a000fc760c9c3e559c1adfad1a7e57a16bd287e835f12bba393",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_MD-9600_RT-90_HW-V5.zip",
+      "board": "MD-9600_RT-90_HW-V5",
+      "platform": "STM32",
+      "inner": "MD9600_firmware_HW_V5.zip",
+      "innerSha256": "373976f2fa8b70d0e360af739bfea056ba62deb72dbebb5537d087b280beb1df",
+      "firmware": "MD9600_firmware_V5HW.bin",
+      "firmwareSha256": "0296a1dfccc1462443f576750a30f16ebaec7cd6b68e7f4eccc7dba2f5926a2a"
+    },
+    {
+      "model": "TYT MD-2017 / Retevis RT-82",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_MD-2017_RT-82.zip",
+      "sha256": "a1c460c52c9cdfaa08f8b8abf016d8eb1a2efa2369e6abcacd6fd970865d0241",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_MD-2017_RT-82.zip",
+      "board": "MD-2017_RT-82",
+      "platform": "STM32",
+      "inner": "OpenMD2017.zip",
+      "innerSha256": "b22238345543a4064c20e91a7997d2f7aa52a666433f1024b46e3f41f65a3edb",
+      "firmware": "OpenMD2017.bin",
+      "firmwareSha256": "1f51d6df4e5faa5eecf03f20ab5fa887da12b9a2ffe55fcac378193a5ccf351d"
+    },
+    {
+      "model": "Baofeng DM-1701 · OpenDM1701 reference",
+      "origin": "OpenGD77",
+      "version": "R20260131",
+      "filename": "UPSTREAM_R20260131_DM-1701_reference.zip",
+      "sha256": "d0382d51ffae480a40a7ff91c3459ba44bd32bdda4dd3a0ef9a07015dab75b60",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/UPSTREAM_R20260131_DM-1701_reference.zip",
+      "board": "DM-1701_reference",
+      "platform": "STM32",
+      "inner": "OpenDM1701.zip",
+      "innerSha256": "bf081d598e6a1f62ac96a4dc3faedcaff5e123b5aa2a7572f85462664c32378d",
+      "firmware": "OpenDM1701.bin",
+      "firmwareSha256": "c23fe84429108e10919dc53428336d576b1defaef1a83b5babd6644169e547d7"
+    }
+  ]
+}

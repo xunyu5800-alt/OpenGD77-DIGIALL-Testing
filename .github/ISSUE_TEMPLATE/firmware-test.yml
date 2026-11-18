@@ -1,39 +1,162 @@
-name: Firmware test / 固件测试反馈
-description: Report reproducible behaviour on supported dual-band hardware
+name: "Firmware test / 固件测试反馈"
+description: "Report installation and radio tests on a specific OpenGD77-DIGIALL package."
 title: "[TEST] "
 body:
-  - type: dropdown
-    id: hardware
+  - type: "markdown"
     attributes:
-      label: Hardware profile / 硬件
+      value: "[刷机与选包 / Flash guide](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/#install) · [验收表 / Test matrix](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/TEST_MATRIX.md)\n\n先填写机型与开机结果。其他项目按实际测试填写。\nStart with the model and boot result. Fill the other checks you ran."
+  - type: "dropdown"
+    id: "hardware"
+    attributes:
+      label: "对应机型包 / Model package"
       options:
-        - Ordinary MD-UV380/390 5W + GPS
-        - Plus10W PD8 backlight / PC6 PA
-        - Plus10W PC6 backlight / PD8 PA
-        - Unknown board — identify before flashing
+        - "DIGIALL · TYT MD-UV380／390 5W＋GPS"
+        - "DIGIALL · TYT MD-UV380／390 Plus 10W PD8"
+        - "DIGIALL · TYT MD-UV380／390 Plus 10W PC6"
+        - "DIGIALL · Retevis RT-3S compatible board"
+        - "DIGIALL · Baofeng DM-1701 STM32F405"
+        - "DIGIALL · Retevis RT-84"
+        - "OpenGD77 · Radioddity GD-77"
+        - "OpenGD77 · Radioddity GD-77S"
+        - "OpenGD77 · Baofeng DM-1801 · MK22"
+        - "OpenGD77 · Baofeng DM-1801A · MK22"
+        - "OpenGD77 · Baofeng RD-5R / DM-5R Tier 2"
+        - "OpenGD77 · TYT MD-9600 / RT-90 · V1"
+        - "OpenGD77 · TYT MD-9600 / RT-90 · V2"
+        - "OpenGD77 · TYT MD-9600 / RT-90 · V4"
+        - "OpenGD77 · TYT MD-9600 / RT-90 · V5"
+        - "OpenGD77 · TYT MD-2017 / Retevis RT-82"
+        - "OpenGD77 · Baofeng DM-1701 · OpenDM1701 reference"
+        - "未知或其他 / Unknown or other"
     validations:
       required: true
-  - type: input
-    id: version
+  - type: "input"
+    id: "version"
     attributes:
-      label: Full ZIP name / 完整包名
+      label: "完整 ZIP 文件名 / Full ZIP name"
+      description: "保留版本及板型后缀。 / Include the version and board suffix."
     validations:
       required: true
-  - type: textarea
-    id: reproduce
+  - type: "input"
+    id: "setup"
     attributes:
-      label: Mode, steps, expected and actual behaviour / 模式、步骤与结果
+      label: "板修与刷机工具 / Board revision and loader"
+      description: "机背型号、GPS、CPS 或浏览器版本。 / Include the case label, GPS and CPS or browser version."
     validations:
-      required: true
-  - type: textarea
-    id: evidence
+      required: false
+  - type: "dropdown"
+    id: "boot"
     attributes:
-      label: Optional redacted evidence / 可选脱敏证据
-      description: Include BER equipment/conditions if relevant. No passwords, donors, merged firmware, private coordinates or others' recordings.
-  - type: checkboxes
-    id: privacy
-    attributes:
-      label: Before sharing / 提交前
+      label: "开机与版本 / Boot and firmware version"
       options:
-        - label: I removed credentials, proprietary codec/donor data and private personal information.
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+    validations:
+      required: true
+  - type: "dropdown"
+    id: "ui"
+    attributes:
+      label: "显示、背光及按键 / Display, backlight and keys"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "dropdown"
+    id: "fm"
+    attributes:
+      label: "FM 收发 / FM RX and TX"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "dropdown"
+    id: "dmr"
+    attributes:
+      label: "DMR 收发及组过滤 / DMR RX, TX and talkgroup filter"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "dropdown"
+    id: "chinese"
+    attributes:
+      label: "中文显示及拼音 / Chinese display and Pinyin"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "dropdown"
+    id: "aprs"
+    attributes:
+      label: "APRS 收发及位置页 / APRS and position screen"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "dropdown"
+    id: "c4fm_rx"
+    attributes:
+      label: "C4FM DN 接收 / C4FM DN RX"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "dropdown"
+    id: "c4fm_tx"
+    attributes:
+      label: "C4FM DN 发射 / C4FM DN TX"
+      options:
+        - "未测 / Not tested"
+        - "通过 / Pass"
+        - "部分通过 / Partial"
+        - "失败 / Fail"
+        - "不适用 / N/A"
+    validations:
+      required: false
+  - type: "textarea"
+    id: "reproduce"
+    attributes:
+      label: "步骤与表现 / Steps and observed behaviour"
+      description: "如果失败或部分通过，请写明具体步骤、期望和实测结果。 / For a failure or partial pass, include steps, expected and observed results."
+    validations:
+      required: false
+  - type: "textarea"
+    id: "evidence"
+    attributes:
+      label: "脱敏日志或测量环境 / Redacted logs or test setup"
+      description: "C4FM 可写功率、距离、手台频偏、热点 RXOffset、BER，以及按住 PTT 是否掉锁。 / For C4FM, record power, distance, radio trim, hotspot RXOffset, BER and loss of lock during PTT."
+    validations:
+      required: false
+  - type: "checkboxes"
+    id: "privacy"
+    attributes:
+      label: "公开内容确认 / Public sharing"
+      options:
+        - label: "已移除私人信息、密码、donor 和合入后的固件。 / I removed private data, credentials, donor files and merged firmware."
           required: true

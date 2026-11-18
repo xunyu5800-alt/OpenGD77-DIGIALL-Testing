@@ -1,10 +1,12 @@
 # OpenGD77-DIGIALL — Public firmware testing
 
+[公测网站与刷机助手 / Test site and flash guide](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/) · [机型验收表 / Acceptance matrix](docs/TEST_MATRIX.md) · [提交测试反馈 / Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
+
 **rc.16 多机型公测**。六套 DIGIALL 板型和十一套上游原版对照包已按型号整理。C4FM 增加 SK1 一键切换 0／+300 Hz 的频偏预置。 [下载](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [按机型选包及复测说明](docs/MULTI_MODEL_TESTING.zh-CN.md)
 
 **Free, non-commercial, unofficial community firmware.** Binary releases, guides and feedback only. The firmware source repository and development history remain private; do not describe this repository as the firmware source or as OSI-licensed open source.
 
-[Download v1.2.0-rc.15](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [新手入门与完整手册](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose) · [刷机教程与 Windows 向导](docs/FLASH_WIZARD.zh-CN.md)
+[Download v1.2.0-rc.15](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [新手入门与完整手册](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [刷机教程与 Windows 向导](docs/FLASH_WIZARD.zh-CN.md)
 
 **Release credit · VRWZI / BIAOQ**
 
@@ -12,13 +14,7 @@
 
 ## Who can test
 
-Experienced operators with dual-band TYT MD-UV380/MD-UV390, a CPS backup and a known recovery procedure. Single-band MD-380/MD-390 are unsupported. Start with a short baseline FM/DMR check, then the feature you want to test.
-
-| Hardware | Package | C4FM scope |
-| --- | --- | --- |
-| Ordinary5W + GPS, PD8 backlight / PC6 PA | `5W_GPS` | DN main-screen RX/TX; broader hardware testing needed |
-| Plus10W, confirmed PD8 backlight / PC6 PA | `10W_PD8_GPS` | DN main-screen RX/TX and GPS; board testing pending |
-| Plus10W, confirmed PC6 backlight / PD8 PA | `10W_PC6_GPS` | DN main-screen RX/TX and GPS; board testing pending |
+The rc.16 collection includes six DIGIALL board profiles and eleven original OpenGD77 reference packages. Confirm the exact board revision, make CPS backups and keep a known recovery procedure. Start with the boot, display, keypad, FM and DMR checks. C4FM transmit is disabled in the DIGIALL DM-1701 and RT-84 builds. [Model selection and installation](docs/MULTI_MODEL_TESTING.en.md)
 
 Existing project font/pinyin: matching03 only. First install/R250326 resources: matching01→02→03, waiting for each writer's verified completion and power-off. Back up calibration/codeplug/records. Public packages do not contain AMBE codecs or donors; applicable codec rights are required. Do not upload a donor or merged firmware to Issues.
 
