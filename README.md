@@ -2,7 +2,7 @@
 
 **Free, non-commercial, unofficial community firmware.** Binary releases, guides and feedback only. The firmware source repository and development history remain private; do not describe this repository as the firmware source or as OSI-licensed open source.
 
-[Download v1.2.0-rc.15](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [完整中文手册（Word）](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
+[Download v1.2.0-rc.15](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [中文手册在线阅读](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf) · [English guide](docs/USAGE.en.md) · [中文使用说明](docs/USAGE.zh-CN.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new/choose)
 
 **Release credit · VRWZI / BIAOQ**
 

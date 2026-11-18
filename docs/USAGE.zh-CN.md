@@ -48,7 +48,7 @@
 
 FM／DMR VFO 默认在 A／B 间轮流接收。长按红键选调频主路，单独长按 SK1 发 A，实体 PTT 发 B。按住 SK1 再长按绿键切换单守／双守。DMR 长按 SK1 切 ALL／TG 适用于单守，双守可从快捷菜单切过滤。
 
-[双守候界面和完整按键](SCAN_RECORDING.zh-CN.md) · [完整中文手册（Word）](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx)
+[双守候界面和完整按键](SCAN_RECORDING.zh-CN.md) · [中文手册在线阅读](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf)
 
 ### 设置手台日期和时间
 

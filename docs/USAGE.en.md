@@ -48,7 +48,7 @@ TG means selected destination, TGL the RX list, ALL all destinations; CC/TS reta
 
 FM/DMR VFO alternates between A and B by default. Hold RED to select the tuning VFO. Hold SK1 alone to transmit on A, or hold physical PTT to transmit on B. Hold SK1, then hold GREEN to toggle dual watch. In DMR single watch, hold SK1 to toggle ALL/TG. In dual watch, use the VFO quick menu to set the filter.
 
-[Interface and controls](SCAN_RECORDING.en.md) · [Illustrated Chinese manual (Word)](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx)
+[Interface and controls](SCAN_RECORDING.en.md) · [Read the Chinese manual online](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf)
 
 ### Setting the radio date and time
 

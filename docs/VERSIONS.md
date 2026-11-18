@@ -1,6 +1,6 @@
 # Test releases / 测试版本
 
-[**v1.2.0-rc.15**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [说明 / Notes](releases/v1.2.0-rc.15.md) · [中文手册（Word）](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.docx)
+[**v1.2.0-rc.15**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.15) · [说明 / Notes](releases/v1.2.0-rc.15.md) · [中文手册在线阅读](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MANUAL.zh-CN.md) · [PDF](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf)
 
 Redesigned FM/DMR dual watch and separate A/B transmit keys. Includes all three board profiles.
 
