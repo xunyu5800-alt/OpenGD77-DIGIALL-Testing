@@ -8,29 +8,48 @@ const defaultFileStatus = fileStatus.textContent;
 const files = element('files');
 const boardNote = element('board-note');
 const instructionList = element('instructions');
-const initialInstructions = instructionList.innerHTML;
 const online = element('online');
+const cps = element('cps');
 const usb = element('usb');
 const usbStatus = element('usb-status');
+const usbHelp = element('usb-help');
 const catalog = new Map();
 const objectUrls = [];
 let selection;
 let verification = 0;
 let usbChecking = false;
 
+const usbResultText = {
+  'ready': '浏览器已打开 STM32 DFU 并读取升级接口。下一步请用下方对应的刷机工具写入。',
+  'access-denied': '浏览器已找到 STM32 DFU，但系统拒绝打开设备（Access denied）。请检查下方的 USB 占用与 WinUSB 驱动步骤。',
+  'open-error': '浏览器已找到 STM32 DFU，但打开设备失败。请重新连接、进入 DFU 后再试。',
+  'no-selection': '未选中 DFU 设备。如果列表为空，请确认数据线和升级模式，再重新检测。',
+  'chooser-error': '浏览器无法打开 USB 选择框。请用桌面 Chrome 或 Edge 通过 HTTPS 直接打开本页，检查浏览器 USB 权限后重试。',
+  'invalid-interface': '已打开 USB 设备，但未读到正确的 DFU 升级接口。请检查电台是否处在升级模式。',
+  'unsupported': '当前浏览器无法使用 WebUSB。请用桌面 Chrome 或 Edge 通过 HTTPS 打开；已有可用 CPS 时也可直接去第 4 步。',
+};
+
+function showUsbResult(state, error) {
+  usbStatus.dataset.result = state;
+  usbStatus.textContent = usbResultText[state] ?? '';
+  if (error?.message && ['open-error', 'chooser-error'].includes(state)) {
+    usbStatus.textContent += `（${error.message}）`;
+  }
+  usbHelp.hidden = !['access-denied', 'open-error'].includes(state);
+}
+
 function instructionsFor(entry) {
-  const bootKeys = entry.platform === 'MK22' ? '按住两个侧键开机' : '按住 SK1＋PTT 开机';
   if (entry.origin === 'DIGIALL') {
     return [
-      '使用 OpenGD77 CPS → Extras → Firmware Loader，选对应电台型号。数字语音使用自己有权使用的 MD9600 V26.45 CSV donor。',
-      `进入 DFU 时${bootKeys}。首次安装按 01 字库 → 02 拼音 → 03 主固件，已有兼容资源则直接加载 03。`,
-      '刷 01 和 02 后分别正常开机，等待 COMPLETE - VERIFIED 和背光熄灭，再关机进入下一步。刷完 03 后正常开机验收。',
+      '在桌面 OpenGD77 CPS 打开 Extras → Firmware Loader，选择本机型号。需要数字语音时，用 Select official firmware 选择自己有权使用的 MD9600 V26.45 CSV donor。',
+      '点击 Select Open firmware file & update 开始写入。首次安装按 01 字库 → 02 拼音 → 03 主固件；已有兼容字库和拼音的更新直接选 03。',
+      '刷 01、02 后各正常开机一次。等到 COMPLETE - VERIFIED 与背光熄灭，再关机重新进入 DFU，写下一份 BIN。',
     ];
   }
   return [
-    `备份后，按上游说明进入 ${entry.platform} 升级模式（通常${bootKeys}）。按实际板型选择 CPS 的机型入口。`,
-    '使用桌面 OpenGD77 CPS，或在第三方 Web CPS 的 Firmware Update 中确认有该机型后，选择对应平台和 Custom File，再选校验后的上游原版 BIN。',
-    '数字语音按上游说明选择对应平台的自有 donor。刷完后正常开机，核对版本、背光、按键和 FM／DMR。',
+    `在第三方 Web CPS 打开 Firmware Update → ${entry.platform} Radio Firmware → Custom File，确认列表有本机型号。也可用桌面 OpenGD77 CPS 的 Firmware Loader。`,
+    '选择实际机型、校验后的上游原版 BIN。数字语音按上游说明选用对应平台的自有 donor。',
+    '在 Web CPS 点 Upload Firmware 并选择 USB 设备，或在桌面 CPS 点 Select Open firmware file & update。等待工具报告完成。',
   ];
 }
 
@@ -46,19 +65,28 @@ function renderSelection() {
   fileInput.value = '';
   fileInput.disabled = !selection;
   fileStatus.textContent = defaultFileStatus;
-  usbStatus.textContent = '';
+  showUsbResult('idle');
   const pack = element('package');
   pack.replaceChildren();
   boardNote.hidden = !selection;
   element('usb-section').hidden = selection?.platform !== 'STM32';
   element('wizard').hidden = !selection?.board.startsWith('TYT_MD-UV380-390');
   online.hidden = selection?.origin !== 'OpenGD77';
+  cps.hidden = !selection;
   if (!selection) {
-    instructionList.innerHTML = initialInstructions;
+    element('boot-mode').textContent = '选好机型后，这里会显示对应的升级按键。';
+    element('path-intro').textContent = '选择机型后，这里会给出对应的刷写入口和顺序。';
+    instructionList.replaceChildren();
     return;
   }
 
   const native = selection.origin === 'DIGIALL';
+  element('boot-mode').textContent = selection.platform === 'MK22'
+    ? '关机并连接数据线。按住两个侧键 SK1＋SK2 开机进入升级模式，具体按键以对应机型的上游说明为准。'
+    : '关机并连接数据线。按住上侧键 SK1＋PTT 开机进入 DFU，再松开按键。升级模式下屏幕可能保持黑屏。';
+  element('path-intro').textContent = native
+    ? 'DIGIALL rc.16 由桌面 OpenGD77 CPS 写入。浏览器 USB 检测失败时，若 CPS 能识别电台，仍可继续。'
+    : '这是上游原版包。用 Web CPS 或桌面 CPS 刷写前，先确认工具支持你的机型。';
   boardNote.textContent = native
     ? selection.c4fmTx
       ? 'DIGIALL · C4FM DN 收发已编入，射频表现按板型实测。'
@@ -79,6 +107,9 @@ function renderSelection() {
   }));
 }
 
+element('start-flash').addEventListener('click', () => {
+  requestAnimationFrame(() => select.focus({preventScroll: true}));
+});
 select.addEventListener('change', renderSelection);
 fileInput.addEventListener('change', async () => {
   clearFiles();
@@ -109,22 +140,16 @@ fileInput.addEventListener('change', async () => {
 
 usb.addEventListener('click', async () => {
   if (usbChecking) return;
-  if (!navigator.usb) {
-    usbStatus.textContent = '浏览器没有开放 WebUSB。可用电脑 Chrome／Edge，或直接用 CPS。';
-    return;
-  }
+  if (!navigator.usb) return showUsbResult('unsupported');
   const checkedSelection = selection;
   usbChecking = usb.disabled = true;
+  showUsbResult('checking');
   usbStatus.textContent = '请在浏览器的设备列表中选择 DFU。';
   try {
-    await inspectDfu(navigator.usb);
-    if (checkedSelection === selection) usbStatus.textContent = '已检测到 STM32 DFU。请仍按机背和板卡记录核对板型。';
+    const {state, error} = await inspectDfu(navigator.usb);
+    if (checkedSelection === selection) showUsbResult(state, error);
   } catch (error) {
-    if (checkedSelection === selection) {
-      usbStatus.textContent = error.name === 'NotFoundError'
-        ? '没有选择 DFU。请检查升级模式、数据线和驱动，再试一次。'
-        : `无法读取 DFU。请检查 WinUSB 和设备占用。${error.message}`;
-    }
+    if (checkedSelection === selection) showUsbResult('open-error', error);
   } finally {
     usbChecking = usb.disabled = false;
   }

@@ -23,7 +23,7 @@
         <p class="version"><span></span> v1.2.0-rc.16 <small>多机型公测</small></p>
         <h1 id="headline">手台里的<br><em>中文与数字通信</em></h1>
         <p class="summary">从 FM／DMR 双守候到 C4FM DN、APRS 位置和瀑布频扫。先看固件界面示例，再按你的板型选包。</p>
-        <div class="actions"><a class="btn primary" href="#install">选择机型与刷机 <span aria-hidden="true">↘</span></a><a class="btn neutral" href="#features">浏览功能</a></div>
+        <div class="actions"><a class="btn primary" href="#install">开始刷机 <span aria-hidden="true">↘</span></a><a class="btn neutral" href="#features">浏览功能</a></div>
         <p class="credit">社区免费公测　·　VRWZI／BIAOQ</p>
       </div>
       <figure class="hero-display">
@@ -46,45 +46,66 @@
 
     <section id="install" class="section" aria-labelledby="install-title">
       <div class="section-heading"><h2 id="install-title">固件与刷机</h2><a class="text-link" href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16">GitHub 发布页 ↗</a></div>
-      <div class="install-grid">
-        <div class="controls surface">
-          <h3>1. 对照机背与板型</h3>
+      <div class="flash-intro surface">
+        <p>先备份码表、校准和需要保留的记录，并保存能恢复开机的旧固件。DIGIALL 由桌面 OpenGD77 CPS 写入，上游原版可使用其支持的 Web CPS。</p>
+        <a class="btn primary" id="start-flash" href="#choose-model">开始刷机 <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="install-steps">
+        <div class="surface" id="choose-model">
+          <h3>1. 确认机型和板型</h3>
           <label for="model">电台型号与硬件版本</label>
           <select id="model" disabled><option value="">请选择实际机型或板型</option></select>
           <p id="catalog-status" class="hint" role="status">核对 5W／10W、背光引脚或主板版本。USB 名称只能提示升级模式。</p>
           <p id="board-note" class="board-note" hidden></p>
+        </div>
+        <div class="surface" id="prepare-files">
+          <h3>2. 下载、校验并保存刷机文件</h3>
+          <p class="hint">选好机型后下载对应 ZIP，再把下载好的文件选到下方。校验通过后，保存要使用的 BIN。</p>
           <template id="package-template">
-            <details class="package-id"><summary>包名与 SHA-256</summary><code id="package-name"></code><code id="sha"></code></details>
-            <a id="download-zip" class="btn primary" href="#install">下载匹配 ZIP <span aria-hidden="true">↓</span></a>
+            <div class="package-id"><code id="package-name"></code><p class="hint">SHA-256 <code id="sha"></code></p></div>
+            <a id="download-zip" class="btn neutral" href="#prepare-files">下载匹配 ZIP <span aria-hidden="true">↓</span></a>
           </template>
           <div id="package"></div>
-          <hr>
-          <h3>2. 校验并提取刷机文件</h3>
           <label for="zip">选择已下载的机型 ZIP</label>
           <input type="file" id="zip" accept=".zip,application/zip" disabled>
-          <p id="zip-status" role="status" class="hint">网页在本机校验 SHA-256，并提取同一机型的 BIN。</p>
+          <p id="zip-status" role="status" class="hint">请选择机型和 ZIP。文件在本机校验与解压。</p>
           <div id="files" class="file-list"></div>
           <noscript><p>请启用 JavaScript 使用选包器与校验工具，或从发布页按型号手动选包。</p></noscript>
         </div>
-        <div class="instructions surface">
-          <h3>3. 连接并刷写</h3>
-          <p id="path-intro">先备份码表、校准与需要保留的记录，保存已确认可恢复的固件。选定机型后查看对应的升级步骤。</p>
-          <ol id="instructions">
-            <li>按板型下载，再校验对应的 ZIP。</li>
-            <li>用对应 OpenGD77 CPS 入口写入，按电台提示正常开机。</li>
-            <li>核对版本、屏幕、按键和 FM／DMR。</li>
-          </ol>
-          <details id="usb-section" hidden>
-            <summary>浏览器 USB 检测</summary>
-            <p class="hint">用电脑 Chrome 或 Edge，关闭占用 USB 的软件。在 Windows 上，浏览器访问 DFU 通常需要 WinUSB。检测只读取升级接口，刷写由 CPS 执行。</p>
+        <div class="instructions surface" id="connect-radio">
+          <h3>3. 连接电台并进入升级模式</h3>
+          <p id="boot-mode">选好机型后，这里会显示对应的升级按键。</p>
+          <div id="usb-section" hidden>
+            <p class="hint">浏览器 USB 检测为可选。使用电脑 Chrome 或 Edge，先关闭 CPS、其他刷机工具和已连接电台的浏览器标签页。</p>
             <button type="button" id="usb" class="btn neutral">检测 STM32 DFU</button>
-            <p id="usb-status" role="status" class="hint"></p>
-          </details>
+            <p id="usb-status" role="status" class="hint" data-result="idle"></p>
+            <div class="usb-help" id="usb-help" hidden>
+              <p>Windows 下先关闭占用 USB 的程序，拔插数据线后重新进入 DFU，再试一次。仍被拒绝时，按以下步骤检查驱动。</p>
+              <ol>
+                <li>打开设备管理器。在 <b>STM Device in DFU Mode</b> 的「属性 → 详情 → 硬件 ID」核对 <code>USB\VID_0483&amp;PID_DF11</code>。</li>
+                <li>如果仅用桌面 CPS 且它能识别电台，可直接去第 4 步。需要浏览器访问时才检查该 DFU 设备的 WinUSB 驱动。</li>
+                <li>如需安装 WinUSB，从官方站下载 Zadig，选 <b>Options → List All Devices</b>，仅选 USB ID 为 <code>0483:DF11</code> 的 DFU 设备，目标选 <b>WinUSB</b>。拔插并重新进 DFU 后再检测。已有 WinUSB 时优先排查占用。</li>
+              </ol>
+              <a href="https://zadig.akeo.ie/">Zadig 官方下载 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="instructions surface" id="write-firmware">
+          <h3>4. 开始写入固件</h3>
+          <p id="path-intro">选择机型后，这里会给出对应的刷写入口和顺序。</p>
+          <ol id="instructions"></ol>
+          <div class="actions">
+            <a class="btn primary" id="cps" href="https://www.opengd77.com/downloads/PC_CPS/Latest/" hidden>下载桌面 OpenGD77 CPS ↗</a>
+            <a class="btn primary" id="online" href="https://grid.radio/opengd77/" target="_blank" rel="noopener" hidden>用 Web CPS 开始刷写 ↗</a>
+          </div>
           <div class="guide-links">
-            <a class="text-link" id="online" href="https://grid.radio/opengd77/" target="_blank" rel="noopener" hidden>打开第三方在线刷机 ↗</a>
             <a class="text-link" href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MULTI_MODEL_TESTING.zh-CN.md">机型安装指南 ↗</a>
             <a class="text-link" id="wizard" href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/flash-wizard-v0.2.0" hidden>Windows 一次刷机向导（rc.15） ↗</a>
           </div>
+        </div>
+        <div class="instructions surface">
+          <h3>5. 正常开机验收</h3>
+          <p>松开侧键重新开机。核对固件版本、背光和按键，再检查 FM 和 DMR。安装了中文资源的 DIGIALL 可在名称编辑页用 <b>SK2＋#</b> 检查拼音候选。</p>
         </div>
       </div>
       <p class="secondary-links"><a href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/blob/main/docs/MULTI_MODEL_TESTING.en.md">English installation guide ↗</a><a href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.15/OpenGD77_DIGIALL_Manual_ZH_CN_v1.2.0-rc.15.pdf">中文 PDF 手册（rc.15） ↗</a></p>

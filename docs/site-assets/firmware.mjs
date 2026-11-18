@@ -75,15 +75,25 @@ export async function prepareFirmware(file, selected) {
 }
 
 export async function inspectDfu(usb) {
-  const device = await usb.requestDevice({filters: [{vendorId: 0x0483, productId: 0xdf11}]});
+  let device;
+  try {
+    device = await usb.requestDevice({filters: [{vendorId: 0x0483, productId: 0xdf11}]});
+  } catch (error) {
+    return {state: error.name === 'NotFoundError' ? 'no-selection' : 'chooser-error', error};
+  }
   try {
     await device.open();
+  } catch (error) {
+    const denied = error.name === 'SecurityError' || error.name === 'NotAllowedError' || /access denied|permission denied/i.test(error.message);
+    return {state: denied ? 'access-denied' : 'open-error', error};
+  }
+  try {
     const valid = device.configurations.some(config =>
       config.interfaces.some(iface => iface.alternates.some(alt =>
         alt.interfaceClass === 0xfe && alt.interfaceSubclass === 1
       ))
     );
-    if (!valid) throw new Error('读取到了设备，但未找到 DFU 接口。');
+    return {state: valid ? 'ready' : 'invalid-interface'};
   } finally {
     if (device.opened) await device.close();
   }
