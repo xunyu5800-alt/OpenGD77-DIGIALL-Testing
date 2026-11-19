@@ -1,0 +1,271 @@
+{
+  "tag": "v1.2.0-rc.17",
+  "source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+  "hardware_verified": false,
+  "packages": [
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_TYT_MD-UV380-390_5W_GPS.zip",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.17",
+      "target": "5w",
+      "model": "TYT MD-UV380／390 5W＋GPS",
+      "board": "TYT_MD-UV380-390_5W_GPS",
+      "firmware_source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+      "test_status": "host-build-only",
+      "cps_loader_scope": "actual radio selection",
+      "stages": [
+        {
+          "filename": "01_font_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.17.bin",
+          "sha256": "549c17f6bd28a587e7299300003d34c131b3e63f29a70ea6af6a47d72758e6cc",
+          "bytes": 980144,
+          "kind": "font",
+          "c4fm_tx": false,
+          "configuration": "MDUV380_WRITE_FONT_FW"
+        },
+        {
+          "filename": "02_pinyin_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.17.bin",
+          "sha256": "712527bedd2fe509ae0b73317dc5b89c927712411dce8d74fd5f65ed09e7f337",
+          "bytes": 792496,
+          "kind": "pinyin",
+          "c4fm_tx": false,
+          "configuration": "MDUV380_WRITE_PINYIN_FW"
+        },
+        {
+          "filename": "03_main_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.17.bin",
+          "sha256": "da2fd9e595808a50fc6b93126d946a40b9adebfffd6522b57b852193f2031051",
+          "bytes": 938488,
+          "kind": "main",
+          "c4fm_tx": true,
+          "configuration": "MDUV380_C4FM_MAIN_FW"
+        }
+      ]
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.17",
+      "target": "10w-pd8",
+      "model": "TYT MD-UV380／390 Plus 10W PD8",
+      "board": "TYT_MD-UV380-390_PLUS_10W_PD8",
+      "firmware_source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+      "test_status": "host-build-only",
+      "cps_loader_scope": "actual radio selection",
+      "stages": [
+        {
+          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.17.bin",
+          "sha256": "9689f5201a310f8e9ed6a0c55a5c9e7ba432a34b3811dc3ed057edb3da2bc74a",
+          "bytes": 980144,
+          "kind": "font",
+          "c4fm_tx": false,
+          "configuration": "MDUV380_10W_PD8_WRITE_FONT_FW"
+        },
+        {
+          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.17.bin",
+          "sha256": "d10b37ce167f153a8a0bb83a9730aa581b799d840a74bd5ed84e3c57c65ed978",
+          "bytes": 792496,
+          "kind": "pinyin",
+          "c4fm_tx": false,
+          "configuration": "MDUV380_10W_PD8_WRITE_PINYIN_FW"
+        },
+        {
+          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.17.bin",
+          "sha256": "089b7b10182f4dff60eaf535d53e23db3ded360e6787d9fe385f9186a4cfbf09",
+          "bytes": 938448,
+          "kind": "main",
+          "c4fm_tx": true,
+          "configuration": "MDUV380_10W_PD8_C4FM_MAIN_FW"
+        }
+      ]
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.17",
+      "target": "10w",
+      "model": "TYT MD-UV380／390 Plus 10W PC6",
+      "board": "TYT_MD-UV380-390_PLUS_10W_PC6",
+      "firmware_source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+      "test_status": "host-build-only",
+      "cps_loader_scope": "actual radio selection",
+      "stages": [
+        {
+          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.17.bin",
+          "sha256": "2b7a8c62086db832d4ac2cc045c6421f707ec745f6b4e09004d029c0b2f1b6f4",
+          "bytes": 980144,
+          "kind": "font",
+          "c4fm_tx": false,
+          "configuration": "MDUV380_10W_PLUS_WRITE_FONT_FW"
+        },
+        {
+          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.17.bin",
+          "sha256": "8242454b5befc9d9855d992e25af19ce862737a5ef399420e4261f57b40a1ad0",
+          "bytes": 792496,
+          "kind": "pinyin",
+          "c4fm_tx": false,
+          "configuration": "MDUV380_10W_PLUS_WRITE_PINYIN_FW"
+        },
+        {
+          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.17.bin",
+          "sha256": "29e53ba2aeac0370478e8feca706ebb452cbc1de997658dc7f2556c3d5740fbe",
+          "bytes": 938456,
+          "kind": "main",
+          "c4fm_tx": true,
+          "configuration": "MDUV380_10W_PLUS_C4FM_MAIN_FW"
+        }
+      ]
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_RETEVIS_RT-3S.zip",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.17",
+      "target": "rt3s",
+      "model": "Retevis RT-3S compatible board",
+      "board": "RETEVIS_RT-3S",
+      "firmware_source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+      "test_status": "host-build-only",
+      "cps_loader_scope": "actual radio selection",
+      "stages": [
+        {
+          "filename": "01_font_RETEVIS_RT-3S_v1.2.0-rc.17.bin",
+          "sha256": "549c17f6bd28a587e7299300003d34c131b3e63f29a70ea6af6a47d72758e6cc",
+          "bytes": 980144,
+          "kind": "font",
+          "c4fm_tx": false,
+          "configuration": "RT3S_WRITE_FONT_FW"
+        },
+        {
+          "filename": "02_pinyin_RETEVIS_RT-3S_v1.2.0-rc.17.bin",
+          "sha256": "712527bedd2fe509ae0b73317dc5b89c927712411dce8d74fd5f65ed09e7f337",
+          "bytes": 792496,
+          "kind": "pinyin",
+          "c4fm_tx": false,
+          "configuration": "RT3S_WRITE_PINYIN_FW"
+        },
+        {
+          "filename": "03_main_RETEVIS_RT-3S_v1.2.0-rc.17.bin",
+          "sha256": "74a80e540405736fb5a72557826db1cd2f725c13ced847acd6ba3e73df44c0d1",
+          "bytes": 938488,
+          "kind": "main",
+          "c4fm_tx": true,
+          "configuration": "RT3S_C4FM_MAIN_FW"
+        }
+      ]
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_BAOFENG_DM-1701.zip",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.17",
+      "target": "dm1701",
+      "model": "Baofeng DM-1701 STM32F405",
+      "board": "BAOFENG_DM-1701",
+      "firmware_source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+      "test_status": "host-build-only",
+      "cps_loader_scope": "actual radio selection",
+      "stages": [
+        {
+          "filename": "01_font_BAOFENG_DM-1701_v1.2.0-rc.17.bin",
+          "sha256": "52d2dcca95f85af65750a9d150a03778c64d097d700d1f7d9309c363f52f69f5",
+          "bytes": 980144,
+          "kind": "font",
+          "c4fm_tx": false,
+          "configuration": "DM1701_WRITE_FONT_FW"
+        },
+        {
+          "filename": "02_pinyin_BAOFENG_DM-1701_v1.2.0-rc.17.bin",
+          "sha256": "62d7a9e751930a1dd05aa457012bae2198a09edb2ecdc40b0f93b2cd056d9bde",
+          "bytes": 792496,
+          "kind": "pinyin",
+          "c4fm_tx": false,
+          "configuration": "DM1701_WRITE_PINYIN_FW"
+        },
+        {
+          "filename": "03_main_BAOFENG_DM-1701_v1.2.0-rc.17.bin",
+          "sha256": "beb227e2e01fa9c00c2353448dd262c915f2d70f105b35c5c3e47fe4f7237735",
+          "bytes": 919496,
+          "kind": "main",
+          "c4fm_tx": false,
+          "configuration": "DM1701_FW"
+        }
+      ]
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_RETEVIS_RT-84.zip",
+      "origin": "DIGIALL",
+      "version": "v1.2.0-rc.17",
+      "target": "rt84",
+      "model": "Retevis RT-84",
+      "board": "RETEVIS_RT-84",
+      "firmware_source_commit": "de32987fcd540b9351dbf0522e5ba1c91c90591e",
+      "test_status": "host-build-only",
+      "cps_loader_scope": "actual radio selection",
+      "stages": [
+        {
+          "filename": "01_font_RETEVIS_RT-84_v1.2.0-rc.17.bin",
+          "sha256": "8097ad73774ea6c4a0a9ef5ef657840113ecdedfce4312b79e969e4d5c520a63",
+          "bytes": 980144,
+          "kind": "font",
+          "c4fm_tx": false,
+          "configuration": "RT84_WRITE_FONT_FW"
+        },
+        {
+          "filename": "02_pinyin_RETEVIS_RT-84_v1.2.0-rc.17.bin",
+          "sha256": "e01e4a4bc39fade6253d7bf4935e970600707cedbdb725e5894d2d6b60e98348",
+          "bytes": 792496,
+          "kind": "pinyin",
+          "c4fm_tx": false,
+          "configuration": "RT84_WRITE_PINYIN_FW"
+        },
+        {
+          "filename": "03_main_RETEVIS_RT-84_v1.2.0-rc.17.bin",
+          "sha256": "ec37246dd9c84e9f40641319a246922d810754368be196aef975a6321fc6e4b6",
+          "bytes": 919496,
+          "kind": "main",
+          "c4fm_tx": false,
+          "configuration": "RT84_FW"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_BAOFENG_DM-1701.zip",
+      "bytes": 701495,
+      "sha256": "3c889248fb1adbc0379b7fb5444e601aa84e2da832813e55b21c297674ca2d92"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_RETEVIS_RT-3S.zip",
+      "bytes": 718938,
+      "sha256": "d81736772e34f46d477f3c08513ab657940654071a76f3fb1b96d34f9927baa7"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_RETEVIS_RT-84.zip",
+      "bytes": 702121,
+      "sha256": "84e20cf56957e76863a4e5772e138cc3dd015a800a913a895c19668cfc5b36e2"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_TYT_MD-UV380-390_5W_GPS.zip",
+      "bytes": 719026,
+      "sha256": "1d32f9de217810b3b3b6222795213be162fc729617a75642154d62e00a3b283c"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "bytes": 718983,
+      "sha256": "7efb9e4637ddc16ff3a0380d1873f3843622a9abeec577aa55e2dda6b5b0400c"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.17_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "bytes": 719005,
+      "sha256": "0da1b0a23df91b94b6acfa0ff2187e9386fc2125ef916a2f5cac1fa7a330ec06"
+    },
+    {
+      "filename": "GUIDES_v1.2.0-rc.17.zip",
+      "bytes": 96003,
+      "sha256": "8e5a00d51fdcd179fcef7519b50fe4581e90d8ca0ce8a14bf282f134c5f23b1d"
+    },
+    {
+      "filename": "INSTALL_v1.2.0-rc.17.md",
+      "bytes": 1687,
+      "sha256": "7c3de6e69899566657b0fc53275698ab9077dc613301b808901f5ab39abc0c51"
+    }
+  ]
+}
