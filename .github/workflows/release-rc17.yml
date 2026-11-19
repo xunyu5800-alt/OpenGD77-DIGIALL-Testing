@@ -1,4 +1,4 @@
-name: Publish verified rc.17 test firmware
+name: Publish verified firmware
 on:
   push:
     branches: [codex/publish-v1.2.0-rc.17]

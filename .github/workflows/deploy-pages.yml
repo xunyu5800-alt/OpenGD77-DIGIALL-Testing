@@ -1,0 +1,91 @@
+name: Deploy verified firmware site
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**', '.github/scripts/pages_site.py', '.github/scripts/test_pages_site.py', '.github/workflows/deploy-pages.yml']
+  pull_request:
+    paths: ['docs/**', '.github/scripts/pages_site.py', '.github/scripts/test_pages_site.py', '.github/workflows/deploy-pages.yml']
+  release:
+    types: [published]
+  # Releases created with GITHUB_TOKEN do not trigger a release workflow.
+  # Keep the publisher's display name stable for subsequent firmware versions.
+  workflow_run:
+    workflows: ['Publish verified firmware', 'Publish verified rc.17 test firmware']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Published firmware tag; leave empty for newest firmware (including rc). Explicit older tag rolls back.'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 .github/scripts/test_pages_site.py
+  deploy:
+    needs: validate
+    if: >-
+      github.event_name != 'pull_request' &&
+      (github.event_name != 'workflow_run' ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      deployments: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build from published releases and verify all package hashes
+        env:
+          REQUESTED_TAG: ${{ inputs.tag }}
+        run: python3 .github/scripts/pages_site.py build --tag "$REQUESTED_TAG"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-pages-site
+          path: .site-build/
+          retention-days: 7
+          include-hidden-files: true
+      - name: Read existing project and its production branch
+        id: project
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: python3 .github/scripts/pages_site.py project
+      - name: Deploy atomically to the existing Pages project
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.165.0'
+          command: pages deploy .site-build --project-name=opengd77-digiall --branch="${{ steps.project.outputs.branch }}"
+          gitHubToken: ${{ github.token }}
+      - name: Verify production catalog and every hosted ZIP
+        run: python3 .github/scripts/pages_site.py verify

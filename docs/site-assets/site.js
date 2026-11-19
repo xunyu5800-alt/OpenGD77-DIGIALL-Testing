@@ -87,7 +87,7 @@ function renderSelection() {
     ? '关机并连接数据线。按住两个侧键 SK1＋SK2 开机进入升级模式，具体按键以对应机型的上游说明为准。'
     : '关机并连接数据线。按住上侧键 SK1＋PTT 开机进入 DFU，再松开按键。升级模式下屏幕可能保持黑屏。';
   element('path-intro').textContent = native
-    ? 'DIGIALL rc.17 由桌面 OpenGD77 CPS 写入。浏览器 USB 检测失败时，若 CPS 能识别电台，仍可继续。'
+    ? `DIGIALL ${selection.version} 由桌面 OpenGD77 CPS 写入。浏览器 USB 检测失败时，若 CPS 能识别电台，仍可继续。`
     : '这是上游原版包。用 Web CPS 或桌面 CPS 刷写前，先确认工具支持你的机型。';
   boardNote.textContent = native
     ? selection.c4fmTx
