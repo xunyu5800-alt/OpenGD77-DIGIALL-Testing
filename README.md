@@ -1,5 +1,10 @@
 # OpenGD77-DIGIALL — Public firmware testing
 
+**[rc.17：可交互双守与瀑布图修复](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.17)**。短红键选 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 切换 FM/DMR/C4FM。保留 rc.16 六种 DIGIALL 板型；两种 10W 保留 C4FM 收发，DM-1701/RT-84 仍关闭 C4FM 发射。 [双守操作](docs/DUAL_WATCH.zh-CN.md) · [瀑布图](docs/WATERFALL.zh-CN.md) · [发布说明](docs/releases/v1.2.0-rc.17.md)
+
+Interactive dual watch now uses selected-pane physical PTT and momentary SK1 details, replacing the rc.15 split transmit mapping. Six board profiles are retained. Software-verified; radio acceptance remains pending.
+
+
 [公测网站与刷机助手 / Test site and flash guide](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/) · [机型验收表 / Acceptance matrix](docs/TEST_MATRIX.md) · [提交测试反馈 / Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
 
 **rc.16 多机型公测**。六套 DIGIALL 板型和十一套上游原版对照包已按型号整理。C4FM 增加 SK1 一键切换 0／+300 Hz 的频偏预置。 [下载](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [按机型选包及复测说明](docs/MULTI_MODEL_TESTING.zh-CN.md)
@@ -10,7 +15,7 @@
 
 **Release credit · VRWZI / BIAOQ**
 
-**rc.15** adds a redesigned FM/DMR dual-watch screen and separate transmit keys. Hold SK1 for A, or hold physical PTT for B. [Release notes](docs/releases/v1.2.0-rc.15.md) · [Dual-watch controls](docs/SCAN_RECORDING.en.md)
+**Historical rc.15** used separate transmit keys (SK1=A, physical PTT=B). rc.17 replaces that mapping with selected-pane PTT and SK1 details. [Release notes](docs/releases/v1.2.0-rc.15.md) · [Dual-watch controls](docs/SCAN_RECORDING.en.md)
 
 ## Who can test
 
@@ -30,9 +35,11 @@ This development used AI assistance with operator-led hardware testing. The main
 
 These are production-function/font reconstructions using synthetic identities/positions, **not radio photographs**.
 
-![Dual watch scanning, receiving, tuning and transmitting on B](docs/screenshots/dual-watch-rc15.png)
+| 双守 | C4FM 来话 | SK1 详情 |
+| --- | --- | --- |
+| ![A/B](docs/screenshots/dual-watch-channel.png) | ![C4FM](docs/screenshots/dual-watch-c4fm.png) | ![详情](docs/screenshots/dual-watch-details.png) |
 
-[Light theme](docs/screenshots/dual-watch-rc15-light.png)
+[Historical rc.15 light-theme example](docs/screenshots/dual-watch-rc15-light.png)
 
 | DMR position indicator | C4FM operating view |
 | --- | --- |

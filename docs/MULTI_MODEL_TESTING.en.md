@@ -1,5 +1,8 @@
 # Multi-radio installation and testing
 
+**rc.17 更新 / Updated controls**：新包保留 rc.16 六种 DIGIALL 板型。双守短红键选择 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 循环协议。This replaces rc.15's SK1=A / PTT=B mapping. See [双守操作](DUAL_WATCH.zh-CN.md) and [瀑布图操作](WATERFALL.zh-CN.md). Eleven unchanged upstream reference packages remain available from the rc.16 release.
+
+
 **Release credit · VRWZI / BIAOQ**
 
 [Release v1.2.0-rc.16](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [Browser package selector and verifier](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/#install) · [Acceptance matrix](TEST_MATRIX.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml) · [Detailed Chinese instructions](MULTI_MODEL_TESTING.zh-CN.md)
