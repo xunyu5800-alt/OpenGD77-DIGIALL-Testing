@@ -1,5 +1,6 @@
 """Exercise release selection and fail-closed site preparation without the network."""
 import hashlib
+import contextlib
 import io
 import json
 import os
@@ -179,6 +180,28 @@ class PagesTests(unittest.TestCase):
         with patch.dict(os.environ, env, clear=True), patch.object(site, 'get', return_value=json.dumps(response).encode()):
             site.project()
         self.assertEqual(output.read_text(), 'branch=production\n')
+
+    def test_surrounding_secret_whitespace_is_normalized_for_wrangler(self):
+        output = self.root / 'github-output'
+        environment = self.root / 'github-env'
+        token = 'private-test-token'
+        env = dict(CLOUDFLARE_ACCOUNT_ID=' ' + 'a' * 32 + '\n', CLOUDFLARE_API_TOKEN='\r\n' + token + ' ',
+                   GITHUB_OUTPUT=str(output), GITHUB_ENV=str(environment), GITHUB_ACTIONS='true')
+        response = dict(success=True, result=dict(subdomain='opengd77-digiall.pages.dev', production_branch='main'))
+        captured = io.StringIO()
+        with patch.dict(os.environ, env, clear=True), patch.object(site, 'get', return_value=json.dumps(response).encode()) as get:
+            with contextlib.redirect_stdout(captured):
+                site.project()
+            self.assertEqual(get.call_args.kwargs['token'], token)
+        self.assertIn('PAGES_API_TOKEN=' + token + '\n', environment.read_text())
+        self.assertIn('::add-mask::' + token, captured.getvalue())
+
+    def test_internal_token_whitespace_needs_a_correct_secret(self):
+        env = dict(CLOUDFLARE_ACCOUNT_ID='a' * 32, CLOUDFLARE_API_TOKEN='two words')
+        with patch.dict(os.environ, env, clear=True), patch.object(site, 'get') as get:
+            with self.assertRaisesRegex(ValueError, 'whitespace inside'):
+                site.project()
+            get.assert_not_called()
 
 
 if __name__ == '__main__':

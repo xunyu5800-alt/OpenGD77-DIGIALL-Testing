@@ -196,14 +196,14 @@ def build(info, docs, output, fetch=get):
 
 
 def project():
-    account = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '')
-    token = os.environ.get('CLOUDFLARE_API_TOKEN', '')
+    account = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '').strip()
+    token = os.environ.get('CLOUDFLARE_API_TOKEN', '').strip()
     require(account, 'CLOUDFLARE_ACCOUNT_ID is missing; add it as a repository Actions secret')
     require(re.fullmatch(r'[0-9a-f]{32}', account),
             'CLOUDFLARE_ACCOUNT_ID must be the 32-character account ID without whitespace')
     require(token, 'CLOUDFLARE_API_TOKEN is missing; add it as a repository Actions secret')
-    require(token == token.strip() and not any(c.isspace() for c in token),
-            'CLOUDFLARE_API_TOKEN contains whitespace; paste only the token value')
+    require(not any(c.isspace() for c in token),
+            'CLOUDFLARE_API_TOKEN contains whitespace inside the token; paste only the token value')
     try:
         result = json.loads(get(f'https://api.cloudflare.com/client/v4/accounts/{account}/pages/projects/{PROJECT}', token=token))
     except urllib.error.HTTPError as error:
@@ -221,6 +221,14 @@ def project():
     require(re.fullmatch(r'[A-Za-z0-9_./-]+', branch or ''), 'Unsupported production branch name')
     with open(os.environ['GITHUB_OUTPUT'], 'a') as stream:
         stream.write('branch=' + branch + '\n')
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+        # Mask the normalized value before making it available to Wrangler. The
+        # original secret can contain surrounding newlines that must not be sent
+        # in HTTP headers or passed unchanged to the deploy action.
+        print('::add-mask::' + token, flush=True)
+        print('::add-mask::' + account, flush=True)
+        with open(os.environ['GITHUB_ENV'], 'a') as stream:
+            stream.write('PAGES_ACCOUNT_ID=' + account + '\nPAGES_API_TOKEN=' + token + '\n')
     print('Verified existing Pages project and production branch')
 
 
