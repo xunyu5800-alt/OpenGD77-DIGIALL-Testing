@@ -1,0 +1,30 @@
+name: Correct rc.18 release image link
+on:
+  push:
+    branches: [codex/rc18-release-notes]
+permissions:
+  contents: write
+jobs:
+  notes:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          tag='v1.2.0-rc.18'
+          def run(*args):return subprocess.check_output(args,text=True).strip()
+          api=json.loads(run('gh','release','view',tag,'--json','apiUrl'))['apiUrl']
+          before=json.loads(run('gh','api',api));assert not before['draft']
+          path=Path('docs/releases')/(tag+'.md')
+          run('gh','release','edit',tag,'--notes-file',str(path))
+          after=json.loads(run('gh','api',api))
+          assert after['body'].strip()==path.read_text().strip()
+          assert before['target_commitish']==after['target_commitish']
+          assert [a['id'] for a in before['assets']]==[a['id'] for a in after['assets']]
+          print('Updated release image link; ten published assets and tag target retained')
+          PY
