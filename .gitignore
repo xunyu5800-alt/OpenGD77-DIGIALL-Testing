@@ -3,3 +3,5 @@ published-rc17.json
 publish-rc17.log
 .site-build/
 .wrangler/
+published-rc18.json
+publish-rc18.log
