@@ -11,7 +11,7 @@
 
 不要把 Token 放入聊天、仓库文件、网页脚本或 Actions 日志。流水线读取现有项目的生产分支，不假设它叫 main，也不创建或替换项目。
 
-配置后，在 **Actions → Deploy verified firmware site → Run workflow**，选择 main，tag 留空，即可首次同步最新已发布固件。无需手动上传 ZIP。
+配置后，打开 [Deploy verified firmware site 工作流](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/actions/workflows/deploy-pages.yml)，点击 **Run workflow**，选择 main，tag 留空，即可首次同步最新已发布固件。无需手动上传 ZIP。
 
 ## 后续发布
 
