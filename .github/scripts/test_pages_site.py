@@ -2,11 +2,13 @@
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
 import zipfile
+import urllib.error
 
 import pages_site as site
 
@@ -150,6 +152,33 @@ class PagesTests(unittest.TestCase):
         self.info['assets'][0]['browser_download_url'] = 'https://example.org/board0.zip'
         with self.assertRaisesRegex(ValueError, 'Unexpected release asset URL'):
             self.build()
+
+    def test_missing_credentials_identify_the_missing_secret(self):
+        with patch.dict(os.environ, {}, clear=True):
+            with self.assertRaisesRegex(ValueError, 'CLOUDFLARE_ACCOUNT_ID is missing'):
+                site.project()
+        with patch.dict(os.environ, {'CLOUDFLARE_ACCOUNT_ID': 'a' * 32}, clear=True):
+            with self.assertRaisesRegex(ValueError, 'CLOUDFLARE_API_TOKEN is missing'):
+                site.project()
+
+    def test_cloudflare_error_reports_code_without_reflected_secrets(self):
+        token = 'private-test-token-sentinel'
+        error = urllib.error.HTTPError('https://api.cloudflare.com/', 403, 'Forbidden', {},
+            io.BytesIO(json.dumps({'errors': [{'code': 10000, 'message': token}]}).encode()))
+        with patch.dict(os.environ, {'CLOUDFLARE_ACCOUNT_ID': 'a' * 32, 'CLOUDFLARE_API_TOKEN': token}, clear=True):
+            with patch.object(site, 'get', side_effect=error):
+                with self.assertRaises(ValueError) as caught:
+                    site.project()
+        self.assertIn('HTTP 403; error codes [10000]', str(caught.exception))
+        self.assertNotIn(token, str(caught.exception))
+
+    def test_project_emits_only_the_verified_production_branch(self):
+        output = self.root / 'github-output'
+        env = dict(CLOUDFLARE_ACCOUNT_ID='a' * 32, CLOUDFLARE_API_TOKEN='private-test-token', GITHUB_OUTPUT=str(output))
+        response = dict(success=True, result=dict(subdomain='opengd77-digiall.pages.dev', production_branch='production'))
+        with patch.dict(os.environ, env, clear=True), patch.object(site, 'get', return_value=json.dumps(response).encode()):
+            site.project()
+        self.assertEqual(output.read_text(), 'branch=production\n')
 
 
 if __name__ == '__main__':

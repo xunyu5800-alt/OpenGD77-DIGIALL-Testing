@@ -63,6 +63,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Read existing project and its production branch
+        id: project
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: python3 .github/scripts/pages_site.py project
       - name: Build from published releases and verify all package hashes
         env:
           REQUESTED_TAG: ${{ inputs.tag }}
@@ -73,12 +79,6 @@ jobs:
           path: .site-build/
           retention-days: 7
           include-hidden-files: true
-      - name: Read existing project and its production branch
-        id: project
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: python3 .github/scripts/pages_site.py project
       - name: Deploy atomically to the existing Pages project
         uses: cloudflare/wrangler-action@v4
         with:

@@ -9,6 +9,7 @@ import re
 import shutil
 import subprocess
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
@@ -197,9 +198,23 @@ def build(info, docs, output, fetch=get):
 def project():
     account = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '')
     token = os.environ.get('CLOUDFLARE_API_TOKEN', '')
-    require(re.fullmatch(r'[0-9a-f]{32}', account) and token,
-            'Configure CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN in repository Actions secrets')
-    result = json.loads(get(f'https://api.cloudflare.com/client/v4/accounts/{account}/pages/projects/{PROJECT}', token=token))
+    require(account, 'CLOUDFLARE_ACCOUNT_ID is missing; add it as a repository Actions secret')
+    require(re.fullmatch(r'[0-9a-f]{32}', account),
+            'CLOUDFLARE_ACCOUNT_ID must be the 32-character account ID without whitespace')
+    require(token, 'CLOUDFLARE_API_TOKEN is missing; add it as a repository Actions secret')
+    require(token == token.strip() and not any(c.isspace() for c in token),
+            'CLOUDFLARE_API_TOKEN contains whitespace; paste only the token value')
+    try:
+        result = json.loads(get(f'https://api.cloudflare.com/client/v4/accounts/{account}/pages/projects/{PROJECT}', token=token))
+    except urllib.error.HTTPError as error:
+        codes = []
+        try:
+            body = json.loads(error.read())
+            codes = [entry['code'] for entry in body.get('errors', []) if isinstance(entry.get('code'), int)]
+        except (ValueError, KeyError):
+            pass
+        raise ValueError(f'Cloudflare Pages project lookup returned HTTP {error.code}; error codes {codes}. '
+                         'Check the token account and Account / Cloudflare Pages / Edit permission') from None
     require(result.get('success'), 'Cannot read the existing Cloudflare Pages project')
     require(result['result']['subdomain'] == PROJECT + '.pages.dev', 'Unexpected Cloudflare project')
     branch = result['result']['production_branch']
@@ -240,6 +255,10 @@ if __name__ == '__main__':
         result = build(release(args.tag), ROOT / 'docs', args.output)
         print('Prepared ' + result['tag'] + ': ' + str(len(result['packages'])) + ' verified packages')
     elif args.command == 'project':
-        project()
+        try:
+            project()
+        except ValueError as error:
+            print('::error::' + str(error), flush=True)
+            raise SystemExit(1)
     else:
         verify(args.output)
