@@ -21,7 +21,8 @@ jobs:
       GH_REPO: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v4
-      - run: python3 .github/scripts/publish_rc18.py publish 2>&1 | tee publish-rc18.log
+      - run: python3 .github/scripts/download_rc18.py 2>&1 | tee publish-rc18.log
+      - run: python3 .github/scripts/publish_rc18.py publish 2>&1 | tee -a publish-rc18.log
       - if: always()
         run: python3 .github/scripts/publish_rc18.py status
         env:

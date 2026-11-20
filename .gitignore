@@ -5,3 +5,4 @@ publish-rc17.log
 .wrangler/
 published-rc18.json
 publish-rc18.log
+_release/

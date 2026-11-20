@@ -1,0 +1,57 @@
+{
+  "tag": "v1.2.0-rc.18",
+  "firmware_source_commit": "7b02b6edff90b9704af53607176480bc79ae2b22",
+  "base_url": "https://00ee29a4.opengd77-digiall.pages.dev",
+  "files": [
+    {
+      "filename": "DIGIALL_v1.2.0-rc.18_BAOFENG_DM-1701.zip",
+      "bytes": 705089,
+      "sha256": "da0e9e5e42f3c50349e72d470f126919a60f44cfc6bd1ce0ac97f596c79a3d23"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.18_RETEVIS_RT-3S.zip",
+      "bytes": 721559,
+      "sha256": "0bbf84be942533de98820eb6f836046d6f0f4f2ce1e3f64623d3cc581f1b170c"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.18_RETEVIS_RT-84.zip",
+      "bytes": 704728,
+      "sha256": "a3c72402bbc53a8eaa724efaade3a72cafb4c52dc1cba963c30389a172f88e70"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_5W_GPS.zip",
+      "bytes": 721649,
+      "sha256": "328150b8053acda29e79e2d6b6d58d81c71446dcec5a7cc3fee3f84c8b750bb4"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "bytes": 721644,
+      "sha256": "3330f3b4bbdeaacd8244e00115088a79a13c28c735a734df2e51a929f22fbedb"
+    },
+    {
+      "filename": "DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "bytes": 721640,
+      "sha256": "f64dbd800efdb04b05054629cea770e61f1189059c2af6bbba9b89fb091c3c3c"
+    },
+    {
+      "filename": "GUIDES_v1.2.0-rc.18.zip",
+      "bytes": 96597,
+      "sha256": "9b4d51a2bf96ef11e3fd450eab352d1d7d1bcb3495f5b7ebd4beffed6eb7ea70"
+    },
+    {
+      "filename": "INSTALL_v1.2.0-rc.18.md",
+      "bytes": 2661,
+      "sha256": "ad819a2bbef6582fd7ef3d6c2feab19adca7a9e4a4a5966c0ffea934fa623714"
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "bytes": 942,
+      "sha256": "77be20590e643e25aa82db95e23c199b8bd1fadcd9eaae12c2febedeec0f39af"
+    },
+    {
+      "filename": "release_manifest.json",
+      "bytes": 9916,
+      "sha256": "863a8a67358b6e73584c2dc3afe18720b7e53930d3af6a51add19d45ba2ecae4"
+    }
+  ]
+}
