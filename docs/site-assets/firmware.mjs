@@ -61,9 +61,15 @@ export async function prepareFirmware(file, selected) {
   const zip = new Uint8Array(await file.arrayBuffer());
   await verify(zip, selected.sha256, '机型 ZIP');
   if (selected.stages) {
+    const prefixes = ['01_font_', '02_pinyin_', '03_main_'];
+    if (selected.stages.length !== 3 || selected.stages.some((stage, index) =>
+      !stage.filename?.startsWith(prefixes[index]) || !stage.filename.toLowerCase().endsWith('.bin'))) {
+      throw new Error('DIGIALL 包必须包含顺序正确的 01 字库、02 拼音、03 主固件 BIN。请从发布页重新下载。');
+    }
     return Promise.all(selected.stages.map(async stage => {
       const bytes = await extract(zip, stage.filename, stage.bytes);
       await verify(bytes, stage.sha256, stage.filename);
+      if (bytes[0] === 0x50 && bytes[1] === 0x4b) throw new Error('提取结果仍是 ZIP，已停止。刷机只能选择解压后的 BIN。');
       return {filename: stage.filename, bytes};
     }));
   }
@@ -71,6 +77,9 @@ export async function prepareFirmware(file, selected) {
   await verify(inner, selected.innerSha256, '上游原版 ZIP');
   const bytes = await extract(inner, selected.firmware);
   await verify(bytes, selected.firmwareSha256, selected.firmware);
+  if (!selected.firmware.toLowerCase().endsWith('.bin') || (bytes[0] === 0x50 && bytes[1] === 0x4b)) {
+    throw new Error('提取结果不是可用的 BIN，已停止。请按机型安装指南操作。');
+  }
   return [{filename: selected.firmware, bytes}];
 }
 

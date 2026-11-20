@@ -41,6 +41,7 @@ function showUsbResult(state, error) {
 function instructionsFor(entry) {
   if (entry.origin === 'DIGIALL') {
     return [
+      'ZIP 不能直接刷入电台。先解压或用本页提取 BIN，CPS 每次只选择一份 BIN；完整安装要按 01_font → 02_pinyin → 03_main 分别刷写 3 次。',
       '在桌面 OpenGD77 CPS 打开 Extras → Firmware Loader，选择本机型号。需要数字语音时，用 Select official firmware 选择自己有权使用的 MD9600 V26.45 CSV donor。',
       '首次安装，在 DFU 中用 Select Open firmware file & update 刷 01_font。随后正常开机运行 CHINESE FONT WRITER，看到 COMPLETE - VERIFIED 并等背光熄灭后，把电源旋钮转到关。显示 FAILED 时停止。',
       '刷 02_pinyin 时，按住 SK1＋PTT 开机进入 DFU，在 CPS 选 02_pinyin 写入。再正常开机运行 CHINESE PINYIN WRITER，看到 COMPLETE - VERIFIED 并等背光熄灭后关机。',
@@ -87,7 +88,7 @@ function renderSelection() {
     ? '关机并连接数据线。按住两个侧键 SK1＋SK2 开机进入升级模式，具体按键以对应机型的上游说明为准。'
     : '关机并连接数据线。按住上侧键 SK1＋PTT 开机进入 DFU，再松开按键。升级模式下屏幕可能保持黑屏。';
   element('path-intro').textContent = native
-    ? `DIGIALL ${selection.version} 由桌面 OpenGD77 CPS 写入。浏览器 USB 检测失败时，若 CPS 能识别电台，仍可继续。`
+    ? `DIGIALL ${selection.version} 用桌面 OpenGD77 CPS 分别刷写 BIN，不能直接刷 ZIP。完整安装分 3 次，最后必须刷 03_main。`
     : '这是上游原版包。用 Web CPS 或桌面 CPS 刷写前，先确认工具支持你的机型。';
   boardNote.textContent = native
     ? selection.c4fmTx
@@ -125,7 +126,9 @@ fileInput.addEventListener('change', async () => {
   try {
     const results = await prepareFirmware(file, selection);
     if (request !== verification) return;
-    fileStatus.textContent = 'SHA-256 校验通过。保存对应文件，用刷机工具加载。';
+    fileStatus.textContent = selection.origin === 'DIGIALL'
+      ? '校验与解压完成，尚未刷机。依次保存 01、02、03 三份 BIN，再在 CPS 中分三次刷写；不要选择 ZIP。'
+      : '校验与解压完成，尚未刷机。保存原版 BIN 后交给对应刷机工具；不要选择 ZIP。';
     results.forEach(({bytes, filename}, index) => {
       const link = document.createElement('a');
       link.download = filename;

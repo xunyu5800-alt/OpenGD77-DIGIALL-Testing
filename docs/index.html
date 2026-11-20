@@ -46,6 +46,17 @@
 
     <section id="install" class="section" aria-labelledby="install-title">
       <div class="section-heading"><h2 id="install-title">固件与刷机</h2><a class="text-link" href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.17">GitHub 发布页 ↗</a></div>
+      <aside class="flash-warning" aria-labelledby="flash-warning-title">
+        <h3 id="flash-warning-title">重要：ZIP 不能直接刷入电台</h3>
+        <p><strong>ZIP 只是打包文件。先解压，刷机工具中每次只选择一份 BIN。</strong>DIGIALL 完整安装需要按顺序分别刷写 <strong>3 次</strong>：</p>
+        <ol>
+          <li><strong>第 1 次：01_font 字库 BIN</strong> — 在 DFU 中刷入，再正常开机运行字库写入器；看到 COMPLETE - VERIFIED、等背光熄灭后关机。</li>
+          <li><strong>第 2 次：02_pinyin 拼音 BIN</strong> — 重新进入 DFU 刷入，再正常开机运行拼音写入器；看到 COMPLETE - VERIFIED、等背光熄灭后关机。</li>
+          <li><strong>第 3 次：03_main 主固件 BIN</strong> — 再次进入 DFU 刷入，完成后松开按键正常开机。</li>
+        </ol>
+        <p>01/02 是临时资源写入器，不能作为最终固件使用；写入显示 FAILED 时停止。<strong>误刷 ZIP 或停在写入器后循环重启：</strong>关机后按本机升级键组合重新进入 DFU，按以上三步完成安装，最后必须刷 03_main。</p>
+        <p class="hint">已确认兼容字库和拼音资源完整的项目固件升级，可只更新 03_main；首次安装或资源状态不明时完成全部三步。上游原版按对应机型说明刷解压后的 BIN。</p>
+      </aside>
       <div class="flash-intro surface">
         <p>先备份码表、校准和需要保留的记录，并保存能恢复开机的旧固件。DIGIALL 由桌面 OpenGD77 CPS 写入，上游原版可使用其支持的 Web CPS。</p>
         <a class="btn primary" id="start-flash" href="#choose-model">开始刷机 <span aria-hidden="true">↓</span></a>
@@ -59,16 +70,16 @@
           <p id="board-note" class="board-note" hidden></p>
         </div>
         <div class="surface" id="prepare-files">
-          <h3>2. 下载、校验并保存刷机文件</h3>
-          <p class="hint">选好机型后下载对应 ZIP，再把下载好的文件选到下方。校验通过后，保存要使用的 BIN。</p>
+          <h3>2. 下载 ZIP 并解压成 BIN（此步不刷机）</h3>
+          <p class="hint">下载对应 ZIP 后，可在电脑上解压，或在下方校验并提取 BIN。ZIP 不能交给 CPS 直接刷写；DIGIALL 完整安装要依次使用三份 BIN。</p>
           <template id="package-template">
             <div class="package-id"><code id="package-name"></code><p class="hint">SHA-256 <code id="sha"></code></p></div>
-            <a id="download-zip" class="btn neutral" href="#prepare-files">下载匹配 ZIP <span aria-hidden="true">↓</span></a>
+            <a id="download-zip" class="btn neutral" href="#prepare-files">下载 ZIP（不可直接刷）<span aria-hidden="true">↓</span></a>
           </template>
           <div id="package"></div>
-          <label for="zip">选择已下载的机型 ZIP</label>
+          <label for="zip">仅校验和解压：选择已下载的机型 ZIP</label>
           <input type="file" id="zip" accept=".zip,application/zip" disabled>
-          <p id="zip-status" role="status" class="hint">请选择机型和 ZIP。文件在本机校验与解压。</p>
+          <p id="zip-status" role="status" class="hint">这里选择 ZIP 仅用于本机校验与解压，不会写入电台。刷机时请选提取后的 BIN。</p>
           <div id="files" class="file-list"></div>
           <noscript><p>请启用 JavaScript 使用选包器与校验工具，或从发布页按型号手动选包。</p></noscript>
         </div>
@@ -91,7 +102,7 @@
           </div>
         </div>
         <div class="instructions surface" id="write-firmware">
-          <h3>4. 开始写入固件</h3>
+          <h3>4. 只用 BIN 刷写（DIGIALL 完整安装分 3 次）</h3>
           <p id="path-intro">选择机型后，这里会给出对应的刷写入口和顺序。</p>
           <ol id="instructions"></ol>
           <div class="actions">

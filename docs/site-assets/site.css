@@ -87,6 +87,12 @@ code { font-family: var(--mono); }
 #usb-status[data-result="access-denied"], #usb-status[data-result="open-error"] { color: var(--amber); }
 #usb-status[data-result="ready"] { color: var(--mint); }
 .file-list { display: flex; gap: 6px; flex-wrap: wrap; }
+.flash-warning { margin: 18px 0; padding: 20px 24px; border: 2px solid #df9a38; border-radius: 12px; background: #2b2318; color: #f3e8d6; overflow-wrap: anywhere; }
+.flash-warning h3 { margin: 0 0 10px; color: #ffd58e; }
+.flash-warning p { margin: 10px 0; }
+.flash-warning ol { padding-left: 1.4em; }
+.flash-warning li + li { margin-top: 10px; }
+.flash-warning .hint { color: #d9c9ae; }
 .file-list a { display: inline-flex; margin-top: 7px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; }
 .instructions { color: var(--muted); font-size: .9rem; }
 .instructions ol { margin: 12px 0; padding-left: 1.4em; }
