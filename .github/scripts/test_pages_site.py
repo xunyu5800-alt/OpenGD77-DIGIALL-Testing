@@ -34,7 +34,11 @@ class PagesTests(unittest.TestCase):
         self.docs = self.root / 'docs'
         (self.docs / 'site-assets').mkdir(parents=True)
         (self.docs / 'index.html').write_text('<p class="version"><span></span> v1.0.0</p>'
+            '<link rel="stylesheet" href="site-assets/site.css"><script src="site-assets/site.js"></script>'
             '<a href="https://github.com/' + site.REPO + '/releases/tag/v1.0.0">GitHub 发布页</a>', encoding='utf8')
+        (self.docs / 'site-assets/site.js').write_text("import './firmware.mjs';\nconst initialCatalog = new URL('./catalog.json', import.meta.url);", encoding='utf8')
+        (self.docs / 'site-assets/firmware.mjs').write_text('export const test = true;', encoding='utf8')
+        (self.docs / 'site-assets/site.css').write_text('body {color: white}', encoding='utf8')
         self.tag = 'v1.2.0-rc.18'
         self.source = '1' * 40
         self.files = {}
@@ -93,6 +97,43 @@ class PagesTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch'):
             self.build()
         self.assertFalse((self.root / 'output').exists())
+
+    def test_page_pins_content_addressed_script_style_and_catalog(self):
+        receipt = self.build()
+        output = self.root / 'output'
+        html = (output / 'index.html').read_text(encoding='utf8')
+        self.assertEqual(len(receipt['entry_assets']), 4)
+        for path, digest in receipt['entry_assets'].items():
+            self.assertIn(digest[:12], path)
+            self.assertEqual(sha((output / path).read_bytes()), digest)
+            if path.endswith(('.js', '.css')):
+                self.assertIn(path, html)
+        script = next(output / p for p in receipt['entry_assets'] if p.endswith('.js'))
+        script = script.read_text(encoding='utf8')
+        catalog = next(p for p in receipt['entry_assets'] if p.endswith('.json'))
+        firmware = next(p for p in receipt['entry_assets'] if p.endswith('.mjs'))
+        self.assertIn(Path(catalog).name, script)
+        self.assertIn(Path(firmware).name, script)
+        self.assertNotIn('site-assets/site.js', html)
+        self.assertNotIn('site-assets/site.css', html)
+
+    def test_verify_rejects_stale_custom_domain_without_cache_busting(self):
+        self.build()
+        output = self.root / 'output'
+        requests = []
+        def fetch(url):
+            requests.append(url)
+            self.assertNotIn('?', url)
+            if url == site.CUSTOM_SITE + '/site-assets/catalog.json':
+                return b'{"tag":"v1.2.0-rc.17"}'
+            for host in (site.SITE, site.CUSTOM_SITE):
+                if url.startswith(host + '/'):
+                    return (output / (url[len(host)+1:] or 'index.html')).read_bytes()
+            self.fail('unexpected URL: ' + url)
+        with patch.object(site, 'get', side_effect=fetch):
+            with self.assertRaisesRegex(ValueError, 'live catalog: ' + site.CUSTOM_SITE):
+                site.verify(output)
+        self.assertIn(site.SITE + '/site-assets/catalog.json', requests)
 
     def test_corrupt_upstream_never_creates_output(self):
         self.network[self.upstream['url']] += b'corrupt'

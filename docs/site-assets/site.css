@@ -35,7 +35,7 @@ nav a, .top-guide { color: var(--muted); font-size: .9rem; font-weight: 600; }
 .top-guide { border-left: 1px solid var(--border); padding-left: 25px; color: var(--mint); white-space: nowrap; }
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: clamp(25px, 6vw, 84px); padding: 67px 0 65px; }
 .version { color: var(--mint); font: 600 .88rem/1.6 var(--mono); letter-spacing: .03em; display: flex; align-items: center; gap: 10px; }
-.version span, .hero-display figcaption i { display: inline-block; width: 7px; height: 7px; border-radius: 100%; background: var(--mint); box-shadow: 0 0 12px #8aefce65; }
+.version > span:first-child, .hero-display figcaption i { display: inline-block; width: 7px; height: 7px; border-radius: 100%; background: var(--mint); box-shadow: 0 0 12px #8aefce65; }
 .version small { font: 500 .82rem var(--sans); color: var(--muted); padding-left: 8px; }
 h1 { margin: 20px 0; font-size: clamp(2.6rem, 5vw, 4.7rem); line-height: 1.14; letter-spacing: -.055em; }
 h1 em { color: var(--mint); font-style: normal; }

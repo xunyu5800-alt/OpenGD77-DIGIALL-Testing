@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 REPO = 'xunyu5800-alt/OpenGD77-DIGIALL-Testing'
 PROJECT = 'opengd77-digiall'
 SITE = 'https://opengd77-digiall.pages.dev'
+CUSTOM_SITE = 'https://digiall.iot-c.com'
 TAG = re.compile(r'v\d+\.\d+\.\d+(?:-[A-Za-z0-9.]+)?\Z')
 SHA = re.compile(r'[0-9a-f]{64}\Z')
 
@@ -110,6 +111,33 @@ def upstream_zip(data, package):
         checked(z.read(package['firmware']), package['firmwareSha256'], package['firmware'])
 
 
+def fingerprint_site(output, tag):
+    assets = output/'site-assets'
+    result = {}
+    def save(stem, suffix, data):
+        digest = hashlib.sha256(data).hexdigest()
+        name = f'{stem}.{digest[:12]}.{suffix}'
+        (assets/name).write_bytes(data)
+        result['site-assets/'+name] = digest
+        return name
+    catalog = save('catalog.'+tag, 'json', (assets/'catalog.json').read_bytes())
+    firmware = save('firmware', 'mjs', (assets/'firmware.mjs').read_text(encoding='utf8').encode())
+    script = (assets/'site.js').read_text(encoding='utf8')
+    script = script.replace("'./firmware.mjs'", "'./"+firmware+"'")
+    initial = "const initialCatalog = new URL('./catalog.json', import.meta.url);"
+    require(script.count(initial) == 1, 'Missing versioned startup catalog hook')
+    script = script.replace(initial, "const initialCatalog = new URL('./"+catalog+"', import.meta.url);")
+    script_name = save('site', 'js', script.encode())
+    style_name = save('site', 'css', (assets/'site.css').read_text(encoding='utf8').encode())
+    index = output/'index.html'
+    html = index.read_text(encoding='utf8')
+    require('site-assets/site.js' in html and 'site-assets/site.css' in html, 'Missing site entry assets')
+    html = html.replace('site-assets/site.js', 'site-assets/'+script_name)
+    html = html.replace('site-assets/site.css', 'site-assets/'+style_name)
+    index.write_text(html, encoding='utf8')
+    return result
+
+
 def build(info, docs, output, fetch=get):
     tag = info['tag_name']
     require(not info['draft'] and TAG.fullmatch(tag), 'Invalid published release')
@@ -182,15 +210,19 @@ def build(info, docs, output, fetch=get):
     html = index.read_text(encoding='utf8')
     # Only update the current firmware badge/link; keep explicitly older manuals and tools pinned.
     html = re.sub(r'(<p class="version"><span></span> )v[\w.-]+', lambda m: m[1] + tag, html)
+    html = re.sub(r'(<span id="firmware-version">)[^<]+', lambda m: m[1] + tag, html)
     html = re.sub(r'(releases/tag/)v[\w.-]+(?=">GitHub 发布页)', lambda m: m[1] + tag, html)
     index.write_text(html, encoding='utf8')
+    entry_assets = fingerprint_site(output, tag)
     receipt = dict(tag=tag, release_url=info['html_url'], firmware_source_commit=manifest['source_commit'],
                    documentation_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
                    catalog_sha256=hashlib.sha256((output / 'site-assets/catalog.json').read_bytes()).hexdigest(),
+                   entry_assets=entry_assets,
                    packages=[dict(path=p, sha256=hashlib.sha256(b).hexdigest(), bytes=len(b)) for p, b in blobs.items()])
     (output / 'deployment-version.json').write_text(json.dumps(receipt, indent=2) + '\n')
-    (output / '_headers').write_text('/\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n'
-        '/site-assets/*\n  Cache-Control: no-cache\n/deployment-version.json\n  Cache-Control: no-cache\n'
+    mutable = '  Cache-Control: no-store, max-age=0\n  CDN-Cache-Control: no-store\n  Cloudflare-CDN-Cache-Control: no-store\n'
+    (output / '_headers').write_text(''.join(path+'\n'+mutable for path in
+        ('/', '/index.html', '/site-assets/*', '/deployment-version.json')) +
         '/downloads/*\n  Cache-Control: public, max-age=31536000, immutable\n')
     return receipt
 
@@ -234,23 +266,29 @@ def project():
 
 def verify(output):
     expected = json.loads((output / 'deployment-version.json').read_bytes())
-    # Deployment propagation is bounded; never report success from Wrangler exit status alone.
-    for attempt in range(12):
-        stamp = str(time.time_ns())
-        try:
-            actual = json.loads(get(SITE + '/deployment-version.json?verify=' + stamp))
-        except (OSError, ValueError):
-            actual = None
-        if actual == expected:
-            break
-        if attempt == 11:
-            raise ValueError('Production has not switched to the expected deployment')
-        time.sleep(5)
-    checked(get(SITE + '/site-assets/catalog.json?verify=' + stamp), expected['catalog_sha256'], 'live catalog')
-    for package in expected['packages']:
-        data = checked(get(SITE + '/' + package['path'] + '?verify=' + stamp), package['sha256'], package['path'])
-        require(len(data) == package['bytes'], 'Live package size mismatch')
-    print('Verified production catalog and all package bytes for ' + expected['tag'])
+    # Test the exact URLs the browser uses, including the proxied custom domain.
+    # Cache-busting verification queries can conceal a stale production cache.
+    for site in (SITE, CUSTOM_SITE):
+        for attempt in range(12):
+            try:
+                actual = json.loads(get(site + '/deployment-version.json'))
+            except (OSError, ValueError):
+                actual = None
+            if actual == expected:
+                break
+            if attempt == 11:
+                raise ValueError('Production has not switched to the expected deployment: '+site)
+            time.sleep(5)
+        checked(get(site + '/site-assets/catalog.json'), expected['catalog_sha256'], 'live catalog: '+site)
+        html = get(site+'/').decode('utf8')
+        for path, digest in expected['entry_assets'].items():
+            checked(get(site+'/'+path), digest, 'live entry asset: '+path)
+            if path.endswith(('.js','.css')):
+                require(path in html, 'Live page still references old entry assets: '+site)
+        for package in expected['packages']:
+            data = checked(get(site + '/' + package['path']), package['sha256'], package['path'])
+            require(len(data) == package['bytes'], 'Live package size mismatch')
+        print('Verified plain production URLs and all package bytes: '+site+' '+expected['tag'])
 
 
 if __name__ == '__main__':

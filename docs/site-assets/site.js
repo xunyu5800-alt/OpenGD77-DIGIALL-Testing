@@ -15,6 +15,13 @@ const usbStatus = element('usb-status');
 const usbHelp = element('usb-help');
 const catalog = new Map();
 const objectUrls = [];
+const initialCatalog = new URL('./catalog.json', import.meta.url);
+const catalogStatus = element('catalog-status');
+const catalogHint = catalogStatus.textContent;
+const checkRelease = element('check-release');
+let catalogTag = '';
+let catalogContents = '';
+let catalogLoading = false;
 let selection;
 let verification = 0;
 let usbChecking = false;
@@ -92,8 +99,8 @@ function renderSelection() {
     : '这是上游原版包。用 Web CPS 或桌面 CPS 刷写前，先确认工具支持你的机型。';
   boardNote.textContent = native
     ? selection.c4fmTx
-      ? 'DIGIALL · C4FM DN 收发已编入，射频表现按板型实测。'
-      : 'DIGIALL · C4FM DN 接收待验，C4FM 发射关闭。'
+      ? 'DIGIALL · FM／DMR 收发；C4FM DN 收发已编入，射频表现需按板型实测。'
+      : 'DIGIALL · FM／DMR 收发；当前固件仅开放 C4FM DN 接收，C4FM 发射未启用。此限制仅针对 C4FM，接收效果仍待实机验证。'
     : 'OpenGD77 上游原版对照 · 功能与适配范围按上游说明。';
   if (selection.board.includes('PLUS_10W')) {
     const pin = selection.board.endsWith('PD8') ? 'PD8' : 'PC6';
@@ -160,21 +167,86 @@ usb.addEventListener('click', async () => {
   }
 });
 
-try {
-  const response = await fetch(new URL('./catalog.json', import.meta.url));
-  if (!response.ok) throw new Error('catalog unavailable');
-  const release = await response.json();
-  for (const origin of ['DIGIALL', 'OpenGD77']) {
-    const group = document.createElement('optgroup');
-    group.label = origin === 'DIGIALL' ? 'DIGIALL 公测' : '上游 OpenGD77 原版';
-    for (const entry of release.packages.filter(item => item.origin === origin)) {
-      catalog.set(entry.filename, entry);
-      group.append(new Option(entry.model, entry.filename));
-    }
-    select.append(group);
+function olderRelease(incoming, current) {
+  const parts = tag => /^v(\d+)\.(\d+)\.(\d+)(?:-rc\.(\d+))?$/.exec(tag);
+  const a = parts(incoming), b = parts(current);
+  if (!a || !b) return false;
+  for (let i = 1; i <= 4; i++) {
+    const x = a[i] === undefined ? Number.MAX_SAFE_INTEGER : Number(a[i]);
+    const y = b[i] === undefined ? Number.MAX_SAFE_INTEGER : Number(b[i]);
+    if (x !== y) return x < y;
   }
-  select.disabled = false;
-  renderSelection();
-} catch {
-  element('catalog-status').textContent = '暂时无法读取机型列表。请刷新页面或从 GitHub 发布页查看安装指南。';
+  return false;
 }
+
+async function refreshCatalog(initial = false) {
+  if (catalogLoading) return;
+  catalogLoading = true;
+  checkRelease.disabled = true;
+  try {
+    // The initial build pins a catalog filename to the page. Later checks use
+    // the mutable pointer so an open or restored tab can discover new releases.
+    const url = new URL(initial ? initialCatalog.href : './catalog.json', import.meta.url);
+    if (!initial) url.searchParams.set('check', Date.now().toString());
+    const response = await fetch(url, {cache: 'no-store'});
+    if (!response.ok) throw new Error('catalog unavailable');
+    const release = await response.json();
+    if (!/^v\d+\.\d+\.\d+(?:-[A-Za-z0-9.]+)?$/.test(release.tag) || !Array.isArray(release.packages)) {
+      throw new Error('invalid catalog');
+    }
+    if (olderRelease(release.tag, catalogTag)) {
+      catalogStatus.textContent = `收到旧目录 ${release.tag}，继续使用 ${catalogTag}。${catalogHint}`;
+      return;
+    }
+    const contents = JSON.stringify(release);
+    if (contents === catalogContents) {
+      catalogStatus.textContent = `当前固件：${catalogTag}。${catalogHint}`;
+      return;
+    }
+    const previous = selection;
+    const previousTag = catalogTag;
+    const groups = [];
+    catalog.clear();
+    for (const origin of ['DIGIALL', 'OpenGD77']) {
+      const group = document.createElement('optgroup');
+      group.label = origin === 'DIGIALL' ? 'DIGIALL 公测' : '上游 OpenGD77 原版';
+      for (const entry of release.packages.filter(item => item.origin === origin)) {
+        catalog.set(entry.filename, entry);
+        group.append(new Option(entry.model, entry.filename));
+      }
+      groups.push(group);
+    }
+    select.replaceChildren(new Option('请选择实际机型或板型', ''), ...groups);
+    const sameBoard = previous && release.packages.find(entry => entry.board === previous.board && entry.origin === previous.origin);
+    select.value = sameBoard?.filename ?? '';
+    catalogTag = release.tag;
+    catalogContents = contents;
+    element('firmware-version').textContent = release.tag;
+    element('current-release-link').href = `https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/${release.tag}`;
+    catalogStatus.textContent = `当前固件：${release.tag}。${catalogHint}`;
+    select.disabled = false;
+    renderSelection();
+    if (previous && previousTag && previousTag !== release.tag) {
+      fileStatus.textContent = `固件已更新至 ${release.tag}，已保留机型选择。请重新下载对应 ZIP 并提取 BIN。`;
+    }
+  } catch {
+    catalogStatus.textContent = catalogTag
+      ? `最新版本检查失败，当前目录为 ${catalogTag}。请点击“检查最新固件”重试。`
+      : '暂时无法读取机型列表。请点击“检查最新固件”重试，或查看 GitHub 发布页。';
+  } finally {
+    catalogLoading = false;
+    checkRelease.disabled = false;
+  }
+}
+
+const checkLatest = () => refreshCatalog(false);
+checkRelease.addEventListener('click', checkLatest);
+window.addEventListener('pageshow', checkLatest);
+window.addEventListener('focus', checkLatest);
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') return checkLatest();
+});
+window.setInterval(() => {
+  if (document.visibilityState === 'visible') return checkLatest();
+}, 60000);
+await refreshCatalog(true);

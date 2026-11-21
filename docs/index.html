@@ -20,7 +20,7 @@
   <main id="top" class="wrap">
     <section class="hero" aria-labelledby="headline">
       <div class="intro">
-        <p class="version"><span></span> v1.2.0-rc.18 <small>多机型公测</small></p>
+        <p class="version"><span></span> <span id="firmware-version">v1.2.0-rc.18</span> <small>多机型公测</small></p>
         <h1 id="headline">手台里的<br><em>中文与数字通信</em></h1>
         <p class="summary">从 FM／DMR 双守候到 C4FM DN、APRS 位置和瀑布频扫。先看固件界面示例，再按你的板型选包。</p>
         <div class="actions"><a class="btn primary" href="#install">开始刷机 <span aria-hidden="true">↘</span></a><a class="btn neutral" href="#features">浏览功能</a></div>
@@ -45,7 +45,7 @@
     </section>
 
     <section id="install" class="section" aria-labelledby="install-title">
-      <div class="section-heading"><h2 id="install-title">固件与刷机</h2><a class="text-link" href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.18">GitHub 发布页 ↗</a></div>
+      <div class="section-heading"><h2 id="install-title">固件与刷机</h2><a id="current-release-link" class="text-link" href="https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.18">GitHub 发布页 ↗</a></div>
       <aside class="flash-warning" aria-labelledby="flash-warning-title">
         <h3 id="flash-warning-title">重要：ZIP 不能直接刷入电台</h3>
         <p><strong>ZIP 只是打包文件。先解压，刷机工具中每次只选择一份 BIN。</strong>DIGIALL 完整安装需要按顺序分别刷写 <strong>3 次</strong>：</p>
@@ -67,6 +67,7 @@
           <label for="model">电台型号与硬件版本</label>
           <select id="model" disabled><option value="">请选择实际机型或板型</option></select>
           <p id="catalog-status" class="hint" role="status">核对机背完整型号、5W／10W 和板型。双段 MD-UV380／390 的包只适用于带 UV 的机型。</p>
+          <button type="button" id="check-release" class="btn neutral" disabled>检查最新固件</button>
           <p id="board-note" class="board-note" hidden></p>
         </div>
         <div class="surface" id="prepare-files">

@@ -2,9 +2,9 @@ name: Deploy verified firmware site
 on:
   push:
     branches: [main]
-    paths: ['docs/**', '.github/scripts/pages_site.py', '.github/scripts/test_pages_site.py', '.github/scripts/test_firmware.mjs', '.github/workflows/deploy-pages.yml']
+    paths: ['docs/**', '.github/scripts/pages_site.py', '.github/scripts/test_pages_site.py', '.github/scripts/test_firmware.mjs', '.github/scripts/test_catalog_refresh.mjs', '.github/workflows/deploy-pages.yml']
   pull_request:
-    paths: ['docs/**', '.github/scripts/pages_site.py', '.github/scripts/test_pages_site.py', '.github/scripts/test_firmware.mjs', '.github/workflows/deploy-pages.yml']
+    paths: ['docs/**', '.github/scripts/pages_site.py', '.github/scripts/test_pages_site.py', '.github/scripts/test_firmware.mjs', '.github/scripts/test_catalog_refresh.mjs', '.github/workflows/deploy-pages.yml']
   release:
     types: [published]
   # Releases created with GITHUB_TOKEN do not trigger a release workflow.
@@ -42,6 +42,7 @@ jobs:
         with:
           node-version: '22'
       - run: node .github/scripts/test_firmware.mjs
+      - run: node .github/scripts/test_catalog_refresh.mjs
   deploy:
     needs: validate
     if: >-
