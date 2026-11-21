@@ -1,5 +1,7 @@
 # Daily C4FM operation: v1.2.0-rc.10
 
+**rc.19 board update:** DM-1701 and RT-84 now enable main-screen C4FM DN PTT, matching all six DIGIALL profiles. Their previous TX exclusion was a build configuration, not a hardware capability finding. On-radio RF, audio and BER validation remains pending.
+
 [中文](C4FM_OPERATING.zh-CN.md) · [Versions/downloads](VERSIONS.md)
 
 This release brings the user-confirmed local-YSF2DMR D22/INV/G4/N2/E1 RF baseline to the ordinary5W main screen. Staying in4:MIC is no longer required. RX retains the user-confirmed C6000 RAM path; waveform, codec interfaces and fault cutoffs are retained. Main rendering shares DMR caller paging/band/meter/footer; settings use the original channel-details menu. The new main UI, independent trim and newly exposed higher power levels still need hardware acceptance; success with the earlier panel does not validate those additions.
@@ -64,10 +66,10 @@ The **C4FM-only TX trim** defaults0, range±1500Hz in50Hz steps. Positive raises
 
 ## Confirmed network route
 
-Local Pi-Star: enableYSF/YSF2DMR, Apply in ordinary Configuration, then find Yaesu System Fusion Configuration. Choose **00002/Link YSF2DMR**, configure target-network master, your DMR ID, Hotspot Security and the intended DMR talkgroup. StartupPC defaults0 only when absent; verify an existing value separately. There is no standalone Expert→YSF2DMR editor. See [configuration/route checks](C4FM_NETWORK_ECHO.en.md).
+Local Pi-Star: enableYSF/YSF2DMR, Apply in ordinary Configuration, then find Yaesu System Fusion Configuration. Choose **00002/Link YSF2DMR**, configure target-network master, your DMR ID, Hotspot Security and DMR TG460501. StartupPC defaults0 only when absent; verify an existing value separately. There is no standalone Expert→YSF2DMR editor. See [configuration/route checks](C4FM_NETWORK_ECHO.en.md).
 
-For a local bridge test, select the local YSF2DMR route. Validate delivery using an independent DMR receiver.
+The user reports the local-bridge comparison succeeded and requested freezing this RF baseline. Earlier46572 remote bridging passed phone→radio but produced no reverse Hoseline call; it is a different route. DG0 is not DMR TG460501: DG stepping does not change the bridge TG, and the five-digit room page cannot accept a six-digit DMR TG. Do not reconnect46572 during the local-bridge test.
 
-Private IQ/speech/raw logs/donor are excluded. Exact source/binary hashes are in the Release manifest.
+Private IQ/speech/raw logs/donor are excluded. [Tests](../tests/README.md); exact source/binary hashes are in the Release manifest.
 
 C4FM and DMR share the digital caller renderer, native compact Chinese paging, group band, meter/footer and position rows. Configuration reuses the original channel-details save/cancel transaction. Appended C4FM items preserve existing QuickKey indices. CC/TS remain DMR-specific; FM-only CSS/bandwidth controls are unavailable in C4FM rather than inventing protocol equivalents.

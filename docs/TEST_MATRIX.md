@@ -1,6 +1,6 @@
-# v1.2.0-rc.16 · 机型验收表 / Hardware acceptance matrix
+# v1.2.0-rc.19 · 机型验收表 / Hardware acceptance matrix
 
-[网站与刷机助手](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/) · [公测下载 / Release](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [提交反馈 / Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
+[网站与刷机助手](https://digiall.iot-c.com/) · [公测下载 / Release](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.19) · [提交反馈 / Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
 
 表格从未测开始。公测反馈按实际机型、板卡修订和完整 ZIP 记录，复测时添加对应 Issue 链接。
 Each row starts as untested. Record results by exact board revision and ZIP, and link the corresponding issue after retesting.
@@ -11,12 +11,12 @@ Each row starts as untested. Record results by exact board revision and ZIP, and
 
 | 机型 / Board | 开机 / Boot | 界面 / UI | FM | DMR | 中文 / Pinyin | APRS | C4FM RX | C4FM TX | 报告 / Issue |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [TYT MD-UV380／390 5W＋GPS](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_5W_GPS.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
-| [TYT MD-UV380／390 Plus 10W PD8](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_PLUS_10W_PD8.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
-| [TYT MD-UV380／390 Plus 10W PC6](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_TYT_MD-UV380-390_PLUS_10W_PC6.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
-| [Retevis RT-3S compatible board](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_RETEVIS_RT-3S.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
-| [Baofeng DM-1701 STM32F405](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_BAOFENG_DM-1701.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 不适用 | — |
-| [Retevis RT-84](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.16/DIGIALL_v1.2.0-rc.16_RETEVIS_RT-84.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 不适用 | — |
+| [TYT MD-UV380／390 5W＋GPS](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_5W_GPS.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
+| [TYT MD-UV380／390 Plus 10W PD8](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_PLUS_10W_PD8.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
+| [TYT MD-UV380／390 Plus 10W PC6](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_PLUS_10W_PC6.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
+| [Retevis RT-3S compatible board](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_RETEVIS_RT-3S.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
+| [Baofeng DM-1701 STM32F405](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_BAOFENG_DM-1701.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
+| [Retevis RT-84](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_RETEVIS_RT-84.zip) | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | 未测 | — |
 
 ## 上游 OpenGD77 R20260131 / Upstream reference
 

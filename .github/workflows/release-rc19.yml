@@ -1,0 +1,29 @@
+name: Publish verified firmware
+on:
+  push:
+    branches: [codex/publish-v1.2.0-rc.19]
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+permissions:
+  contents: write
+concurrency:
+  group: public-release-v1.2.0-rc.19
+  cancel-in-progress: true
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[publish rc19]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/download_rc19.py 2>&1 | tee publish-rc19.log
+      - run: python3 .github/scripts/publish_rc19.py publish 2>&1 | tee -a publish-rc19.log
+      - if: always()
+        run: python3 .github/scripts/publish_rc19.py status
+        env:
+          JOB_STATUS: ${{ job.status }}

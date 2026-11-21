@@ -1,5 +1,7 @@
 # C4FM日常收发：v1.2.0-rc.10
 
+**rc.19 机型更新**：DM-1701、RT-84 也启用主屏实体 PTT 的 C4FM DN 发射，六种 DIGIALL 板型均编入收发。此前这两种板型在构建脚本中排除了 C4FM 发射；这不是硬件只能接收的判断。对应实机的射频、音频和 BER 待验证。
+
 [English](C4FM_OPERATING.en.md) · [版本与下载](VERSIONS.md)
 
 本版把已经由用户确认可通过本机YSF2DMR通联的D22／INV／G4／N2／E1链路接入普通5W主屏。它不再要求停留在4:MIC测试面板。接收继续默认使用清晰度已确认的C6000 RAM路径，原调制波形、声码器接口和故障停发保护保留。主屏与DMR共用呼号分页、组号栏、信号表与底栏，设置使用原信道详情。新主屏、独立微调及新增高功率档位仍需刷机后验证，不能把旧测试面板的成功当作这些新功能已经上机验收。
@@ -64,10 +66,10 @@ PTT仍受PTT锁、页面上下文、接收专用信道、频段限制、实际�
 
 ## 当前已经打通的网络路线
 
-本机Pi-Star：YSF／YSF2DMR开启，普通Configuration里先Apply再找Yaesu System Fusion Configuration；YSF Startup Host选**00002／Link YSF2DMR**，目标网络主站、本人DMR ID、Hotspot Security和目标 DMR TG在该区域配置。StartupPC缺省0；若已有值则另行核对。没有独立Expert→YSF2DMR编辑页。详见[配置入口与桥接排查](C4FM_NETWORK_ECHO.zh-CN.md)。
+本机Pi-Star：YSF／YSF2DMR开启，普通Configuration里先Apply再找Yaesu System Fusion Configuration；YSF Startup Host选**00002／Link YSF2DMR**，目标网络主站、本人DMR ID、Hotspot Security和DMR TG=460501在该区域配置。StartupPC缺省0；若已有值则另行核对。没有独立Expert→YSF2DMR编辑页。详见[配置入口与桥接排查](C4FM_NETWORK_ECHO.zh-CN.md)。
 
-测试本机桥接时，请选择本机 YSF2DMR 路由，再用独立的 DMR 接收端确认语音到达。
+用户已报告本机桥对照成功，要求冻结已用链路。此前46572远端桥“手机→手台”可用而反向Hoseline无来话，不再把它当作本机桥同一路线。DG0不是DMR TG460501；上下切DG不会自动修改DMR目标组，五位房间页也不能输入六位DMR TG。测试本机桥时不要再连接46572。
 
-公开包不包含私人IQ、录音、原始日志或donor。具体二进制哈希和源码提交见Release清单。
+公开包不包含私人IQ、录音、原始日志或donor。软件检查与编译验证见[测试说明](../tests/README.md)，具体二进制哈希和源码提交见Release清单。
 
 主屏与DMR共用数字来话绘制函数、原生中文紧凑分页、组号条、信号表与底栏；主屏仅显示位置图钉，长按绿键查看坐标。设置复用原信道详情及保存／取消事务，C4FM字段追加在末尾，保留原QuickKey编号。CC／TS只属于DMR；C4FM的模拟亚音、带宽等不适用项显示不可用，不伪造这些协议参数。

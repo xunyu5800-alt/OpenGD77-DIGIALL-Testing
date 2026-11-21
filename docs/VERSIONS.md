@@ -1,5 +1,11 @@
 # Test releases / 测试版本
 
+当前 **[v1.2.0-rc.19](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.19)**：DM-1701／RT-84 启用主屏 C4FM DN 发射，六种 DIGIALL 板型均编入收发；保留 rc.18 屏幕和双守 APRS 修复。[发布说明](releases/v1.2.0-rc.19.md)。
+
+前版 **[v1.2.0-rc.18](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.18)**：双守 APRS 弹窗、DM-1701 160×120 显示与三步安装说明。[发布说明](releases/v1.2.0-rc.18.md)。
+
+前版 **[v1.2.0-rc.17](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.17)**：可交互 A/B 双守和瀑布图修复。[发布说明](releases/v1.2.0-rc.17.md)。
+
 [**v1.2.0-rc.16**](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [中文安装与复测](MULTI_MODEL_TESTING.zh-CN.md) · [English](MULTI_MODEL_TESTING.en.md) · [发布说明 / Release notes](releases/v1.2.0-rc.16.md)
 
 六套 DIGIALL 板型、十一套上游对照包及 C4FM 0／+300 Hz 预置。 Six DIGIALL profiles, eleven upstream reference packages and the C4FM trim preset.

@@ -1,29 +1,29 @@
 {
-  "tag": "v1.2.0-rc.18",
+  "tag": "v1.2.0-rc.19",
   "packages": [
     {
       "model": "TYT MD-UV380／390 5W＋GPS",
       "origin": "DIGIALL",
-      "version": "v1.2.0-rc.18",
-      "filename": "DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_5W_GPS.zip",
-      "sha256": "328150b8053acda29e79e2d6b6d58d81c71446dcec5a7cc3fee3f84c8b750bb4",
-      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.18/DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_5W_GPS.zip",
+      "version": "v1.2.0-rc.19",
+      "filename": "DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_5W_GPS.zip",
+      "sha256": "8908a3f224c6ac7fedee3091ad6f061e8cbc8b802ff2971c5c21d1d3fd606b5f",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_5W_GPS.zip",
       "board": "TYT_MD-UV380-390_5W_GPS",
       "platform": "STM32",
       "stages": [
         {
-          "filename": "01_font_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.18.bin",
+          "filename": "01_font_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.19.bin",
           "sha256": "549c17f6bd28a587e7299300003d34c131b3e63f29a70ea6af6a47d72758e6cc",
           "bytes": 980144
         },
         {
-          "filename": "02_pinyin_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.18.bin",
+          "filename": "02_pinyin_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.19.bin",
           "sha256": "712527bedd2fe509ae0b73317dc5b89c927712411dce8d74fd5f65ed09e7f337",
           "bytes": 792496
         },
         {
-          "filename": "03_main_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.18.bin",
-          "sha256": "fab5d21707f3f0b7bbf4bfa458ef0e7bf3f9299fbe954d248b441f52d9348c73",
+          "filename": "03_main_TYT_MD-UV380-390_5W_GPS_v1.2.0-rc.19.bin",
+          "sha256": "51a6961993889e7a9bb333d460df97fbba2583331c3d1f3d06e5138e12939b88",
           "bytes": 938488
         }
       ],
@@ -32,26 +32,26 @@
     {
       "model": "TYT MD-UV380／390 Plus 10W PD8",
       "origin": "DIGIALL",
-      "version": "v1.2.0-rc.18",
-      "filename": "DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
-      "sha256": "f64dbd800efdb04b05054629cea770e61f1189059c2af6bbba9b89fb091c3c3c",
-      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.18/DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "version": "v1.2.0-rc.19",
+      "filename": "DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+      "sha256": "d1c393252fb2d0daf4a61f24d52f8bb4550911d043cce2bdc4b8372bdc2d83e8",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
       "board": "TYT_MD-UV380-390_PLUS_10W_PD8",
       "platform": "STM32",
       "stages": [
         {
-          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.18.bin",
+          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.19.bin",
           "sha256": "9689f5201a310f8e9ed6a0c55a5c9e7ba432a34b3811dc3ed057edb3da2bc74a",
           "bytes": 980144
         },
         {
-          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.18.bin",
+          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.19.bin",
           "sha256": "d10b37ce167f153a8a0bb83a9730aa581b799d840a74bd5ed84e3c57c65ed978",
           "bytes": 792496
         },
         {
-          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.18.bin",
-          "sha256": "8ea7a1687e9ab04bb781979920ae002e2f26cda6f0fa1099c9b79f41ed17da01",
+          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PD8_v1.2.0-rc.19.bin",
+          "sha256": "73eaf00070cf22a3bf504c6fdcf820cefbb6bc613ebc7165a076091090233056",
           "bytes": 938448
         }
       ],
@@ -60,26 +60,26 @@
     {
       "model": "TYT MD-UV380／390 Plus 10W PC6",
       "origin": "DIGIALL",
-      "version": "v1.2.0-rc.18",
-      "filename": "DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
-      "sha256": "3330f3b4bbdeaacd8244e00115088a79a13c28c735a734df2e51a929f22fbedb",
-      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.18/DIGIALL_v1.2.0-rc.18_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "version": "v1.2.0-rc.19",
+      "filename": "DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+      "sha256": "0efb9bbce2d272947be0504de946dcd3c72ccbf7fcaccdce35bcac7c2c241004",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
       "board": "TYT_MD-UV380-390_PLUS_10W_PC6",
       "platform": "STM32",
       "stages": [
         {
-          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.18.bin",
+          "filename": "01_font_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.19.bin",
           "sha256": "2b7a8c62086db832d4ac2cc045c6421f707ec745f6b4e09004d029c0b2f1b6f4",
           "bytes": 980144
         },
         {
-          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.18.bin",
+          "filename": "02_pinyin_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.19.bin",
           "sha256": "8242454b5befc9d9855d992e25af19ce862737a5ef399420e4261f57b40a1ad0",
           "bytes": 792496
         },
         {
-          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.18.bin",
-          "sha256": "64dffb94bdbf9b905f985855e7f9d144768563a9e4dca8a3e62aba79a1f09a3b",
+          "filename": "03_main_TYT_MD-UV380-390_PLUS_10W_PC6_v1.2.0-rc.19.bin",
+          "sha256": "84c892c041012e15e903300ccd0732a17177f8f02001f89a3b5e7af7a528b69a",
           "bytes": 938456
         }
       ],
@@ -88,26 +88,26 @@
     {
       "model": "Retevis RT-3S compatible board",
       "origin": "DIGIALL",
-      "version": "v1.2.0-rc.18",
-      "filename": "DIGIALL_v1.2.0-rc.18_RETEVIS_RT-3S.zip",
-      "sha256": "0bbf84be942533de98820eb6f836046d6f0f4f2ce1e3f64623d3cc581f1b170c",
-      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.18/DIGIALL_v1.2.0-rc.18_RETEVIS_RT-3S.zip",
+      "version": "v1.2.0-rc.19",
+      "filename": "DIGIALL_v1.2.0-rc.19_RETEVIS_RT-3S.zip",
+      "sha256": "a45a19d114a788309cd2c62cc28d950bb14c129e0fc519d54d2c25f26e695cec",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_RETEVIS_RT-3S.zip",
       "board": "RETEVIS_RT-3S",
       "platform": "STM32",
       "stages": [
         {
-          "filename": "01_font_RETEVIS_RT-3S_v1.2.0-rc.18.bin",
+          "filename": "01_font_RETEVIS_RT-3S_v1.2.0-rc.19.bin",
           "sha256": "549c17f6bd28a587e7299300003d34c131b3e63f29a70ea6af6a47d72758e6cc",
           "bytes": 980144
         },
         {
-          "filename": "02_pinyin_RETEVIS_RT-3S_v1.2.0-rc.18.bin",
+          "filename": "02_pinyin_RETEVIS_RT-3S_v1.2.0-rc.19.bin",
           "sha256": "712527bedd2fe509ae0b73317dc5b89c927712411dce8d74fd5f65ed09e7f337",
           "bytes": 792496
         },
         {
-          "filename": "03_main_RETEVIS_RT-3S_v1.2.0-rc.18.bin",
-          "sha256": "2f9feefbe6d6cf4aed1f6569e8508130f7a0526bfb4d14c0daf785e640be0bce",
+          "filename": "03_main_RETEVIS_RT-3S_v1.2.0-rc.19.bin",
+          "sha256": "3b355d1a24f6e64b9ed80a261f7d4ad5b724f77b35adf8014096343d08d5275b",
           "bytes": 938488
         }
       ],
@@ -116,58 +116,58 @@
     {
       "model": "Baofeng DM-1701 STM32F405",
       "origin": "DIGIALL",
-      "version": "v1.2.0-rc.18",
-      "filename": "DIGIALL_v1.2.0-rc.18_BAOFENG_DM-1701.zip",
-      "sha256": "da0e9e5e42f3c50349e72d470f126919a60f44cfc6bd1ce0ac97f596c79a3d23",
-      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.18/DIGIALL_v1.2.0-rc.18_BAOFENG_DM-1701.zip",
+      "version": "v1.2.0-rc.19",
+      "filename": "DIGIALL_v1.2.0-rc.19_BAOFENG_DM-1701.zip",
+      "sha256": "d996230d6e53ba5d00b36a9c25d2bdd95c69f6c821e00b89fc746f6753ab904b",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_BAOFENG_DM-1701.zip",
       "board": "BAOFENG_DM-1701",
       "platform": "STM32",
       "stages": [
         {
-          "filename": "01_font_BAOFENG_DM-1701_v1.2.0-rc.18.bin",
+          "filename": "01_font_BAOFENG_DM-1701_v1.2.0-rc.19.bin",
           "sha256": "52d2dcca95f85af65750a9d150a03778c64d097d700d1f7d9309c363f52f69f5",
           "bytes": 980144
         },
         {
-          "filename": "02_pinyin_BAOFENG_DM-1701_v1.2.0-rc.18.bin",
+          "filename": "02_pinyin_BAOFENG_DM-1701_v1.2.0-rc.19.bin",
           "sha256": "62d7a9e751930a1dd05aa457012bae2198a09edb2ecdc40b0f93b2cd056d9bde",
           "bytes": 792496
         },
         {
-          "filename": "03_main_BAOFENG_DM-1701_v1.2.0-rc.18.bin",
-          "sha256": "f370983dc336cd6663f5c888db467ec2e7eece823e8cb9ecf6c2e73dfe1c5318",
-          "bytes": 919496
+          "filename": "03_main_BAOFENG_DM-1701_v1.2.0-rc.19.bin",
+          "sha256": "63b42bd4732ad4ed9f74dc6406767d0afac2a8ccc692c17149277b7b4010456b",
+          "bytes": 938448
         }
       ],
-      "c4fmTx": false
+      "c4fmTx": true
     },
     {
       "model": "Retevis RT-84",
       "origin": "DIGIALL",
-      "version": "v1.2.0-rc.18",
-      "filename": "DIGIALL_v1.2.0-rc.18_RETEVIS_RT-84.zip",
-      "sha256": "a3c72402bbc53a8eaa724efaade3a72cafb4c52dc1cba963c30389a172f88e70",
-      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.18/DIGIALL_v1.2.0-rc.18_RETEVIS_RT-84.zip",
+      "version": "v1.2.0-rc.19",
+      "filename": "DIGIALL_v1.2.0-rc.19_RETEVIS_RT-84.zip",
+      "sha256": "d451bbb9fa9938a628408c1e28b90940a90f9c9d4fb09a179763c9774b3a890e",
+      "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/download/v1.2.0-rc.19/DIGIALL_v1.2.0-rc.19_RETEVIS_RT-84.zip",
       "board": "RETEVIS_RT-84",
       "platform": "STM32",
       "stages": [
         {
-          "filename": "01_font_RETEVIS_RT-84_v1.2.0-rc.18.bin",
+          "filename": "01_font_RETEVIS_RT-84_v1.2.0-rc.19.bin",
           "sha256": "8097ad73774ea6c4a0a9ef5ef657840113ecdedfce4312b79e969e4d5c520a63",
           "bytes": 980144
         },
         {
-          "filename": "02_pinyin_RETEVIS_RT-84_v1.2.0-rc.18.bin",
+          "filename": "02_pinyin_RETEVIS_RT-84_v1.2.0-rc.19.bin",
           "sha256": "e01e4a4bc39fade6253d7bf4935e970600707cedbdb725e5894d2d6b60e98348",
           "bytes": 792496
         },
         {
-          "filename": "03_main_RETEVIS_RT-84_v1.2.0-rc.18.bin",
-          "sha256": "3472605d05795801b297cee145ff95315664f3e0d6fe72f21152da0c32e51ae5",
-          "bytes": 919496
+          "filename": "03_main_RETEVIS_RT-84_v1.2.0-rc.19.bin",
+          "sha256": "5e77b19b6f8c5945eed9518890a1825a9cb0a53ad263a8ceb92d0cfc000c4db3",
+          "bytes": 938448
         }
       ],
-      "c4fmTx": false
+      "c4fmTx": true
     },
     {
       "model": "Radioddity GD-77",

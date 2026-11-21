@@ -2,17 +2,17 @@
 
 > **Do not flash ZIP archives. Extract the files and flash 01_font → 02_pinyin → 03_main in three separate operations using desktop OpenGD77 CPS, re-entering DFU each time. Run both resource writers to COMPLETE - VERIFIED before switching off. Always finish with 03_main. For a boot loop after an incorrect install, enter DFU again and complete all three stages.**
 
-**rc.18 更新 / Updated controls**：新包保留 rc.16 六种 DIGIALL 板型。双守短红键选择 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 循环协议。This replaces rc.15's SK1=A / PTT=B mapping. See [双守操作](DUAL_WATCH.zh-CN.md) and [瀑布图操作](WATERFALL.zh-CN.md). Eleven unchanged upstream reference packages remain available from the rc.16 release.
+**rc.19 更新 / Updated controls**：新包保留 rc.16 六种 DIGIALL 板型。双守短红键选择 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 循环协议。This replaces rc.15's SK1=A / PTT=B mapping. See [双守操作](DUAL_WATCH.zh-CN.md) and [瀑布图操作](WATERFALL.zh-CN.md). Eleven unchanged upstream reference packages remain available from the rc.16 release.
 
 
 
-[Release v1.2.0-rc.16](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.16) · [Browser package selector and verifier](https://xunyu5800-alt.github.io/OpenGD77-DIGIALL-Testing/#install) · [Acceptance matrix](TEST_MATRIX.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml) · [Detailed Chinese instructions](MULTI_MODEL_TESTING.zh-CN.md)
+[Release v1.2.0-rc.19](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.19) · [Browser package selector and verifier](https://digiall.iot-c.com/#install) · [Acceptance matrix](TEST_MATRIX.md) · [Report a test](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml) · [Detailed Chinese instructions](MULTI_MODEL_TESTING.zh-CN.md)
 
 | Radio | Included firmware |
 | --- | --- |
 | TYT dual-band MD-UV380/390 5W, Plus 10W PD8, Plus 10W PC6 | Three DIGIALL profiles with experimental C4FM DN RX/TX |
 | Retevis RT-3S with an OpenMDUV380-compatible board | DIGIALL candidate with experimental C4FM DN RX/TX |
-| Baofeng DM-1701, Retevis RT-84 | Separate DIGIALL candidates. Verify display, keypad, FM and DMR. C4FM receive awaits testing and C4FM transmit is disabled |
+| Baofeng DM-1701, Retevis RT-84 | Separate DIGIALL candidates. Verify display, keypad, FM and DMR. C4FM DN RX/TX is enabled from rc.19; on-radio validation remains pending |
 | GD-77, GD-77S, supported MK22 DM-1801/DM-1801A and RD-5R | Original OpenGD77 R20260131 packages and model-specific installation notes |
 | TYT MD-9600/Retevis RT-90 | Original OpenGD77 R20260131, in four separate hardware profiles V1, V2, V4 and V5 |
 | TYT MD-2017/Retevis RT-82 | Original OpenGD77 R20260131 package |
