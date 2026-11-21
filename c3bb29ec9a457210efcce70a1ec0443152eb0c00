@@ -1,0 +1,65 @@
+{
+  "status": "success",
+  "source_commit": "c3bb29ec9a457210efcce70a1ec0443152eb0c00",
+  "tag": "v1.2.0-rc.20",
+  "run_url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/actions/runs/44875963979",
+  "release": {
+    "status": "success",
+    "tag": "v1.2.0-rc.20",
+    "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.20",
+    "documentation_commit": "c3bb29ec9a457210efcce70a1ec0443152eb0c00",
+    "firmware_source_commit": "e910dc6b31f3693246833017dd8329f4f9e114c6",
+    "assets": [
+      {
+        "name": "DIGIALL_v1.2.0-rc.20_BAOFENG_DM-1701.zip",
+        "bytes": 720865,
+        "sha256": "b369b452cfb5f0558c3a52b35389f509680ea5150ec30950cfa83882733c0a48"
+      },
+      {
+        "name": "DIGIALL_v1.2.0-rc.20_RETEVIS_RT-3S.zip",
+        "bytes": 721718,
+        "sha256": "5c98c74a3b5017ca8f82efe220430cc72fea524507376c0bfd409da88eaa0532"
+      },
+      {
+        "name": "DIGIALL_v1.2.0-rc.20_RETEVIS_RT-84.zip",
+        "bytes": 720512,
+        "sha256": "72a4d5b285fb9bfb92673acaec57948adffb4d6399d13b92902e5873a6af2071"
+      },
+      {
+        "name": "DIGIALL_v1.2.0-rc.20_TYT_MD-UV380-390_5W_GPS.zip",
+        "bytes": 721813,
+        "sha256": "e1bb9c1374b51d722d0e1e4b109aa6793e33f976a666b7745252ec46cece9fca"
+      },
+      {
+        "name": "DIGIALL_v1.2.0-rc.20_TYT_MD-UV380-390_PLUS_10W_PC6.zip",
+        "bytes": 721807,
+        "sha256": "fcbf6ea747d88c81bc648255e04598a604a3613bd96dc0edbf7b85a2a0f34c2c"
+      },
+      {
+        "name": "DIGIALL_v1.2.0-rc.20_TYT_MD-UV380-390_PLUS_10W_PD8.zip",
+        "bytes": 721775,
+        "sha256": "263ad8516f01c49c642829e5b0f65b454e43fd1525810ab8c36e2cd7cd9255ef"
+      },
+      {
+        "name": "GUIDES_v1.2.0-rc.20.zip",
+        "bytes": 96931,
+        "sha256": "c491daceef14d865f8266fca02df9a7c01cb6571cb24af1ff2fcb680c693fd76"
+      },
+      {
+        "name": "INSTALL_v1.2.0-rc.20.md",
+        "bytes": 5082,
+        "sha256": "7e3af2f34c73a0ab2cb47acad64501f3a34d71938e3cff827032d47567cd6a8a"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "bytes": 942,
+        "sha256": "0416c7030cf4f1108cde3d1b2ee639193e1dc0c72f9a20cab44eb85d7f4381a0"
+      },
+      {
+        "name": "release_manifest.json",
+        "bytes": 9934,
+        "sha256": "7372a8e72e6f9639085113bf88849af177826f9db0b6cd457cb62293e38cfd5a"
+      }
+    ]
+  }
+}
