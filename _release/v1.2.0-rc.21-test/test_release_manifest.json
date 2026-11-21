@@ -1,0 +1,29 @@
+{
+  "tag": "v1.2.0-rc.21-test",
+  "version": "1.2.0-rc.21-test",
+  "scope": "dm1701-main-upgrade-test",
+  "target": "dm1701",
+  "board": "BAOFENG_DM-1701",
+  "source_commit": "3fe0438ab43a1eac4301dfdf5cc81db1872337a7",
+  "hardware_verified": false,
+  "package": "DIGIALL_v1.2.0-rc.21-test_BAOFENG_DM-1701_TEST.zip",
+  "firmware": "03_main_BAOFENG_DM-1701_v1.2.0-rc.21-test.bin",
+  "firmware_sha256": "84e0a3d636b07491ac32dea0c502ce5ab811675316cc2091f5cb8e630b586312",
+  "firmware_bytes": 938636,
+  "installation": "main upgrade; matching rc20 resources required",
+  "resources_release": "v1.2.0-rc.20",
+  "full_host_tests_source_commit": "4cb50d51d3f7cc4adda39521d96215de23595c3b",
+  "followup_tests_source_commit": "3fe0438ab43a1eac4301dfdf5cc81db1872337a7",
+  "artifacts": [
+    {
+      "filename": "DIGIALL_v1.2.0-rc.21-test_BAOFENG_DM-1701_TEST.zip",
+      "bytes": 432367,
+      "sha256": "c81684704a365670b91940550047001879ee406b8d35bcbde71d6730745875a1"
+    },
+    {
+      "filename": "DM1701_STABILITY_AUDIT.zh-CN.txt",
+      "bytes": 8120,
+      "sha256": "1f605c6509e8fbebd0cc2fd8149cdf6ac852e8865574a9832a48ba3e26b4f88c"
+    }
+  ]
+}

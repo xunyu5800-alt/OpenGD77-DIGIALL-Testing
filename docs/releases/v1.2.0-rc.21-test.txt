@@ -1,0 +1,37 @@
+v1.2.0-rc.21-test — DM1701 稳定性公开测试版
+
+本版仅适用于 Baofeng DM-1701，供用户下载复测。本次发布主固件升级包。
+
+主要修复：
+1. DM1701 日间、夜间及调暗背光增加 5% 下限；恢复设置和加载旧零亮度设置后不会再输出 0%。
+2. C4FM 部分刷新限制到 160×120 显存边界，修正 LCD 窗口终点和 DMA 失败清理。
+3. 菜单旋钮与上下键混合操作增加索引、空列表、文本容量和菜单入口检查。
+4. 固件信息页修正语音索引和 CPU 元数据格式化越界；设置恢复失败不再递归重读。
+5. C4FM 保留真实 PTT 上升沿，显示具体发射失败原因。
+6. 修正逻辑 SK1 短按残留详情状态、进而阻止 C4FM 发射的问题。
+
+键位说明：DM1701 的 PTT 上方键在本固件中是 ORANGE（橙键），短按进入快捷菜单。
+逻辑 SK1 在 C4FM 单守主屏短按搜索、长按切换 ALL/指定过滤；双守时按住 SK1 查看详情。
+上方橙键与逻辑 SK1 是两个不同的键。本版沿用现有物理键位。
+
+下载安装：
+下载 DIGIALL_v1.2.0-rc.21-test_BAOFENG_DM-1701_TEST.zip 并解压。
+已安装 rc.20 且匹配的中文字体/拼音资源完整：按正常桌面 OpenGD77 CPS donor 合入流程，
+只更新 03_main_BAOFENG_DM-1701_v1.2.0-rc.21-test.bin。ZIP 不能直接刷入电台。
+首次安装或资源不完整：先按 rc.20 DM1701 完整包说明安装 01_font、02_pinyin，
+两个写入器均须运行到 COMPLETE - VERIFIED，最后刷本测试版 03_main。
+rc.20 完整包：https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.20
+需要恢复固件设置时，关机后按住逻辑 SK2 开机，启动后松开。
+
+请重点复测：
+恢复设置后立即及调暗后是否亮屏；旋钮到首/末项后连续按上下键；固件信息全部页面；
+C4FM 接收/发射后的横线；按过逻辑 SK1 后的 PTT；上方橙键进入快捷菜单。
+若 C4FM 仍不发射，请记录具体错误文字、红灯状态及同机 FM/DMR 的对照结果。
+
+软件验证：全套主机回归通过，追加 SK1、双守候、PTT 专项通过；DM1701/RT84/5W 编译通过。
+实机验证尚未完成。本版不宣称所有死机或空口问题已消除；部分底层总线无限等待风险见排查报告。
+附带完整排查记录、SHA-256 校验及构建/测试溯源；不含专有 donor 和私有固件源码。
+
+DM1701-only public test. Extract the ZIP and use the matching 03_main BIN in desktop OpenGD77 CPS.
+Existing verified rc.20 resources can be retained. Otherwise install matching rc.20 font/pinyin resources
+first and finish with this test main firmware. Host checks and builds passed; on-radio validation is pending.
