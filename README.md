@@ -1,6 +1,6 @@
 # OpenGD77-DIGIALL — Public firmware testing
 
-**[rc.19：DM-1701／RT-84 启用 C4FM DN 发射](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.19)**。六种 DIGIALL 板型均编入 C4FM DN 收发；保留 DM-1701 160×120 显示、双守 APRS 弹窗和瀑布图修复。双守短红键选 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 切换 FM/DMR/C4FM。[双守操作](docs/DUAL_WATCH.zh-CN.md) · [瀑布图](docs/WATERFALL.zh-CN.md) · [发布说明](docs/releases/v1.2.0-rc.19.md)
+**[rc.20：修复 DM-1701 显存越界写入](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.20)**。为矩形绘制增加屏幕边界裁剪，修复 128 像素高的中文输入面板写出 DM-1701 120 像素显存的问题。菜单首尾短按卡死尚未在真机复现，未确认与该越界同因。本版保留 rc.19 的六机型 C4FM DN 收发、PTT 保护、双守和频偏设置。[发布说明](docs/releases/v1.2.0-rc.20.md) · [安装说明](docs/MULTI_MODEL_TESTING.zh-CN.md)
 
 DM-1701 and RT-84 now enable main-screen C4FM DN PTT, matching all six DIGIALL profiles. Hardware RF/audio/BER acceptance remains pending. The page checks for updated releases and retains the selected radio when refreshing its download link.
 

@@ -2,15 +2,15 @@
 
 > **不能直接刷 ZIP。完整安装需先解压，使用桌面 OpenGD77 CPS 按 01_font → 02_pinyin → 03_main 分别刷写三次，每次重新进入 DFU。01/02 写入后正常开机，等待 COMPLETE - VERIFIED 和背光熄灭再关机，最后必须刷 03_main。若误刷 ZIP 后循环重启，重新进入 DFU 完成这三步。**
 
-**rc.19 更新 / Updated controls**：新包保留 rc.16 六种 DIGIALL 板型。双守短红键选择 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 循环协议。This replaces rc.15's SK1=A / PTT=B mapping. See [双守操作](DUAL_WATCH.zh-CN.md) and [瀑布图操作](WATERFALL.zh-CN.md). Eleven unchanged upstream reference packages remain available from the rc.16 release.
+**rc.20 更新 / Updated controls**：新包保留 rc.16 六种 DIGIALL 板型。双守短红键选择 A/B，实体 PTT 在选中侧发射，按住 SK1 查看详情，SK2+* 循环协议。This replaces rc.15's SK1=A / PTT=B mapping. See [双守操作](DUAL_WATCH.zh-CN.md) and [瀑布图操作](WATERFALL.zh-CN.md). Eleven unchanged upstream reference packages remain available from the rc.16 release.
 
 
 
-[公测下载 v1.2.0-rc.19](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.19) · [浏览器选包与校验](https://digiall.iot-c.com/#install) · [机型验收表](TEST_MATRIX.md) · [反馈](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
+[公测下载 v1.2.0-rc.20](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.20) · [浏览器选包与校验](https://digiall.iot-c.com/#install) · [机型验收表](TEST_MATRIX.md) · [反馈](https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/issues/new?template=firmware-test.yml)
 
 先看机背，再按同一行选包。每个机型单独提供 ZIP，总包也包含所有机型的独立 ZIP。不要按外壳相似、名称相近或接头相同选包。
 
-## DIGIALL rc.19 公测包
+## DIGIALL rc.20 公测包
 
 | 机身型号或实际板型 | ZIP 名称后缀 | 功能与测试重点 |
 | --- | --- | --- |
@@ -18,8 +18,8 @@
 | TYT 双段 MD-UV380／390 Plus 10W，PD8 背光 | `TYT_MD-UV380-390_PLUS_10W_PD8` | C4FM DN 收发及该板型背光／功率 |
 | TYT 双段 MD-UV380／390 Plus 10W，PC6 背光 | `TYT_MD-UV380-390_PLUS_10W_PC6` | C4FM DN 收发及该板型背光／功率 |
 | Retevis RT-3S，已确认使用 OpenMDUV380 兼容板 | `RETEVIS_RT-3S` | 新增公测目标，先确认背光、FM／DMR 后再测 C4FM DN 收发。GPS 取决于实机是否装模块 |
-| Baofeng DM-1701，带 STM32F405 兼容板的版本 | `BAOFENG_DM-1701` | 新增目标，先测屏幕、键盘、FM／DMR。FM／DMR 收发；rc.19 启用 C4FM DN 收发，待实机验证 |
-| Retevis RT-84 | `RETEVIS_RT-84` | 单独的屏幕配置。先测背光、键盘、FM／DMR。FM／DMR 收发；rc.19 启用 C4FM DN 收发，待实机验证 |
+| Baofeng DM-1701，带 STM32F405 兼容板的版本 | `BAOFENG_DM-1701` | 新增目标，先测屏幕、键盘、FM／DMR。FM／DMR 收发；rc.20 启用 C4FM DN 收发，待实机验证 |
+| Retevis RT-84 | `RETEVIS_RT-84` | 单独的屏幕配置。先测背光、键盘、FM／DMR。FM／DMR 收发；rc.20 启用 C4FM DN 收发，待实机验证 |
 
 本次的板型和 RF 功能以公测反馈为准。DM-1701B 若已确认可以运行原版 OpenDM1701，合集有同系列上游对照包，供该机型按上游说明测试。不同版号的 DM-1701、DM-1701A 和 DM-1701B 先核对芯片及已验证固件，不能仅由字母后缀确定兼容性。 [上游机型分组与下载](https://www.opengd77.com/archive/viewforum218b.html?f=19)
 
