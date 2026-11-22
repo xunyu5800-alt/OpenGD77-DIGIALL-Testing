@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "source_commit": "ca7ece69446b9ee4f81ce2b4bcc43874c62a31cc",
+  "tag": "v1.2.0-rc.23-test",
+  "run_url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/actions/runs/44988823018",
+  "release": {
+    "status": "success",
+    "tag": "v1.2.0-rc.23-test",
+    "url": "https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.23-test",
+    "public_commit": "ca7ece69446b9ee4f81ce2b4bcc43874c62a31cc",
+    "firmware_source_commit": "1810421291fe0eef3bf42c0ce753ed1fadeb29ed",
+    "assets": [
+      {
+        "name": "DIGIALL_v1.2.0-rc.23-test_BAOFENG_DM-1701_TEST.zip",
+        "bytes": 430083,
+        "sha256": "ed1cec0e3d13a0dce0c39dfe2d5d7ae167ebb01cbcbd4e270e74376169250519"
+      },
+      {
+        "name": "DM1701_C4FM_HEADROOM.zh-CN.txt",
+        "bytes": 3476,
+        "sha256": "dd9426cdc4fb06bf72d348fdb5b41ee0cc027e56e96cfc9490d3b6cd9c7d28e6"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "bytes": 307,
+        "sha256": "c93c9b59e9cc28a93dbfb79f4e8f9bc9be9c1f8bafe2a1256b7304b3c7b14334"
+      },
+      {
+        "name": "test_release_manifest.json",
+        "bytes": 1200,
+        "sha256": "df1eaaf28f86c40aafa11f551ea4a1f52b53159e781a7d31edf68abaeda31552"
+      }
+    ]
+  }
+}
