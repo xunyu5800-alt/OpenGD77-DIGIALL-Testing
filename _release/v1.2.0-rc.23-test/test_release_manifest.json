@@ -1,0 +1,34 @@
+{
+  "tag": "v1.2.0-rc.23-test",
+  "version": "1.2.0-rc.23-test",
+  "scope": "dm1701-main-upgrade-test",
+  "target": "dm1701",
+  "board": "BAOFENG_DM-1701",
+  "source_commit": "1810421291fe0eef3bf42c0ce753ed1fadeb29ed",
+  "hardware_verified": false,
+  "on_air_tx_verified": false,
+  "reported_startup_failure_reproduced": true,
+  "reported_startup_failure_fixed_in_software": true,
+  "purpose": "c4fm_signed_offset_headroom_fix",
+  "observed_base_hex": "C8",
+  "requested_steps": 22,
+  "applied_steps": 13,
+  "pcm_peak_bound": 1407,
+  "package": "DIGIALL_v1.2.0-rc.23-test_BAOFENG_DM-1701_TEST.zip",
+  "firmware": "03_main_BAOFENG_DM-1701_v1.2.0-rc.23-test.bin",
+  "firmware_sha256": "b6219ea38dd5e2ec0f2e15c42e2a5f7c81ee126494ffc4c376e80e949c355146",
+  "firmware_bytes": 939348,
+  "resources_release": "v1.2.0-rc.20",
+  "artifacts": [
+    {
+      "filename": "DIGIALL_v1.2.0-rc.23-test_BAOFENG_DM-1701_TEST.zip",
+      "bytes": 430083,
+      "sha256": "ed1cec0e3d13a0dce0c39dfe2d5d7ae167ebb01cbcbd4e270e74376169250519"
+    },
+    {
+      "filename": "DM1701_C4FM_HEADROOM.zh-CN.txt",
+      "bytes": 3476,
+      "sha256": "dd9426cdc4fb06bf72d348fdb5b41ee0cc027e56e96cfc9490d3b6cd9c7d28e6"
+    }
+  ]
+}

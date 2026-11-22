@@ -1,0 +1,36 @@
+v1.2.0-rc.23-test — 修复 DM1701 C4FM C8 基值下的 E13 启动超界
+
+适用 Baofeng DM-1701，供实机复测。针对用户 rc.22-test 的报告：
+OFFSET RANGE: LOWER D / E13 I6 C0 S0 / P4 R04 00/C8 / BC8 RF0 MIC0。
+
+原因已由生产波形和控制器代码复现：固件将 C8 按有符号值 -56 换算，负向只剩 72 个单位。
+主屏固定 D22 在预填第 12 个样本算出 -145，超出 -128，下发前便触发 E13，所以 S0/RF0。
+
+修复：每次主屏语音/房间发射读取设备校准基值，结合当前 RRC 波形的完整峰值上界，
+自动选取不大于请求 D 的可用统一幅度。该机 C8 请求 D22 时使用 D13；
+基值 07 能容纳 D22 时仍使用 D22。整段波形使用统一比例，继续执行原来的逐采样范围检查。
+若连非零 D 都无法容纳，仍在 PA 启用前停止。高级手动探测页继续执行选定 D 的超界检查。
+停止页显示实际/请求 D，例如 D13/22。校准基值、信道频率和功率档沿用现有设备设置。
+D 是内部调制比例，实际空口频偏、BER 和音质仍需复测。
+
+下载安装：
+下载 DIGIALL_v1.2.0-rc.23-test_BAOFENG_DM-1701_TEST.zip 并解压，按正常桌面 OpenGD77 CPS
+donor 合入流程刷 03_main_BAOFENG_DM-1701_v1.2.0-rc.23-test.bin。ZIP 不能直接刷入电台。
+已有完整匹配的 rc.20/rc.21/rc.22 中文字体、拼音资源时，只升级 03_main。
+首次安装或资源缺失时，先完成 rc.20 DM1701 的 01_font/02_pinyin 资源安装，再刷本版主固件。
+资源说明：https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.20
+
+复测：持续按住 PTT，确认不再立即出现这次 E13，再检查热点/接收电台能否识别并收到语音。
+若出现新错误，记录新的英文原因、E/I/C/S 和 B/D/RF/MIC 行；错误页面仍会保留，红键返回。
+
+验证：五相位 FIR 极值穷举；256 个校准基值、1..32 D、三种幅度的范围检查；
+24 组量化 DN 码流均完整解出 17 帧和 75 个逐位一致的语音块；
+C8 持续 MIC、结束帧、DG0 房间控制及极端基值拒绝启用 PA；原始 DN PCM 黄金校验值不变。
+C4FM 全部发射控制器/保护回归及 DM1701/RT84/5W 编译通过。
+本次没有连接 DM1701，软件修复与离线解码不代表已经完成真实空口验收。
+完整分析见 DM1701_C4FM_HEADROOM.zh-CN.txt，附 SHA-256 和构建/测试溯源。
+
+DM1701 test: fixes the reproduced C8/fixed-D22 startup E13 by selecting a uniform modulation scale
+from the calibrated signed headroom and full RRC peak bound. C8 uses D13; no calibrated centre shift
+or per-sample clipping. Existing RF/PTT/timing protections remain active. Host checks passed;
+on-air deviation, BER and speech still require hardware acceptance. Extract and flash matching 03_main.

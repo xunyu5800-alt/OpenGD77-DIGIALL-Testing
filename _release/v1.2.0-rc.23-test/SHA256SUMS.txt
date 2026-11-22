@@ -1,0 +1,3 @@
+ed1cec0e3d13a0dce0c39dfe2d5d7ae167ebb01cbcbd4e270e74376169250519  DIGIALL_v1.2.0-rc.23-test_BAOFENG_DM-1701_TEST.zip
+dd9426cdc4fb06bf72d348fdb5b41ee0cc027e56e96cfc9490d3b6cd9c7d28e6  DM1701_C4FM_HEADROOM.zh-CN.txt
+df1eaaf28f86c40aafa11f551ea4a1f52b53159e781a7d31edf68abaeda31552  test_release_manifest.json
