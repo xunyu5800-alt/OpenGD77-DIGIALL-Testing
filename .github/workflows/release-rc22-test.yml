@@ -1,0 +1,28 @@
+name: Publish DM1701 C4FM diagnostics
+on:
+  push:
+    branches: [codex/publish-v1.2.0-rc.22-test]
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+permissions:
+  contents: write
+concurrency:
+  group: public-release-v1.2.0-rc.22-test
+  cancel-in-progress: true
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[publish rc22-test]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/publish_rc22_test.py publish 2>&1 | tee publish-rc22-test.log
+      - if: always()
+        run: python3 .github/scripts/publish_rc22_test.py status
+        env:
+          JOB_STATUS: ${{ job.status }}

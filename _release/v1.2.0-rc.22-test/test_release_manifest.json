@@ -1,0 +1,28 @@
+{
+  "tag": "v1.2.0-rc.22-test",
+  "version": "1.2.0-rc.22-test",
+  "scope": "dm1701-main-upgrade-test",
+  "target": "dm1701",
+  "board": "BAOFENG_DM-1701",
+  "source_commit": "e09b61512c752d4c3d5b4cc4be61a3f43e422ebe",
+  "hardware_verified": false,
+  "hardware_fault_root_cause_confirmed": false,
+  "purpose": "retain_tx_failures_for_hardware_diagnosis",
+  "package": "DIGIALL_v1.2.0-rc.22-test_BAOFENG_DM-1701_TEST.zip",
+  "firmware": "03_main_BAOFENG_DM-1701_v1.2.0-rc.22-test.bin",
+  "firmware_sha256": "d4e19f932ae5100bbe21e55e81eb2808668ea73998c77aff8b8a988eb871ffa3",
+  "firmware_bytes": 939112,
+  "resources_release": "v1.2.0-rc.20",
+  "artifacts": [
+    {
+      "filename": "DIGIALL_v1.2.0-rc.22-test_BAOFENG_DM-1701_TEST.zip",
+      "bytes": 429951,
+      "sha256": "43d3fe4e763469727b036535aa098f7ce65e7e79a239126b81293ef3d99ce1db"
+    },
+    {
+      "filename": "DM1701_C4FM_TX_DIAGNOSTICS.zh-CN.txt",
+      "bytes": 3693,
+      "sha256": "7478e05541312b54590d07cf7f9918c69b4848ef0efbdaf09c9000d19b7a8fe3"
+    }
+  ]
+}

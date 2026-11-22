@@ -1,0 +1,39 @@
+v1.2.0-rc.22-test — DM1701 C4FM 瞬间停发诊断测试版
+
+适用：Baofeng DM-1701。本版用于排查 rc.21-test 持续按住 PTT 后红灯短亮、
+发射参数一闪而过就停止，且同机 FM/DMR 正常的反馈。
+
+已确认的显示问题：C4FM 启动失败后，同一次 PTT 按键事件会立刻把错误页关闭。
+双守候也可能在恢复调谐时清除失败状态。本版修复这些状态保留问题，
+失败页会稳定停留，按红键返回；松开后重新按 PTT 可主动重试，持键不会自动重发。
+零调制采样就观察到 PTT 松开的早停同样保留诊断。全部信息适配 DM1701 的 120 像素屏。
+
+实际停发根因尚未确认，不能据此宣称 C4FM 发射已恢复。本版保留原有 RF 关断、
+PTT 释放、超时、时序/SPI 预算和恢复失败锁定，不通过放宽保护条件掩盖故障。
+
+下载安装：
+下载 DIGIALL_v1.2.0-rc.22-test_BAOFENG_DM-1701_TEST.zip，解压后按正常桌面 OpenGD77 CPS
+donor 合入流程刷 03_main_BAOFENG_DM-1701_v1.2.0-rc.22-test.bin。ZIP 不能直接刷入电台。
+已有匹配完整的 rc.20/rc.21 中文字体、拼音资源时，只更新 03_main。
+首次安装或资源缺失时，先完成 rc.20 DM1701 完整包的 01_font/02_pinyin 资源安装，
+两个写入器均须运行至 COMPLETE - VERIFIED，最后刷本版 03_main。
+资源包说明：https://github.com/xunyu5800-alt/OpenGD77-DIGIALL-Testing/releases/tag/v1.2.0-rc.20
+
+复测并回报：
+1. 持续按住 PTT 复现一次；停止后页面应保留 C4FM TX STOPPED。
+2. 记录英文原因，以及完整 E/I/C/S 行。
+3. 再记录 G/W（微秒）、P/R（寄存器）、MOD 或 B/RF/MIC 行中实际显示的内容。
+4. 按红键返回。需要重试时先松开 PTT，再重新按下。
+
+示例：SAMPLE TIMING ERR 表示采样或写入时序保护；MOD QUEUE EMPTY 表示调制队列耗尽；
+MIC CLOCK/DMA ERR 表示麦克风时钟/DMA 启动检查失败。请回报实际文字，不要只按示例推断原因。
+详细阶段、采样计数和状态含义见附带的 DM1701_C4FM_TX_DIAGNOSTICS.zh-CN.txt。
+
+验证：生产 C4FM 事件/控制器、双守候、数字来电和坐标显示回归通过；
+DM1701/RT84/5W 编译通过。旧版 PTT 事件立即关闭错误页已由测试复现。
+本次没有连接 DM1701，实际机器的 RF、音频和停发根因仍待实机数据确认。
+
+DM1701 diagnostic prerelease. TX failures remain on screen until RED or a fresh physical PTT retry.
+Report the English reason and E/I/C/S plus timing/register detail lines. The actual TX failure cause
+is not yet confirmed, and RF/PTT/timing safety limits remain unchanged. Extract the ZIP and flash
+the matching 03_main through the normal desktop CPS donor workflow. Hardware validation is pending.
